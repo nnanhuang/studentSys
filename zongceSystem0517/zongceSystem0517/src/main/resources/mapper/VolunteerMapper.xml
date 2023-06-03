@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.agile0509.mapper.VolunteerMapper">
+    <select id="getTimeByStudentId" resultType="java.lang.Double">
+        SELECT duration FROM volunteerService WHERE studentID = #{studentID}
+    </select>
+    <select id="getVolunteers" resultType="com.example.agile0509.pojo.VolunteerService">
+        SELECT * FROM volunteerService
+    </select>
+
+    <insert id="batchInsert" parameterType="list">
+    insert into volunteerService
+    (id, studentID, score)
+    values
+    <foreach collection="list" item="item" index="index" separator=",">
+        (
+        #{item.id},
+        #{item.studentId},
+        #{item.duration},
+        )
+    </foreach>
+    </insert>
+</mapper>

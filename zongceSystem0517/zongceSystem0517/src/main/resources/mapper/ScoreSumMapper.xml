@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.agile0509.mapper.ScoreSumMapper">
+
+    <!-- 获取成绩汇总列表 -->
+    <select id="findScoreSumVo" resultType="com.example.agile0509.vo.ScoreSumVo">
+        SELECT * FROM scoreSum
+    </select>
+
+</mapper>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.agile0509.mapper.SocialMapper">
+    <!--新增个人社会实践记录-->
+    <insert id="insertSocial" parameterType="list">
+        insert into socialPractice
+        (studentID, time, content)
+        values
+        (#{stuId}, #{time}, #{content})
+    </insert>
+
+    <!--根据studentID获取社会实践记录-->
+    <select id="getSocialByStuId" resultType="com.example.agile0509.vo.SocialVo">
+        SELECT time, content, ID, studentID  FROM socialPractice WHERE studentID = #{stuId}
+    </select>
+
+    <!--根据id删除科研记录-->
+    <delete id="deleteSocial">
+        DELETE FROM socialPractice WHERE ID = #{SocialId}
+    </delete>
+
+    <!-- 更新科研记录 parameterType="com.example.agile0509.vo.SocialVo"-->
+    <update id="modifySocial" >
+        UPDATE socialPractice
+        SET time = #{time}, content = #{content}
+        WHERE ID = #{SocialId}
+    </update>
+
+
+</mapper>

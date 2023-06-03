@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.agile0509.mapper.SciMapper">
+    <!--新增个人科研记录-->
+    <insert id="insertSci" parameterType="list">
+        insert into sciperformance
+        (studentID, type, content)
+        values
+        (#{stuId}, #{type}, #{content})
+    </insert>
+
+    <!--根据学号获取科研记录-->
+    <select id="getSciByStuId" resultType="com.example.agile0509.vo.SciVo">
+        SELECT type, content, ID, studentID  FROM sciperformance WHERE studentID = #{stuId}
+    </select>
+
+    <!--根据id删除科研记录-->
+    <delete id="deleteSci">
+        DELETE FROM sciperformance WHERE ID = #{sciId}
+    </delete>
+
+    <!-- 更新科研记录 parameterType="com.example.agile0509.vo.SciVo"-->
+    <update id="modifySci" >
+        UPDATE sciperformance
+        SET type = #{type}, content = #{content}
+        WHERE ID = #{sciId}
+    </update>
+
+
+</mapper>

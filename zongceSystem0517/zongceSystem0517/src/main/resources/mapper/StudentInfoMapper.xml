@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.agile0509.mapper.StudentInfoMapper">
+    <insert id="batchInsert" parameterType="list">
+        insert into studentInfo
+        (studentID, name, EnglishName, social_ID, stuNo, gender, phone, email, year, school_ID, place, nationality, birthday, majorID, political, stu_type)
+        values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (
+            #{item.ID},
+            #{item.name},
+            #{item.EnglishName},
+            #{item.social_ID},
+            #{item.stu_ID},
+            #{item.gender},
+            #{item.phone},
+            #{item.email},
+            #{item.year},
+            #{item.school_ID},
+            #{item.place},
+            #{item.nationality},
+            #{item.birthday},
+            #{item.majorID},
+            #{item.political},
+            #{item.stu_type}
+            )
+        </foreach>
+    </insert>
+    <!-- 获取成绩汇总列表 -->
+    <select id="findStudentInfoVo" resultType="com.example.agile0509.vo.StudentInfoVo">
+        SELECT * FROM studentInfo
+    </select>
+    <!--根据学号获取学生信息-->
+    <select id="getStudentInfoByStuId" resultType="com.example.agile0509.pojo.StudentInfo">
+        SELECT * FROM studentInfo WHERE stuNo = #{stuId}
+    </select>
+    <!--根据student id获取学生信息-->
+    <select id="getStudentInfoByStudentId" resultType="com.example.agile0509.pojo.StudentInfo">
+        SELECT * FROM studentInfo WHERE studentID = #{studentId}
+    </select>
+
+</mapper>

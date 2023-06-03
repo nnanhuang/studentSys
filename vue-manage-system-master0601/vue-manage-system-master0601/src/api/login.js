@@ -1,0 +1,166 @@
+import request from '../utils/request.js'
+
+// 用户登录
+export function login(username, password) {
+  const data = {
+    username,
+    password
+  }
+  return request({
+    url: '/auth/login',
+    method: 'post',
+    data: data
+  })
+}
+
+// 获取用户信息
+export function getInfo() {
+  return request({
+    url: '/user/profile/get',
+    method: 'get'
+  })
+}
+
+// 获取用户信息
+export function getScoreSum() {
+  return request({
+    url: '/scoreSum/getList',
+    method: 'get'
+  })
+}
+
+// 用户注册
+export function register(name, password,idCard,phone,email) {
+  const data = {
+    name,
+    password,
+    idCard,
+    phone,
+    email
+  }
+  return request({
+    url: '/auth/register',
+    method: 'post',
+    data: data
+  })
+}
+
+//修改密码方法
+export function changePassword(newPassword) {
+  const data = {
+    newPassword
+  }
+  return request({
+    url: '/user/password/update',
+    method: 'put',
+    data: data
+  })
+}
+
+//修改个人信息方法
+export function changeDetails(name,phone,email) {
+  const data = {
+    name,
+    phone,
+    email
+  }
+  return request({
+    url: '/user/update',
+    method: 'put',
+    data: data
+  })
+}
+
+// 用户注册
+export function submitResearch(type, content) {
+  const data = {
+    type,
+    content,
+  }
+  return request({
+    url: '/sci/add',
+    method: 'post',
+    data: data
+  })
+}
+
+// 用户注册
+export function viewSci() {
+  return request({
+    url: '/sci/viewSubmitted',
+    method: 'post',
+  })
+}
+
+// 删除科研记录
+export function deleteRsch(id) {
+  const data = {
+    id,
+  }
+  return request({
+    url: '/sci/delete',
+    method: 'post',
+    data: data
+  })
+}
+
+// 删除科研记录
+export function modifyRsch(id,type,content) {
+  const data = {
+    id,
+    type,
+    content,
+  }
+  return request({
+    url: '/sci/modify',
+    method: 'post',
+    data: data
+  })
+}
+
+// 提交社会实践记录
+export function submitSocial(time, content) {
+  const data = {
+    time,
+    content,
+  }
+  return request({
+    url: '/social/add',
+    method: 'post',
+    data: data
+  })
+}
+
+// 查看社会实践记录
+export function viewSocial() {
+  return request({
+    url: '/social/viewSubmitted',
+    method: 'post',
+  })
+}
+
+// 删除社会实践记录
+export function deleteSocial(id) {
+  const data = {
+    id,
+  }
+  return request({
+    url: '/social/delete',
+    method: 'post',
+    data: data
+  })
+}
+
+// 修改社会实践记录
+export function modifySocial(id,time,content) {
+  const data = {
+    id,
+    time,
+    content,
+  }
+  return request({
+    url: '/social/modify',
+    method: 'post',
+    data: data
+  })
+}
