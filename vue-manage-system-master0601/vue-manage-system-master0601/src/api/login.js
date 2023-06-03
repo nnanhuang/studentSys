@@ -164,3 +164,52 @@ export function modifySocial(id,time,content) {
     data: data
   })
 }
+
+// 提交骨干服务
+export function submitServePosition(time, content) {
+  const data = {
+    time,
+    content,
+  }
+  return request({
+    url: '/servePosition/add',
+    method: 'post',
+    data: data
+  })
+}
+
+// 查看已提交的骨干服务信息
+export function viewServePosition() {
+  return request({
+    url: '/servePosition/viewSubmitted',
+    method: 'post',
+  })
+}
+
+// 删除骨干服务记录
+export function deleteServePosition(id) {
+  const data = {
+    id,
+  }
+  return request({
+    url: '/servePosition/delete',
+    method: 'post',
+    data: data
+  })
+}
+
+// 修改骨干服务记录
+export function modifyServePosition(id,time,content) {
+  const data = {
+    id,
+    time,
+    content,
+  }
+  return request({
+    url: '/servePosition/modify',
+    method: 'post',
+    data: data
+  })
+}
+
+

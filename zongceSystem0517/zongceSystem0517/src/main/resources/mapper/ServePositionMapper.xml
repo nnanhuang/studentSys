@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.agile0509.mapper.ServePositionMapper">
+    <!--新增个人骨干服务记录-->
+    <insert id="insertServePosition" parameterType="list">
+        insert into orgservice
+        (studentID, time, content)
+        values
+        (#{stuId}, #{time}, #{content})
+    </insert>
+
+    <!--根据学号获取骨干服务记录-->
+    <select id="getServePositionByStuId" resultType="com.example.agile0509.vo.ServePositionVo">
+        SELECT time, content, ID, studentID  FROM orgservice WHERE studentID = #{stuId}
+    </select>
+
+    <!--根据id删除骨干服务记录-->
+    <delete id="deleteServePosition">
+        DELETE FROM orgservice WHERE ID = #{ServePositionId}
+    </delete>
+
+    <!-- 更新骨干服务记录 parametertime="com.example.agile0509.vo.ServePositionVo"-->
+    <update id="modifyServePosition" >
+        UPDATE orgservice
+        SET time = #{time}, content = #{content}
+        WHERE ID = #{ServePositionId}
+    </update>
+
+
+</mapper>

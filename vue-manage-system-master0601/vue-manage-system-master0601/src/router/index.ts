@@ -129,6 +129,15 @@ const routes: RouteRecordRaw[] = [
                 component: () => import(/* webpackChunkName: "markdown" */ '../views/addServePosition.vue'),
             },
             {
+                path: '/viewSubmittedServePosition',
+                name: 'viewSubmittedServePosition',
+                meta: {
+                    title: '已提交的骨干服务情况',
+                    permiss: '',
+                },
+                component: () => import(/* webpackChunkName: "editor" */ '../views/viewServePosition.vue'),
+            },
+            {
                 path: '/Statement',
                 name: 'Statement',
                 meta: {
