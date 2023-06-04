@@ -3,9 +3,9 @@ server:
 
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/minjie
+    url: jdbc:mysql://localhost:3306/manageSys
     username: root
-    password: 
+    password: 200037huangnanN
     driver-class-name: com.mysql.cj.jdbc.Driver
     hikari:
       minimum-idle: 5

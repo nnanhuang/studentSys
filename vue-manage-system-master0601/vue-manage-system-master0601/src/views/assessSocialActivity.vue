@@ -1,138 +1,188 @@
-
 <template>
   <Transition>
-    <div class="container">
-      <h1 class="centered-title">社会实践在线评审</h1>
+    <div>
       <div class="space1"></div>
-      <table class="my-table">
-        <thead>
-          <tr>
-            <th>姓名</th>
-            <th>年龄</th>
-            <th>社会实践情况</th>
-            <th>评分</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="(student, index) in students" :key="student.id">
-            <td>{{ student.name }}</td>
-            <td>{{ student.age }}</td>
-            <td>{{ student.socialActivity }}</td>
-            <td>
-              <input type="number" min="0" max="100" v-model="scores[index]" />
-            </td>
-          </tr>
-          <!-- 目前还没开发后端并连接数据库，因此在前端设置点假数据 -->
-          <tr>
-            <td>张三</td>
-            <td>22</td>
-            <td>下乡支教6个月</td>
-            <td>
-              <input type="number" min="0" max="100" />
-            </td>
-          </tr>
-          <tr>
-            <td>李四</td>
-            <td>21</td>
-            <td>养老院探望8次</td>
-            <td>
-              <input type="number" min="0" max="100" />
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <div class="button-container">
-        <button class="my-button" @click="submitScores">提交</button>
-      </div>
+      <el-card>
+        <!--表格主体-->
+        <div class="space2"></div>
+        <h1 class="centered-title">社会实践评委评分</h1>
+        <div class="space3"></div>
+        <el-table :data="socialList" stripe border bordereight="250" style="width: 100%">
+          <el-table-column type="index" width="50"></el-table-column>
+          <el-table-column prop="name" label="姓名"></el-table-column>
+          <el-table-column prop="stuNo" label="学号"></el-table-column>
+          <el-table-column prop="isAssess" label="是否评分" fixed="right">
+          </el-table-column>
+          <el-table-column prop="action" label="评分" fixed="right">
+            <template #default="scope">
+              <el-button type="link" @click="showDialog2(scope.row)">评分</el-button>
+            </template>
+          </el-table-column>
+          <el-table-column prop="socialScore" label="得分" fixed="right"></el-table-column>
+        </el-table>
+
+        <!--弹窗：评分-->
+        <el-dialog v-model="applyVisible" v-bind="$attrs">
+          <div class="space2"></div>
+          <h1 class="centered-title">社会实践评委评分</h1>
+          <div class="space3"></div>
+          <el-table :data="socialList2" stripe border bordereight="250" style="width: 100%">
+            <el-table-column type="index" width="50"></el-table-column>
+            <el-table-column prop="time" label="起止时间"></el-table-column>
+            <el-table-column prop="content" label="内容"></el-table-column>
+          </el-table>
+          <el-form-item label="请评分：">
+            <el-input v-model="scoreSum.socialScore" placeholder="分数区间在0-100"></el-input>
+          </el-form-item>
+          <div slot="footer" class="dialog-footer centered-buttons">
+            <el-button type="primary" @click="submitSocialScore">确 定</el-button>
+            <el-button @click="applyVisible = false">取 消</el-button>
+          </div>
+        </el-dialog>
+      </el-card>
     </div>
   </Transition>
 </template>
 
+
 <script>
+import { viewSocialT } from "../api/login.js";
+import { submitSPScore } from "../api/login.js";
+import { viewStuSocialScore } from "../api/login.js";
+
 export default {
+  inheritAttrs: false,
+  computed: {
+    crumbs() {
+      const routes = this.$route.matched;
+      const crumbs = [];
+
+      routes.forEach(route => {
+        if (route.meta.breadcrumb) {
+          crumbs.push(...route.meta.breadcrumb);
+        }
+      });
+
+      return crumbs;
+    },
+    paginatedStudents() {
+      const start = (this.queryInfo.pagenum - 1) * this.queryInfo.pagesize;
+      const end = start + this.queryInfo.pagesize;
+      return this.Students.slice(start, end);
+    },
+  },
   data() {
     return {
-      students: [],
-      scores: [],
+      socialList: [
+        { stuNo: '1', name: '11111', isAssess: "未评分", socialScore: null},
+        ],
+      social: {
+      },
+      scoreSum:{
+        socialScore: null,
+      },
+      dialogVisible: false,
+      applyVisible: false,
+      socialList2:[
+        {
+          time:'11',
+          content:'22',
+        }
+      ]
     };
   },
-  // mounted() {
-  //   // 从后端数据库中获取学生情况
-  //   this.fetchStudents()
-  // },
-  // methods: {
-  //   fetchStudents() {
-  //     // 调用后端API获取学生列表
-  //     this.students = data
-  //     this.scores = new Array(data.length).fill(0)
-  //   },
-  //   submitScores() {
-  //     // 将评分提交给后端API
-  //     console.log(this.scores)
-  //     alert('评分已提交')
-  //   }
-  // }
-};
+  mounted() {
+    this.fetchSocialList();
+    this.fetchSocialList2();
+  },
+  methods: {
+    handleSizeChange(newSize) {
+      this.queryInfo.pagesize = newSize;
+    },
+    handleCurrentChange(newPage) {
+      this.queryInfo.pagenum = newPage;
+    },
+    fetchSocialList() {
+      viewStuSocialScore()
+        .then(response => {
+          console.log(response.data)
+          this.socialList = response.data;
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    },
+    fetchSocialList2() {
+      viewSocialT(this.social.stuNo,this.social.name,this.social.isAssess,this.social.socialScore)
+        .then(response => {
+          //console.log(this.social.stuNo)
+          console.log(response.data)
+          this.socialList2 = response.data;
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    },
+    showDialog2(row) {
+      //console.log(row.id);
+      this.social = Object.assign({}, row);    //将row的值赋给data()中的social
+      console.log(this.social);
+      this.applyVisible = true;    //打开弹窗
+      this.fetchSocialList2();
+      //console.log(socialList2);
+    },
+    submitSocialScore(){
+      submitSPScore(this.social.stuNo,this.social.name,this.social.isAssess,this.scoreSum.socialScore)
+      .then(response => {
+        console.log(response.data)
+        this.applyVisible = false;    //关闭弹窗
+        this.fetchSocialList();    //刷新列表
+        ElMessage.success('已成功提交评分')    //提示成功删除
+    }).catch(error => {
+        console.log(error);
+    });
+    },
+    },  
+  }
 </script>
-
 <style>
-.container {
-  background-color: white;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
 .centered-title {
   text-align: center;
+}
+.filter-buttons {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 10px;
 }
 .space1{
   height: 10px;
 }
-
-.my-table {
-  border-collapse: collapse;
-  width: 100%;
+.space2{
+  height: 20px;
+}
+.space3{
+  height: 30px;
+}
+.centered-container {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+.delete-reminder {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+.el-dialog__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+.centered-buttons {
+  display: flex;
+  justify-content: center;
 }
 
-.my-table th,
-.my-table td {
-  padding: 10px;
-  text-align: left;
-  vertical-align: top;
-  border: 1px solid #ddd;
-}
 
-.my-table th {
-  background-color: #f2f2f2;
-  font-weight: bold;
-}
-
-.my-table tbody tr:nth-child(even) {
-  background-color: #f2f2f2;
-}
-
-.button-container {
-  margin-top: 20px;
-  text-align: center;
-}
-
-.my-button {
-  display: inline-block;
-  padding: 10px 20px;
-  font-size: 16px;
-  font-weight: bold;
-  text-align: center;
-  text-decoration: none;
-  white-space: nowrap;
-  background-color: #4caf50;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.my-button:hover {
-  background-color: #3e8e41;
-}
 </style>

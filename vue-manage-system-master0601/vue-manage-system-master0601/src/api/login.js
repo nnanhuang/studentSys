@@ -84,7 +84,7 @@ export function submitResearch(type, content) {
   })
 }
 
-// 用户注册
+// 查看科研记录
 export function viewSci() {
   return request({
     url: '/sci/viewSubmitted',
@@ -212,4 +212,40 @@ export function modifyServePosition(id,time,content) {
   })
 }
 
+//提交社会实践评委打分
+export function submitSPScore(stuNo,name,isAssess,socialScore) {
+  const data = {
+    stuNo,
+    name,
+    isAssess,
+    socialScore,
+  }
+  return request({
+    url: '/social/submitSPSScore',
+    method: 'post',
+    data: data
+  })
+}
 
+// 查看某一个学生的社会实践分数
+export function viewStuSocialScore() {
+  return request({
+    url: '/social/viewStuScore',
+    method: 'post',
+  })
+}
+
+// 老师查看社会实践记录
+export function viewSocialT(stuNo,name,isAssess,socialScore) {
+  const data = {
+    stuNo,
+    name,
+    isAssess,
+    socialScore,
+  }
+  return request({
+    url: '/social/viewSubmittedT',
+    method: 'post',
+    data: data
+  })
+}
