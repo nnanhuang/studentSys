@@ -11,9 +11,9 @@ import java.util.List;
 @Repository
 public interface SocialMapper extends BaseMapper<Score> {
 
-    List<SocialVo> getSocialByStuId(String stuId);
+    List<SocialVo> getSocialByStuId(Integer stuId);
 
-    void insertSocial(String stuId, String time, String content);
+    void insertSocial(Integer stuId, String time, String content);
 
     void modifySocial(Integer SocialId, String time, String content);
 

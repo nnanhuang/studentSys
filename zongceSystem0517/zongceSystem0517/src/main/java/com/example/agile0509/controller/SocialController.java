@@ -2,6 +2,7 @@ package com.example.agile0509.controller;
 
 import com.example.agile0509.common.CommonResult;
 import com.example.agile0509.mapper.SocialMapper;
+import com.example.agile0509.mapper.StudentInfoMapper;
 import com.example.agile0509.pojo.Social;
 import com.example.agile0509.pojo.StudentInfo;
 import com.example.agile0509.pojo.User;
@@ -26,6 +27,8 @@ public class SocialController {
 
     @Autowired
     private JwtTokenUtil jwtTokenUtil;
+    @Autowired
+    private StudentInfoMapper studentInfoMapper;
 
     /**
      * 新增社会实践记录
@@ -36,11 +39,18 @@ public class SocialController {
         String token = authHeader.substring(7);
         String stuId = jwtTokenUtil.getUsernameFromToken(token);
 
-        System.out.println(social);
+        StudentInfo stuInfo = studentInfoMapper.getStudentInfoByStuId(stuId);
+        if (stuInfo == null) {
+            // 处理studentInfo为空的情况，例如抛出异常或返回错误结果
+            return CommonResult.error(404,"学生信息不存在");
+        }
+        int studentID = stuInfo.getStudentID();//这里的studentID是学生信息表ID，是主键
+
+        //System.out.println(social);
         if(social.getTime().equals("") || social.getContent().equals("")){
             return CommonResult.error(500121, "不能提交空记录");
         } else {
-            socialMapper.insertSocial(stuId, social.getTime(),social.getContent());
+            socialMapper.insertSocial(studentID, social.getTime(),social.getContent());
         }
 
         // 返回带有学号、学年和GPA信息的 CommonResult
@@ -56,7 +66,14 @@ public class SocialController {
         String token = authHeader.substring(7);
         String stuId = jwtTokenUtil.getUsernameFromToken(token);
 
-        List<SocialVo> socialList = socialMapper.getSocialByStuId(stuId);
+        StudentInfo stuInfo = studentInfoMapper.getStudentInfoByStuId(stuId);
+        if (stuInfo == null) {
+            // 处理studentInfo为空的情况，例如抛出异常或返回错误结果
+            return CommonResult.error(404,"学生信息不存在");
+        }
+        int studentID = stuInfo.getStudentID();//这里的studentID是学生信息表ID，是主键
+
+        List<SocialVo> socialList = socialMapper.getSocialByStuId(studentID);
 
         // 返回带有学号、学年和GPA信息的 CommonResult
         return CommonResult.success(socialList);

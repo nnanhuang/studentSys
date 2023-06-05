@@ -53,7 +53,7 @@ public class AssessSocialController {
             return CommonResult.error(404,"学生信息不存在");
         }
         Integer stuId = studentInfo.getStudentID();
-        List<SocialVo> socialList = socialMapper.getSocialByStuId(Integer.toString(stuId));
+        List<SocialVo> socialList = socialMapper.getSocialByStuId(stuId);
         // 返回带有学号、学年和GPA信息的 CommonResult
         return CommonResult.success(socialList);
     }

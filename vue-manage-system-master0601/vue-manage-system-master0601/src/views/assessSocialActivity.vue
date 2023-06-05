@@ -123,6 +123,7 @@
                     });
             },
             showDialog2(row) {
+                this.scoreSum.orgScore = '' //清空上一次填写的输入框
                 //console.log(row.id);
                 this.social = Object.assign({}, row);    //将row的值赋给data()中的social
                 console.log(this.social);
