@@ -230,6 +230,25 @@ export function submitOrgScore(stuNo, name, isAssess, orgScore) {
   })
 }
 
+
+
+
+//提交社会实践评委打分
+export function submitSPScore(stuNo,name,isAssess,socialScore) {
+  const data = {
+    stuNo,
+    name,
+    isAssess,
+    socialScore
+  }
+  return request({
+    url: '/social/submitSPSScore',
+    method: 'post',
+    data: data
+  })
+}
+
+
 // 查看学生骨干服务分数
 export function viewStuOrgScore() {
   return request({
@@ -255,3 +274,25 @@ export function viewServePositionT(stuNo, name, isAssess, orgScore) { //老师�
 
 
 
+// 查看某一个学生的社会实践分数
+export function viewStuSocialScore() {
+  return request({
+    url: '/social/viewStuScore',
+    method: 'post',
+  })
+}
+
+// 老师查看社会实践记录
+export function viewSocialT(stuNo,name,isAssess,socialScore) {
+  const data = {
+    stuNo,
+    name,
+    isAssess,
+    socialScore,
+  }
+  return request({
+    url: '/social/viewSubmittedT',
+    method: 'post',
+    data: data
+  })
+}

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.agile0509.mapper.SocialScoreMapper">
+
+    <!--获取自定义社会实践记录-->
+    <select id="getSocialScoreInfo" resultType="com.example.agile0509.vo.StuSocialScoreVo">
+        SELECT si.stuNo, si.name,
+        CASE WHEN ss.socialScore IS NULL THEN '未评分' ELSE '已评分' END AS isAssess,
+        ss.socialScore
+        FROM studentInfo si
+        LEFT JOIN scoreSum ss ON si.studentID = ss.studentID
+    </select>
+
+    <!-- 插入或更新 socialScore -->
+    <insert id="updateInsertScore" >
+        <!-- 使用 ON DUPLICATE KEY UPDATE 实现插入或更新 -->
+        INSERT INTO scoreSum (studentId, socialScore)
+        VALUES (#{studentId}, #{socialScore})
+        ON DUPLICATE KEY UPDATE socialScore = #{socialScore}
+    </insert>
+
+<!--    &lt;!&ndash;根据id删除科研记录&ndash;&gt;-->
+<!--    <delete id="deleteSocial">-->
+<!--        DELETE FROM socialPractice WHERE ID = #{SocialId}-->
+<!--    </delete>-->
+
+<!--    &lt;!&ndash; 更新科研记录 parameterType="com.example.agile0509.vo.SocialVo"&ndash;&gt;-->
+<!--    <update id="modifySocial" >-->
+<!--        UPDATE socialPractice-->
+<!--        SET time = #{time}, content = #{content}-->
+<!--        WHERE ID = #{SocialId}-->
+<!--    </update>-->
+
+
+</mapper>
