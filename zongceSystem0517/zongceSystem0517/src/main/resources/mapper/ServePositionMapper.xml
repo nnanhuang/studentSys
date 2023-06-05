@@ -9,7 +9,7 @@
         (#{stuId}, #{time}, #{content})
     </insert>
 
-    <!--根据学号获取骨干服务记录-->
+    <!--根据学生id获取骨干服务记录-->
     <select id="getServePositionByStuId" resultType="com.example.agile0509.vo.ServePositionVo">
         SELECT time, content, ID, studentID  FROM orgservice WHERE studentID = #{stuId}
     </select>

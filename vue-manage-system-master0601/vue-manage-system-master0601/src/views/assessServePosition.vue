@@ -1,138 +1,191 @@
 <template>
-  <Transition>
-  <div class="container">
-    <h1 class="centered-title">学生骨干服务岗位在线评审</h1>
-    <div class="space1"></div>
-    <table class="my-table">
-      <thead>
-      <tr>
-        <th>姓名</th>
-        <th>年龄</th>
-        <th>服务岗位</th>
-        <th>评分</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr v-for="(student, index) in students" :key="student.id">
-        <td>{{ student.name }}</td>
-        <td>{{ student.age }}</td>
-        <td>{{ student.servePosition }}</td>
-        <td>
-          <input type="number" min="0" max="100" v-model="scores[index]">
-        </td>
-      </tr>
-      <!-- 目前还没开发后端并连接数据库，因此在前端设置点假数据 -->
-      <tr>
-        <td>张三</td>
-        <td>22</td>
-        <td>学生会会长</td>
-        <td>
-          <input type="number" min="0" max="100">
-        </td>
-      </tr>
-      <tr>
-        <td>李四</td>
-        <td>21</td>
-        <td>新闻部副部长</td>
-        <td>
-          <input type="number" min="0" max="100">
-        </td>
-      </tr>
-      </tbody>
-    </table>
-    <div class="button-container">
-      <button class="my-button" @click="submitScores">提交</button>
-    </div>
-  </div>
-  </Transition>
+    <Transition>
+        <div>
+            <div class="space1"></div>
+            <el-card>
+                <!--表格主体-->
+                <div class="space2"></div>
+                <h1 class="centered-title">骨干服务评委评分</h1>
+                <div class="space3"></div>
+                <el-table :data="ServePositionList" stripe border bordereight="250" style="width: 100%">
+                    <el-table-column type="index" width="50"></el-table-column>
+                    <el-table-column prop="stuNo" label="学号"></el-table-column>
+                    <el-table-column prop="name" label="姓名"></el-table-column>
+                    <el-table-column prop="isAssess" label="是否评分">
+
+                    </el-table-column>
+
+                    <el-table-column prop="action" label="评分" fixed="right">
+                        <template #default="scope">
+                            <el-button type="link" @click="showDialog2(scope.row)">评分</el-button>
+                        </template>
+                    </el-table-column>
+
+                    <el-table-column prop="orgScore" label="得分" fixed="right"></el-table-column>
+                </el-table>
+
+                <!--弹窗：评分-->
+                <el-dialog  title="" v-model="applyVisible" v-bind="$attrs">
+                    <div class="space2"></div>
+                    <h1 class="centered-title">骨干服务评委评分</h1>
+                    <div class="space3"></div>
+                    <el-table :data="servePositionList2" stripe border bordereight="250" style="width: 100%">
+                        <el-table-column type="index" width="10%"></el-table-column>
+                        <el-table-column prop="time" label="起止时间"></el-table-column>
+                        <el-table-column prop="content" label="内容" width="50%"></el-table-column>
+                    </el-table>
+
+                    <el-form-item label="请评分：">
+                        <el-input v-model="scoreSum.orgScore"></el-input>
+                    </el-form-item>
+
+                    <div slot="footer" class="dialog-footer centered-buttons">
+                        <el-button type="primary" @click="submitServePositionScore">确 定</el-button>
+                        <el-button @click="applyVisible = false">取 消</el-button>
+                    </div>
+                </el-dialog>
+            </el-card>
+        </div>
+    </Transition>
 </template>
 
+
 <script>
-import { ref, reactive } from 'vue';
-export default {
-  data() {
-    return {
-      students: [],
-      scores: []
+    import { viewStuOrgScore } from "../api/login.js";
+    import { submitOrgScore } from "../api/login.js"
+    import { viewServePositionT } from "../api/login.js"
+
+    export default {
+        inheritAttrs: false,
+        computed: {
+            crumbs() {
+                const routes = this.$route.matched;
+                const crumbs = [];
+
+                routes.forEach(route => {
+                    if (route.meta.breadcrumb) {
+                        crumbs.push(...route.meta.breadcrumb);
+                    }
+                });
+
+                return crumbs;
+            },
+            paginatedStudents() {
+                const start = (this.queryInfo.pagenum - 1) * this.queryInfo.pagesize;
+                const end = start + this.queryInfo.pagesize;
+                return this.Students.slice(start, end);
+            },
+        },
+        data() {
+            return {
+                ServePositionList: [
+                    { stuNo: '1', name: '11111', isAssess: '未评分', orgScore: null},
+                ],
+                ServePosition: {},
+                scoreSum: {
+                    orgScore: null
+                },
+                servePositionList2: [
+                    { time: '111', content: '222'}
+                ],
+                dialogVisible: false,
+                applyVisible: false,
+            };
+        },
+        mounted() {
+            this.fetchServePositionList();
+            this.fetchServePosition2List();
+        },
+        methods: {
+            handleSizeChange(newSize) {
+                this.queryInfo.pagesize = newSize;
+            },
+            handleCurrentChange(newPage) {
+                this.queryInfo.pagenum = newPage;
+            },
+            fetchServePositionList() {
+                viewStuOrgScore()
+                    .then(response => {
+                        console.log(response.data)
+                        this.ServePositionList = response.data;
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    });
+            },
+            fetchServePosition2List() {
+                viewServePositionT(this.ServePosition.stuNo, this.ServePosition.name, this.ServePosition.isAssess, this.ServePosition.orgScore)
+                    .then(response => {
+                        console.log(response.data)
+                        this.servePositionList2= response.data;
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    });
+            },
+            showDialog2(row) {
+                this.scoreSum.orgScore = '' //清空上一次填写的输入框
+                //console.log(row.id);
+                this.ServePosition = Object.assign({}, row);    //将row的值赋给data()中的ServePosition
+                //console.log(this.ServePosition);
+                this.fetchServePosition2List()
+                this.applyVisible = true;    //打开弹窗
+
+            },
+            submitServePositionScore() {
+                submitOrgScore(this.ServePosition.stuNo, this.ServePosition.name, this.ServePosition.isAssess, this.scoreSum.orgScore).then(response => {
+                    console.log(response.data)
+                    this.applyVisible = false;    //关闭弹窗
+
+                    this.fetchServePositionList();    //刷新列表
+                    ElMessage.success('已成功提交评分')
+                }).catch(error => {
+                    console.log(error);
+                });
+            },
+
+        },
     }
-  },
-  // mounted() {
-  //   // 从后端数据库中获取学生情况
-  //   this.fetchStudents()
-  // },
-  // methods: {
-  //   fetchStudents() {
-  //     // 调用后端API获取学生列表
-  //     this.students = data
-  //     this.scores = new Array(data.length).fill(0)
-  //   },
-  //   submitScores() {
-  //     // 将评分提交给后端API
-  //     console.log(this.scores)
-  //     alert('评分已提交')
-  //   }
-  // }
-}
+
 </script>
-
 <style>
-.space1{
-  height: 10px;
-}
-.container {
-  background-color: white;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
+    .centered-title {
+        text-align: center;
+    }
+    .filter-buttons {
+        display: flex;
+        justify-content: flex-start;
+        margin-top: 10px;
+    }
+    .space1{
+        height: 10px;
+    }
+    .space2{
+        height: 20px;
+    }
+    .space3{
+        height: 30px;
+    }
+    .centered-container {
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+    }
+    .delete-reminder {
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+    }
+    .el-dialog__wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
-.centered-title {
-  text-align: center;
-}
+    }
+    .centered-buttons {
+        display: flex;
+        justify-content: center;
+    }
 
-.my-table {
-  border-collapse: collapse;
-  width: 100%;
-}
 
-.my-table th,
-.my-table td {
-  padding: 10px;
-  text-align: left;
-  vertical-align: top;
-  border: 1px solid #ddd;
-}
-
-.my-table th {
-  background-color: #f2f2f2;
-  font-weight: bold;
-}
-
-.my-table tbody tr:nth-child(even) {
-  background-color: #f2f2f2;
-}
-
-.button-container{
-    margin-top: 20px;
-    text-align: center;
-  }
-
-  .my-button {
-    display: inline-block;
-    padding: 10px 20px;
-    font-size: 16px;
-    font-weight: bold;
-    text-align: center;
-    text-decoration: none;
-    white-space: nowrap;
-    background-color: #4CAF50;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-
-  .my-button:hover {
-    background-color: #3e8e41;
-  }
 </style>

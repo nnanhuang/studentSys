@@ -12,9 +12,9 @@ import java.util.List;
 @Repository
 public interface ServePositionMapper extends BaseMapper<Score>{
 
-    List<ServePositionVo> getServePositionByStuId(String stuId);
+    List<ServePositionVo> getServePositionByStuId(int stuId);//这里的stuId是学生id
 
-    void insertServePosition(String stuId, String time, String content);
+    void insertServePosition(int stuId, String time, String content);
 
     void modifyServePosition(Integer ServePositionId, String time, String content);
 

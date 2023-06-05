@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.agile0509.mapper.StuOrgScoreMapper">
+    
+    
+    <select id="getOrgScoreInfo" resultType="com.example.agile0509.vo.StuOrgScoreVo">
+        SELECT si.stuNo, si.name,
+               CASE WHEN ss.orgScore IS NULL THEN '未评分' ELSE '已评分' END AS isAssess,
+               ss.orgScore
+        FROM studentInfo si
+        LEFT JOIN scoreSum ss ON si.studentID = ss.studentID
+    </select>
+
+    <insert id="updateOrInsertScore">
+        <!-- 使用 ON DUPLICATE KEY UPDATE 实现插入或更新 -->
+        INSERT INTO scoreSum (studentID, orgScore)
+        VALUES (#{studentID}, #{score})
+        ON DUPLICATE KEY UPDATE orgScore = #{score}
+    </insert>
+
+
+</mapper>
+
+

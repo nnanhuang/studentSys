@@ -84,13 +84,15 @@ export function submitResearch(type, content) {
   })
 }
 
-// 用户注册
+// 查看科研情况
 export function viewSci() {
   return request({
     url: '/sci/viewSubmitted',
     method: 'post',
   })
 }
+
+
 
 // 删除科研记录
 export function deleteRsch(id) {
@@ -103,6 +105,7 @@ export function deleteRsch(id) {
     data: data
   })
 }
+
 
 // 删除科研记录
 export function modifyRsch(id,type,content) {
@@ -211,5 +214,44 @@ export function modifyServePosition(id,time,content) {
     data: data
   })
 }
+
+// 提交骨干服务评委打分
+export function submitOrgScore(stuNo, name, isAssess, orgScore) {
+  const data = {
+    stuNo,
+    name,
+    isAssess,
+    orgScore
+  }
+  return request({
+    url: '/servePosition/submitScore',
+    method: 'post',
+    data: data
+  })
+}
+
+// 查看学生骨干服务分数
+export function viewStuOrgScore() {
+  return request({
+    url: '/servePosition/viewStuScore',
+    method: 'post',
+  })
+}
+
+// 查看学生提交的骨干服务信息
+export function viewServePositionT(stuNo, name, isAssess, orgScore) { //老师查看学生提交的骨干服务信息
+  const data = {
+    stuNo,
+    name,
+    isAssess,
+    orgScore
+  }
+  return request({
+    url: '/servePosition/viewSubmittedT',
+    method: 'post',
+    data: data
+  })
+}
+
 
 

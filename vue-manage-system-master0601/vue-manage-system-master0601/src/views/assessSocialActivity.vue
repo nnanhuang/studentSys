@@ -8,15 +8,15 @@
         <thead>
           <tr>
             <th>姓名</th>
-            <th>年龄</th>
-            <th>社会实践情况</th>
+            <th>学号</th>
+            <th>是否评分</th>
             <th>评分</th>
           </tr>
         </thead>
         <tbody>
           <tr v-for="(student, index) in students" :key="student.id">
             <td>{{ student.name }}</td>
-            <td>{{ student.age }}</td>
+            <td>{{ student.id }}</td>
             <td>{{ student.socialActivity }}</td>
             <td>
               <input type="number" min="0" max="100" v-model="scores[index]" />
@@ -26,18 +26,20 @@
           <tr>
             <td>张三</td>
             <td>22</td>
-            <td>下乡支教6个月</td>
-            <td>
-              <input type="number" min="0" max="100" />
-            </td>
+            <td>已评分</td>
+            <button @click="showModal = true">评分</button>
+            <teleport to="body">
+              <socialPopups v-if="showModal" @close="showModal = false" />
+            </teleport>
           </tr>
           <tr>
             <td>李四</td>
             <td>21</td>
-            <td>养老院探望8次</td>
-            <td>
-              <input type="number" min="0" max="100" />
-            </td>
+            <td>未评分</td>
+            <button @click="showModal = true">评分</button>
+            <teleport to="body">
+              <socialPopups v-if="showModal" @close="showModal = false" />
+            </teleport>
           </tr>
         </tbody>
       </table>
@@ -49,6 +51,7 @@
 </template>
 
 <script>
+import socialPopups from './socialPopups.vue';
 export default {
   data() {
     return {
@@ -56,6 +59,14 @@ export default {
       scores: [],
     };
   },
+  components: {
+    socialPopups
+  },
+  data() {
+    return {
+      showModal: false
+    };
+  }
   // mounted() {
   //   // 从后端数据库中获取学生情况
   //   this.fetchStudents()
@@ -76,6 +87,17 @@ export default {
 </script>
 
 <style>
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
 .container {
   background-color: white;
   padding: 20px;
