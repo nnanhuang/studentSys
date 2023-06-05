@@ -296,3 +296,41 @@ export function viewSocialT(stuNo,name,isAssess,socialScore) {
     data: data
   })
 }
+
+
+//提交学年总结评委打分
+export function submitStatementScore(stuNo,name,isAssess,statementScore){
+  const data = {
+    stuNo,
+    name,
+    isAssess,
+    statementScore,
+  }
+  return request({
+    url:'/statement/submitStatementScore',
+    method:'post',
+  })
+}
+
+//查看某一个学生的学年总结分数
+export function viewStuStatementScore(){
+  return request({
+    url:'/statement/viewStuStatementScore',
+    method:'post',
+  })
+}
+
+// 老师查看学生学年总结记录
+export function viewStatementT(stuNo,name,isAssess,statementScore) {
+  const data = {
+    stuNo,
+    name,
+    isAssess,
+    statementScore,
+  }
+  return request({
+    url: '/statement/viewSubmittedT',
+    method: 'post',
+    data: data
+  })
+}
