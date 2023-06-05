@@ -46,7 +46,7 @@ const routes: RouteRecordRaw[] = [
                     title: '学生科研情况',
                     permiss: '11',
                 },
-                component: () => import(/* webpackChunkName: "form" */ '../views/assessResearch.vue'),
+                component: () => import(/* webpackChunkName: "form" */ '../views/assessSci.vue'),
             },
             {
                 path: '/assessServePosition',

@@ -21,7 +21,7 @@ export function getInfo() {
   })
 }
 
-// 获取用户信息
+// 获取学生成绩汇总数据
 export function getScoreSum() {
   return request({
     url: '/scoreSum/getList',
@@ -232,6 +232,49 @@ export function submitOrgScore(stuNo, name, isAssess, orgScore) {
 
 
 
+//********科研经历评分部分*****开始********
+
+// 查看科研经历分数
+export function viewSciStuInfo() {
+  return request({
+    url: '/sci/viewScoreInfo',
+    method: 'post',
+  })
+}
+
+// 老师查看科研经历记录
+export function viewSciRecordList(stuNo,name,isAssess,sciScore) {
+  const data = {
+    stuNo,
+    name,
+    isAssess,
+    sciScore,
+  }
+  return request({
+    url: '/sci/viewSubmittedT',
+    method: 'post',
+    data: data
+  })
+}
+
+// 提交科研经历评委打分
+export function submitSciScore(stuNo, name, isAssess, sciScore) {
+  const data = {
+    stuNo,
+    name,
+    isAssess,
+    sciScore
+  }
+  return request({
+    url: '/sci/submitScore',
+    method: 'post',
+    data: data
+  })
+}
+//********科研经历评分部分*****结束********
+
+
+
 
 //提交社会实践评委打分
 export function submitSPScore(stuNo,name,isAssess,socialScore) {
@@ -256,6 +299,8 @@ export function viewStuOrgScore() {
     method: 'post',
   })
 }
+
+
 
 // 查看学生提交的骨干服务信息
 export function viewServePositionT(stuNo, name, isAssess, orgScore) { //老师查看学生提交的骨干服务信息
@@ -294,5 +339,13 @@ export function viewSocialT(stuNo,name,isAssess,socialScore) {
     url: '/social/viewSubmittedT',
     method: 'post',
     data: data
+  })
+}
+
+// 获取学生成绩汇总数据
+export function getStuInfo() {
+  return request({
+    url: '/studentInfo/getList',
+    method: 'get'
   })
 }

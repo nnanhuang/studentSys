@@ -15,8 +15,8 @@
       <div style="height: 50px;"></div>
 
       <el-table :data="goodslist" stripe border style="width: 100%">
-        <el-table-column prop="id" label="学生id" header-align="center"> </el-table-column>
-        <el-table-column prop="studentId" label="条目id" header-align="center"></el-table-column>
+        <!--el-table-column prop="id" label="学生id" header-align="center"> </!--el-table-column-->
+        <el-table-column prop="studentId" label="学生id" header-align="center"></el-table-column>
         <el-table-column prop="socialScore" label="社会实践分数" header-align="center"></el-table-column>
         <el-table-column prop="sciScore" label="科研分数情况" header-align="center"></el-table-column>
         <el-table-column prop="volunteerScore" label="志愿服务分数" header-align="center"></el-table-column>

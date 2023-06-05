@@ -141,6 +141,7 @@
                     ElMessage.success('已成功提交评分')
                 }).catch(error => {
                     console.log(error);
+                    ElMessage.error(error.message)
                 });
             },
 

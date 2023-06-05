@@ -13,9 +13,9 @@ import java.util.List;
 @Repository
 public interface SciMapper extends BaseMapper<Score>{
 
-    List<SciVo> getSciByStuId(String stuId);
+    List<SciVo> getSciByStuId(int stuId);
 
-    void insertSci(String stuId, String type, String content);
+    void insertSci(int stuId, String type, String content);
 
     void modifySci(Integer sciId, String type, String content);
 

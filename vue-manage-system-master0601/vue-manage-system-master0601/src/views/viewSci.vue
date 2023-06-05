@@ -163,7 +163,7 @@ export default {
       console.log(this.sci.content)
       modifyRsch(this.sci.id,this.sci.type,this.sci.content).then(response => {
           console.log(response.data)
-          this.applyVisible = false;    //关闭弹窗
+          this.dialogVisible = false;    //关闭弹窗
           this.fetchSciList();    //刷新列表
           ElMessage.success('修改成功')    //提示信息
       }).catch(error => {

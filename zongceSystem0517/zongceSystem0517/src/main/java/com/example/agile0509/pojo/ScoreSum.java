@@ -13,10 +13,11 @@ import lombok.Data;
 
 @Data
 public class ScoreSum {
-    @TableId(value = "id", type = IdType.AUTO)
-    @ExcelProperty(value = "id", index = 0)
-    private Integer id;
+//    @TableId(value = "id", type = IdType.AUTO)
+//    @ExcelProperty(value = "id", index = 0)
+//    private Integer id;
 
+    @TableId(value = "id", type = IdType.AUTO)
     @ExcelProperty(value = "studentId", index = 1)
     private Integer studentId;
 
