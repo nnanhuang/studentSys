@@ -47,10 +47,10 @@ public class SocialController {
         int studentID = stuInfo.getStudentID();//这里的studentID是学生信息表ID，是主键
 
         //System.out.println(social);
-        if(social.getTime().equals("") || social.getContent().equals("")){
+        if(social.getTime().equals("") || social.getContent().equals("") || social.getMaterial().equals("")){
             return CommonResult.error(500121, "不能提交空记录");
         } else {
-            socialMapper.insertSocial(studentID, social.getTime(),social.getContent());
+            socialMapper.insertSocial(studentID, social.getTime(),social.getContent(),social.getMaterial());
         }
 
         // 返回带有学号、学年和GPA信息的 CommonResult
@@ -95,10 +95,8 @@ public class SocialController {
      */
     @PostMapping("/modify")
     public CommonResult<String> modifySocial(@RequestBody Social social) {
-//        System.out.println(social.getContent());
-//        System.out.println(social.getTime());
-//        System.out.println(social.getId());
-        socialMapper.modifySocial(social.getId(),social.getTime(),social.getContent());
+
+        socialMapper.modifySocial(social.getId(),social.getTime(),social.getContent(),social.getMaterial());
 
         // 返回带有学号、学年和GPA信息的 CommonResult
         return CommonResult.success("记录已修改");

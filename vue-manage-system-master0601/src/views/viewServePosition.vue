@@ -10,6 +10,7 @@
           <el-table-column type="index" width="50"></el-table-column>
           <el-table-column prop="time" label="时间"></el-table-column>
           <el-table-column prop="content" label="内容"></el-table-column>
+          <!-- <el-table-column prop="material" label="证明材料"></el-table-column> -->
           <el-table-column prop="action1" label="操作" fixed="right">
             <template #default="scope">
               <el-button type="link" @click="showDialog1(scope.row)">修改</el-button>
@@ -31,6 +32,15 @@
             <el-form-item label="具体内容">
               <el-input v-model="ServePosition.content"></el-input>
             </el-form-item>
+            <el-form-item label="证明材料">
+                <el-upload
+                  ref="fileUpload"
+                  :auto-upload="false"
+                  :on-change="handleMaterialChange"
+                >
+                  <el-button slot="trigger" size="small" type="primary">点击上传</el-button>
+                </el-upload>
+              </el-form-item>
           </el-form>
           <div slot="footer" class="dialog-footer">
             <el-button type="primary" @click="modifyServePosition">提 交</el-button>
@@ -152,9 +162,17 @@ export default {
           console.log(error);
       });
     },
+    handleMaterialChange(material) {
+      const reader = new FileReader();
+        reader.onload = () => {
+          const base64String = reader.result.split(",")[1];
+          this.ServePosition.material = base64String;
+        };
+        reader.readAsDataURL(material.raw);
+    },
     modifyServePosition() {
       //console.log(this.ServePosition.content)
-      modifyServePosition(this.ServePosition.id,this.ServePosition.time,this.ServePosition.content).then(response => {
+      modifyServePosition(this.ServePosition.id,this.ServePosition.time,this.ServePosition.content,this.ServePosition.material).then(response => {
           //console.log(response.data)
           this.dialogVisible = false;    //关闭弹窗
           this.fetchServePositionList();    //刷新列表

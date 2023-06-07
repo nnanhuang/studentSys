@@ -44,10 +44,10 @@ public class ServePositionController {
         }
         int studentID = stuInfo.getStudentID();//这里的studentID是学生ID，是主键
 
-        if(ServePosition.getTime().equals("") || ServePosition.getContent().equals("")){
+        if(ServePosition.getTime().equals("") || ServePosition.getContent().equals("") || ServePosition.getMaterial().equals("")){
             return CommonResult.error(500121, "不能提交空记录");
         } else {
-            ServePositionMapper.insertServePosition(studentID, ServePosition.getTime(),ServePosition.getContent());
+            ServePositionMapper.insertServePosition(studentID, ServePosition.getTime(),ServePosition.getContent(),ServePosition.getMaterial());
         }
         return CommonResult.success("骨干服务经历提交成功");
     }
@@ -93,7 +93,7 @@ public class ServePositionController {
 //        System.out.println(ServePosition.getContent());
 //        System.out.println(ServePosition.getTime());
 //        System.out.println(ServePosition.getId());
-        ServePositionMapper.modifyServePosition(ServePosition.getId(),ServePosition.getTime(),ServePosition.getContent());
+        ServePositionMapper.modifyServePosition(ServePosition.getId(),ServePosition.getTime(),ServePosition.getContent(),ServePosition.getMaterial());
 
         // 返回带有学号、学年和GPA信息的 CommonResult
         return CommonResult.success("记录已删除");

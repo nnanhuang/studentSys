@@ -34,6 +34,20 @@
                   ></el-input>
                 </el-col>
               </el-row>
+              <el-row class="social-item">
+                <el-col :span="14">
+                  <el-upload
+                    class="upload-demo"
+                    drag
+                    :auto-upload="false"
+                    :on-change="handleMaterialChange"
+                  >
+                    <i class="el-icon-upload"></i>
+                    <div class="el-upload__text">将证明材料文件拖到此处，或点击上传</div>
+                    <div class="el-upload__tip">只能上传一个文件，格式不超过500kb</div>
+                  </el-upload>
+                </el-col>
+              </el-row>
               <div class="space3"></div>
             <div class="centered-container">
             <el-form-item>  
@@ -55,12 +69,13 @@
         social: {
           time: '',
           content: '',
+          material: null, //add material
         },
       }
     },
     methods: {
       do_submit() {
-        submitSocial(this.social.time,this.social.content).then(res =>{
+        submitSocial(this.social.time,this.social.content,this.social.material).then(res =>{
           console.log(res)
           if(res.code == 200){
             alert("提交成功")
@@ -69,6 +84,21 @@
           }
         })
       },
+      handleMaterialChange(material) {
+       
+        if (!material || !material.raw) {
+          this.$message.error('无效的文件');
+          return;
+        }
+
+        const reader = new FileReader();
+        reader.onload = () => {
+          const base64String = reader.result.split(",")[1];
+          this.social.material = base64String;
+        };
+        reader.readAsDataURL(material.raw);
+      },
+
       do_view() {
         this.$router.push({ path: '/viewSubmittedSocial' })
       }
@@ -77,6 +107,15 @@
   </script>
   
   <style scoped>
+  .upload-demo {
+  border: 1px dashed #409eff;
+  border-radius: 6px;
+  padding: 20px 0;
+  text-align: center;
+  color: #999;
+  cursor: pointer;
+  background-color: #f5f7f9;
+}
   .container {
     background-color: white;
     padding: 20px;

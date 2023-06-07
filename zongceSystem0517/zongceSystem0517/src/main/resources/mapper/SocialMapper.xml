@@ -4,14 +4,14 @@
     <!--新增个人社会实践记录-->
     <insert id="insertSocial" parameterType="list">
         insert into socialPractice
-        (studentID, time, content)
+        (studentID, time, content, material)
         values
-        (#{stuId}, #{time}, #{content})
+        (#{stuId}, #{time}, #{content}, #{material})
     </insert>
 
     <!--根据studentID获取社会实践记录-->
     <select id="getSocialByStuId" resultType="com.example.agile0509.vo.SocialVo">
-        SELECT time, content, ID, studentID  FROM socialPractice WHERE studentID = #{stuId}
+        SELECT time, content, ID, studentID, material  FROM socialPractice WHERE studentID = #{stuId}
     </select>
 
     <!--根据id删除科研记录-->
@@ -22,7 +22,7 @@
     <!-- 更新科研记录 parameterType="com.example.agile0509.vo.SocialVo"-->
     <update id="modifySocial" >
         UPDATE socialPractice
-        SET time = #{time}, content = #{content}
+        SET time = #{time}, content = #{content}, material = #{material}
         WHERE ID = #{SocialId}
     </update>
 

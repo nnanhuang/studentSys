@@ -15,9 +15,9 @@ public interface SciMapper extends BaseMapper<Score>{
 
     List<SciVo> getSciByStuId(int stuId);
 
-    void insertSci(int stuId, String type, String content);
+    void insertSci(int stuId, String type, String content, String material);
 
-    void modifySci(Integer sciId, String type, String content);
+    void modifySci(Integer sciId, String type, String content, String material);
 
     void deleteSci(Integer sciId);
 }

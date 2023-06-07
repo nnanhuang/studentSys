@@ -13,6 +13,6 @@ public class Sci {
     private String stuId;
     private String type;
     private String content;
-
+    String material;
 }
 

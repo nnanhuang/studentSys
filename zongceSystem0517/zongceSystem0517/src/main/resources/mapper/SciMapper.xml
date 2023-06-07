@@ -4,14 +4,14 @@
     <!--新增个人科研记录-->
     <insert id="insertSci" parameterType="list">
         insert into sciperformance
-        (studentID, type, content)
+        (studentID, type, content, material)
         values
-        (#{stuId}, #{type}, #{content})
+        (#{stuId}, #{type}, #{content},#{material})
     </insert>
 
     <!--根据学号获取科研记录-->
     <select id="getSciByStuId" resultType="com.example.agile0509.vo.SciVo">
-        SELECT type, content, ID, studentID  FROM sciperformance WHERE studentID = #{stuId}
+        SELECT type, content, ID, studentID , material FROM sciperformance WHERE studentID = #{stuId}
     </select>
 
     <!--根据id删除科研记录-->
@@ -22,7 +22,7 @@
     <!-- 更新科研记录 parameterType="com.example.agile0509.vo.SciVo"-->
     <update id="modifySci" >
         UPDATE sciperformance
-        SET type = #{type}, content = #{content}
+        SET type = #{type}, content = #{content},material = #{material}
         WHERE ID = #{sciId}
     </update>
 

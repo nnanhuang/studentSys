@@ -71,11 +71,12 @@ export function changeDetails(name,phone,email) {
   })
 }
 
-// 用户注册
-export function submitResearch(type, content) {
+// 提交科研信息
+export function submitResearch(type, content, material) {
   const data = {
     type,
     content,
+    material,
   }
   return request({
     url: '/sci/add',
@@ -107,12 +108,13 @@ export function deleteRsch(id) {
 }
 
 
-// 删除科研记录
-export function modifyRsch(id,type,content) {
+// 修改科研记录
+export function modifyRsch(id,type,content,material) {
   const data = {
     id,
     type,
     content,
+    material,
   }
   return request({
     url: '/sci/modify',
@@ -122,10 +124,11 @@ export function modifyRsch(id,type,content) {
 }
 
 // 提交社会实践记录
-export function submitSocial(time, content) {
+export function submitSocial(time, content, material) {
   const data = {
     time,
     content,
+    material,
   }
   return request({
     url: '/social/add',
@@ -155,11 +158,12 @@ export function deleteSocial(id) {
 }
 
 // 修改社会实践记录
-export function modifySocial(id,time,content) {
+export function modifySocial(id,time,content,material) {
   const data = {
     id,
     time,
     content,
+    material,
   }
   return request({
     url: '/social/modify',
@@ -169,10 +173,11 @@ export function modifySocial(id,time,content) {
 }
 
 // 提交骨干服务
-export function submitServePosition(time, content) {
+export function submitServePosition(time, content,material) {
   const data = {
     time,
     content,
+    material,
   }
   return request({
     url: '/servePosition/add',
@@ -202,11 +207,12 @@ export function deleteServePosition(id) {
 }
 
 // 修改骨干服务记录
-export function modifyServePosition(id,time,content) {
+export function modifyServePosition(id,time,content,material) {
   const data = {
     id,
     time,
     content,
+    material,
   }
   return request({
     url: '/servePosition/modify',

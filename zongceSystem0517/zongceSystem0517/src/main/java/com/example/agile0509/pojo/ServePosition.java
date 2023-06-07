@@ -9,6 +9,6 @@ public class ServePosition {
     private String stuId;
     private String time;
     private String content;
-
+    String material;
 }
 

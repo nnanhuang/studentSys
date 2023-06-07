@@ -4,14 +4,14 @@
     <!--新增个人骨干服务记录-->
     <insert id="insertServePosition" parameterType="list">
         insert into orgservice
-        (studentID, time, content)
+        (studentID, time, content, material)
         values
-        (#{stuId}, #{time}, #{content})
+        (#{stuId}, #{time}, #{content}, #{material})
     </insert>
 
     <!--根据学生id获取骨干服务记录-->
     <select id="getServePositionByStuId" resultType="com.example.agile0509.vo.ServePositionVo">
-        SELECT time, content, ID, studentID  FROM orgservice WHERE studentID = #{stuId}
+        SELECT time, content, ID, studentID, material  FROM orgservice WHERE studentID = #{stuId}
     </select>
 
     <!--根据id删除骨干服务记录-->
@@ -22,7 +22,7 @@
     <!-- 更新骨干服务记录 parametertime="com.example.agile0509.vo.ServePositionVo"-->
     <update id="modifyServePosition" >
         UPDATE orgservice
-        SET time = #{time}, content = #{content}
+        SET time = #{time}, content = #{content},material = #{material}
         WHERE ID = #{ServePositionId}
     </update>
 

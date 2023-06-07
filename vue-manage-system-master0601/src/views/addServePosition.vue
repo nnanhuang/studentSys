@@ -21,6 +21,20 @@
                             </el-form-item>
                         </el-col>
                     </el-row>
+                    <el-row class="servePositon-item">
+                <el-col :span="14">
+                  <el-upload
+                    class="upload-demo"
+                    drag
+                    :auto-upload="false"
+                    :on-change="handleMaterialChange"
+                  >
+                    <i class="el-icon-upload"></i>
+                    <div class="el-upload__text">将证明材料文件拖到此处，或点击上传</div>
+                    <div class="el-upload__tip">只能上传一个文件，大小不超过500kb</div>
+                  </el-upload>
+                </el-col>
+              </el-row>
                     <div class="centered-container">
                         <el-form-item>
                             <el-button type="success" @click="do_view" class="submit-button">查看已提交记录</el-button>
@@ -42,12 +56,13 @@
                 servePosition: {
                     time: '',
                     content: '',
+                    material: null, //add material
                 },
             }
         },
         methods: {
             do_submit() {
-                submitServePosition(this.servePosition.time, this.servePosition.content).then(res => {
+                submitServePosition(this.servePosition.time, this.servePosition.content,this.servePosition.material).then(res => {
                     console.log(res)
                     if (res.code == 200) {
                         ElMessage.success("提交成功")
@@ -56,6 +71,14 @@
                     }
                 })
             },
+            handleMaterialChange(material) {
+                const reader = new FileReader();
+        reader.onload = () => {
+          const base64String = reader.result.split(",")[1];
+          this.servePosition.material = base64String;
+        };
+        reader.readAsDataURL(material.raw);
+    },
             do_view() {
                 this.$router.push({path: '/viewSubmittedServePosition'})
             }
@@ -64,6 +87,15 @@
 </script>
 
 <style scoped>
+  .upload-demo {
+  border: 1px dashed #409eff;
+  border-radius: 6px;
+  padding: 20px 0;
+  text-align: center;
+  color: #999;
+  cursor: pointer;
+  background-color: #f5f7f9;
+}
     .container {
         background-color: white;
         padding: 20px;

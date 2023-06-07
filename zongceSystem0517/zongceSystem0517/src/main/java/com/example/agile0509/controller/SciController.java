@@ -54,10 +54,10 @@ public class SciController {
         int studentID = stuInfo.getStudentID();//这里的studentID是学生信息表ID，是主键
 
         System.out.println(sci);
-        if(sci.getType().equals("") || sci.getContent().equals("")){
+        if(sci.getType().equals("") || sci.getContent().equals("")|| sci.getMaterial().equals("")){
             return CommonResult.error(500121, "不能提交空记录");
         } else {
-            sciMapper.insertSci(studentID, sci.getType(),sci.getContent());
+            sciMapper.insertSci(studentID, sci.getType(),sci.getContent(),sci.getMaterial());
         }
 
         // 返回带有学号、学年和GPA信息的 CommonResult
@@ -105,7 +105,7 @@ public class SciController {
 //        System.out.println(sci.getContent());
 //        System.out.println(sci.getType());
 //        System.out.println(sci.getId());
-        sciMapper.modifySci(sci.getId(),sci.getType(),sci.getContent());
+        sciMapper.modifySci(sci.getId(),sci.getType(),sci.getContent(),sci.getMaterial());
 
         // 返回带有学号、学年和GPA信息的 CommonResult
         return CommonResult.success("记录已删除");

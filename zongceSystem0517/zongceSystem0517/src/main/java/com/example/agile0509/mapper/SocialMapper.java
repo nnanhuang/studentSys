@@ -13,9 +13,9 @@ public interface SocialMapper extends BaseMapper<Score> {
 
     List<SocialVo> getSocialByStuId(Integer stuId);
 
-    void insertSocial(Integer stuId, String time, String content);
+    void insertSocial(Integer stuId, String time, String content, String material);
 
-    void modifySocial(Integer SocialId, String time, String content);
+    void modifySocial(Integer SocialId, String time, String content, String material);
 
     void deleteSocial(Integer SocialId);
 }
