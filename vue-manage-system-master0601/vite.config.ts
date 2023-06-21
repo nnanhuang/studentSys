@@ -18,5 +18,11 @@ export default defineConfig({
 	],
 	optimizeDeps: {
 		include: ['schart.js']
-	}
+	},
+	server: {
+		// 添加 Content Security Policy 配置
+		headers: {
+		  'Content-Security-Policy': "default-src 'none'; img-src 'self'"
+		}
+	  }
 });

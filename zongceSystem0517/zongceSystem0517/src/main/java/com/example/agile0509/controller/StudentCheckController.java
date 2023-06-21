@@ -45,10 +45,6 @@ public class StudentCheckController {
 
         User foundUser = userMapper.findByUsername(username);
 
-        if(!foundUser.getRole().equals("学生")){
-            return CommonResult.error(403, "没有该权限，禁止访问");
-        }
-
         // 通过用户名找到学生学号
         String stuId = foundUser.getUsername();
 
@@ -74,10 +70,6 @@ public class StudentCheckController {
         String username = jwtTokenUtil.getUsernameFromToken(token);
 
         User foundUser = userMapper.findByUsername(username);
-
-        if(!foundUser.getRole().equals("学生")){
-            return CommonResult.error(403, "没有该权限，禁止访问");
-        }
 
         // 通过用户名找到学生学号
         String stuId = foundUser.getUsername();

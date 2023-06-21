@@ -18,6 +18,4 @@ public class LoginReqVO {
     @ApiModelProperty(value = "密码", required = true,example = "123456")
     private String password;
 
-    @ApiModelProperty(value = "角色", required = true,example = "1")
-    private int role;
 }

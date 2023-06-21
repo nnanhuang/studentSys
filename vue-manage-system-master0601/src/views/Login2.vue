@@ -25,13 +25,6 @@
                         <el-input class="input-box" type="password" v-model="loginForm.password" placeholder="请输入密码" show-password></el-input>
                     </el-form-item>
                     <div class="space" ></div>
-                    <div >
-                       <el-radio-group v-model="radio">
-                       <el-radio :label="1" style="margin-right: 10px;">学生</el-radio>
-                       <el-radio :label="2" style="margin-right: 10px;">评委</el-radio>
-                       <el-radio :label="3" style="margin-right: 10px;">学工</el-radio>
-                       </el-radio-group>
-                    </div>
                     <div class="remember-password">
                         <a href="#">忘记密码？</a>
                     </div>
@@ -55,8 +48,8 @@ export default {
   data() {
     return {
       loginForm: {
-        username: 'admin',
-        password: '123123'
+        username: '',
+        password: ''
       },
       rules: {
         username: [{ required: true, message: '请输入用户名', trigger: 'blur' }],

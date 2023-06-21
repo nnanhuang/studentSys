@@ -52,11 +52,13 @@ onMounted(() => {
 	}
 });
 
+import {removeToken} from '../utils/auth'//注销功能相关，可注释请勿删除
 // 用户名下拉菜单选择事件
 const router = useRouter();
 const handleCommand = (command: string) => {
 	if (command == 'loginout') {
 		localStorage.removeItem('ms_username');
+		removeToken();//注销功能相关，可注释请勿删除
 		router.push('/login');
 	} else if (command == 'user') {
 		router.push('/user');

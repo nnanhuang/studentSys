@@ -3,6 +3,7 @@ package com.example.agile0509.mapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.example.agile0509.pojo.VolunteerService;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -13,4 +14,7 @@ public interface VolunteerMapper extends BaseMapper<VolunteerService>,BatchInser
     Double getTimeByStudentId(Integer studentId);
 
     List<VolunteerService> getVolunteers();
+
+    @Update("UPDATE volunteerService SET duration = #{newtime} WHERE studentID = #{studentID}")
+    void updateTime(Integer studentID, Double time, Double newtime);
 }
