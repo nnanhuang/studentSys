@@ -4,27 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1ebd37f2-da71-4426-8bed-45febf57912b" name="变更" comment="yy-commit0621">
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/auto-imports.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/auto-imports.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/components.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/components.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/src/components/sidebar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/src/components/sidebar.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/src/router/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/src/router/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/src/views/checkgpa.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/src/views/checkgpa.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/src/views/checkvolun.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/src/views/checkvolun.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/src/views/pwGPA.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/src/views/pwGPA.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/src/views/pwVolun.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/src/views/pwVolun.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/vite.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/vite.config.ts" afterDir="false" />
+    <list default="true" id="1ebd37f2-da71-4426-8bed-45febf57912b" name="变更" comment="yy-commit0622">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zongceSystem0517/src/main/java/com/example/agile0509/controller/AssessController.java" beforeDir="false" afterPath="$PROJECT_DIR$/zongceSystem0517/src/main/java/com/example/agile0509/controller/AssessController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zongceSystem0517/src/main/java/com/example/agile0509/mapper/ScoreMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/zongceSystem0517/src/main/java/com/example/agile0509/mapper/ScoreMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zongceSystem0517/src/main/java/com/example/agile0509/mapper/VolunteerMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/zongceSystem0517/src/main/java/com/example/agile0509/mapper/VolunteerMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zongceSystem0517/src/main/java/com/example/agile0509/pojo/Score.java" beforeDir="false" afterPath="$PROJECT_DIR$/zongceSystem0517/src/main/java/com/example/agile0509/pojo/Score.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zongceSystem0517/src/main/java/com/example/agile0509/pojo/VolunteerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/zongceSystem0517/src/main/java/com/example/agile0509/pojo/VolunteerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zongceSystem0517/src/main/java/com/example/agile0509/toExcel/GpaExcelComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/zongceSystem0517/src/main/java/com/example/agile0509/toExcel/GpaExcelComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zongceSystem0517/src/main/java/com/example/agile0509/vo/GPAUpdateReqVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/zongceSystem0517/src/main/java/com/example/agile0509/vo/GPAUpdateReqVo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zongceSystem0517/src/main/java/com/example/agile0509/vo/StuGPAReqVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/zongceSystem0517/src/main/java/com/example/agile0509/vo/StuGPAReqVo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zongceSystem0517/src/main/java/com/example/agile0509/vo/StuVolunteerReqVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/zongceSystem0517/src/main/java/com/example/agile0509/vo/StuVolunteerReqVo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zongceSystem0517/src/main/resources/mapper/ScoreMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/zongceSystem0517/src/main/resources/mapper/ScoreMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,7 +126,7 @@
       <workItem from="1687335737862" duration="590000" />
       <workItem from="1687336645075" duration="648000" />
       <workItem from="1687338516600" duration="7537000" />
-      <workItem from="1687451298067" duration="1364000" />
+      <workItem from="1687451298067" duration="2001000" />
     </task>
     <task id="LOCAL-00001" summary="yy-commit0621">
       <created>1687337737155</created>
@@ -154,7 +135,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687337737155</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="yy-commit0622">
+      <created>1687458205431</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1687458205431</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -174,7 +162,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="commit0621" />
     <MESSAGE value="yy-commit0621" />
-    <option name="LAST_COMMIT_MESSAGE" value="yy-commit0621" />
+    <MESSAGE value="yy-commit0622" />
+    <option name="LAST_COMMIT_MESSAGE" value="yy-commit0622" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
