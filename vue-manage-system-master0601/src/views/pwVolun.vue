@@ -27,6 +27,13 @@
         </el-col>
     </el-row>
     <div class="space2"></div>
+    <!-- 
+      <el-select v-model="filterStatus" placeholder="选择状态" @change="handleStatusChange">
+      <el-option value="">全部</el-option>
+      <el-option value="已修改">已修改</el-option>
+      <el-option value="未修改">未修改</el-option>
+    </el-select>
+     -->
     <el-table :data="paginatedVolunteers"   stripe  border  bordereight="250" style="width: 100%">
       <el-table-column type="index" width="50"></el-table-column>
       <el-table-column prop="name" label="姓名">
@@ -64,6 +71,13 @@
             </template>
             -->
       </el-table-column>
+      <el-table-column prop="status" label="状态" :filters="statusFilters" :filter-method="handleStatusFilter">
+         <template #default="scope">
+         <div :class="{ 'highlighted-row': scope.row.isHighlighted }">
+         {{ scope.row.status }}
+         </div>
+         </template>
+         </el-table-column>
       <el-table-column prop="action1" label="操作" fixed="right">
         <template #default="scope">
           <el-button type="link" @click="showDialog1(scope.row)">查看</el-button>
@@ -90,6 +104,9 @@
         <el-form-item label="志愿时长">
           <el-input v-model="currentVolunteer.hours" disabled></el-input>
         </el-form-item>
+        <el-form-item label="状态">
+              <el-input v-model="currentVolunteer.status" disabled></el-input>
+        </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
         <el-button type="primary" @click="submitForm1">刷 新</el-button>
@@ -107,6 +124,9 @@
         </el-form-item>
         <el-form-item label="学苑">
           <el-input v-model="currentVolunteer.department" disabled></el-input>
+        </el-form-item>
+        <el-form-item label="状态">
+              <el-input v-model="currentVolunteer.status" disabled></el-input>
         </el-form-item>
         <el-form-item label="已录入时长">
           <el-input v-model="currentVolunteer.hours" disabled></el-input>
@@ -156,11 +176,37 @@ export default {
 
       return crumbs;
     },
-    paginatedVolunteers() {
-      const start = (this.queryInfo.pagenum - 1) * this.queryInfo.pagesize;
-      const end = start + this.queryInfo.pagesize;
-      return this.volunteers.slice(start, end);
-    },
+    /*
+    filteredVolunteers() {
+    if (!this.volunteers || this.volunteers.length === 0) {
+      return []; // 如果 volunteers 为空或未请求到，返回一个空数组
+    }
+    console.log(this.filteredStatus)
+    if (this.filteredStatus === '') {
+      return this.volunteers; // 如果筛选状态为空，则返回所有志愿者数据
+    } else {
+      return this.volunteers.filter((volunteer) => this.filteredStatus.includes(volunteer.status));
+    }
+  },
+  */
+  paginatedVolunteers() {
+    const start = (this.queryInfo.pagenum - 1) * this.queryInfo.pagesize;
+    const end = start + this.queryInfo.pagesize;
+
+    return this.volunteers.slice(start, end);
+    /*
+    let slicedVolunteers = this.filteredVolunteers.slice(start, end);
+
+    // 如果当前页数据不足 pagesize，并且还有剩余数据需要补齐
+    if (slicedVolunteers.length < this.queryInfo.pagesize && end < this.filteredVolunteers.length) {
+      const remainingCount = this.queryInfo.pagesize - slicedVolunteers.length;
+      const remainingVolunteers = this.filteredVolunteers.slice(end, end + remainingCount);
+      slicedVolunteers = slicedVolunteers.concat(remainingVolunteers);
+    }
+
+    return slicedVolunteers;
+    */
+  }
   },
   data() {
     return {
@@ -178,10 +224,19 @@ export default {
       ],
       currentVolunteer: {},
       checkVisible: false,
-      applyVisible: false
+      applyVisible: false,
+      statusFilters: [ // 筛选选项
+        { text: '已修改', value: '已修改' },
+        { text: '未修改', value: '未修改' }
+      ],
+      filteredStatus: '' // 筛选的状态值
     };
   },
   methods: {
+    handleStatusFilter(value, row) {
+      //this.filteredStatus = value; // 将选中的筛选值赋给 filteredStatus
+      return row.status === value; // 根据状态值进行筛选
+    },
     getIndex(index){
       console.log(index);
     },

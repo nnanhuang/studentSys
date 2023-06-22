@@ -27,6 +27,7 @@ import { useTagsStore } from '../store/tags';
 import vHeader from '../components/header.vue';
 import vSidebar from '../components/sidebar.vue';
 import vTags from '../components/tags.vue';
+import { getStuGPA } from "../api/getStuInfo.js";
 export default {
   computed: {
     crumbs() {
@@ -53,8 +54,20 @@ export default {
     };
   },
   methods: {
-   
+    getGPA() {
+      getStuGPA().then((response) => {
+        const userData = response.data;
+        this.user.stu_no = userData.stuNo;
+        this.user.year = userData.year;
+        this.user.GPA = userData.gpa;
+      }).catch((error) => {
+        console.error("Failed to get student GPA:", error);
+      });
+    },
   },
+  mounted() {
+    this.getGPA();
+  }
 };
 </script>
 

@@ -1,5 +1,8 @@
 package com.example.agile0509.vo;
 
+import lombok.Data;
+
+@Data
 public class GPAUpdateReqVo {
     private Integer id;
     private String gpa;

@@ -17,4 +17,6 @@ public class VolunteerService {
 
     public Double duration;
 
+    public Boolean status;
+
 }

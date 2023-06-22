@@ -16,4 +16,6 @@ public class Score {
 
     public String score;
 
+    public Boolean status;
+
 }

@@ -25,7 +25,7 @@ const routes: RouteRecordRaw[] = [
                 path: '/checkgpa',
                 name: 'checkgpa',
                 meta: {
-                    title: '确认成绩',
+                    title: '我的成绩',
                     permiss: '16',
                 },
                 component: () => import(/* webpackChunkName: "table" */ '../views/checkgpa.vue'),
@@ -34,7 +34,7 @@ const routes: RouteRecordRaw[] = [
                 path: '/checkvolun',
                 name: 'checkvolun',
                 meta: {
-                    title: '确认志愿时长',
+                    title: '我的志愿时长',
                     permiss: '17',
                 },
                 component: () => import(/* webpackChunkName: "" */ '../views/checkvolun.vue'),

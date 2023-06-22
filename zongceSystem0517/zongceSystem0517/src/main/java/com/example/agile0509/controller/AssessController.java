@@ -64,6 +64,7 @@ public class AssessController {
             stugpaReqVO.setId(studentId);
             stugpaReqVO.setDepartment(department);
             stugpaReqVO.setGpa(score.score);
+            stugpaReqVO.setStatus(score.getStatus() ? "已修改" : "未修改"); // 设置状态值
 
             studentList.add(stugpaReqVO);
         }
@@ -85,10 +86,10 @@ public class AssessController {
         CommonResult<String> result;
         if(pastgpa!= request.getNewgpa()&pastgpa.equals(request.getGpa())&request.getNewgpa()!=null) {//新申请的成绩不得为空，否则会损坏数据库
             // 更新用户信息
-            scoreMapper.updateScore(request.getId(), request.getGpa(), request.getNewgpa());
+            scoreMapper.updateScoreAndStatus(request.getId(), request.getGpa(), request.getNewgpa(),true);
             result = CommonResult.success("成绩信息修改成功！");
         }else{
-            result = CommonResult.success("成绩信息修改失败");
+            result = CommonResult.error(400,"成绩信息修改失败");
         }
         return result;
     }
@@ -120,6 +121,7 @@ public class AssessController {
             stuvolunteerReqVO .setId(studentId);
             stuvolunteerReqVO .setDepartment(department);
             stuvolunteerReqVO .setHours(volunteer.duration);
+            stuvolunteerReqVO.setStatus(volunteer.getStatus() ? "已修改" : "未修改"); // 设置状态值
 
             studentList.add(stuvolunteerReqVO);
         }
@@ -139,7 +141,7 @@ public class AssessController {
         CommonResult<String> result;
         if(pasttime!= request.getNewtime()&pasttime.equals(request.getTime())&request.getNewtime()!=null) {//新申请的时长不得为空，否则会损坏数据库
             // 更新用户信息
-            volunteerMapper.updateTime(request.getId(), request.getTime(), request.getNewtime());
+            volunteerMapper.updateTimeAndStatus(request.getId(), request.getTime(), request.getNewtime(),true);
             result = CommonResult.success("志愿时长信息修改成功！");
         }else{
             result = CommonResult.success("志愿时长信息修改失败");

@@ -58,6 +58,14 @@
             </div>
             </template>
           </el-table-column>
+          <el-table-column prop="status" label="状态" :filters="statusFilters" :filter-method="handleStatusFilter">
+         <template #default="scope">
+         <div :class="{ 'highlighted-row': scope.row.isHighlighted }">
+         {{ scope.row.status }}
+         </div>
+         </template>
+         </el-table-column>
+
           <el-table-column prop="action1" label="操作" fixed="right">
             <template #default="scope">
               <el-button type="link" @click="show1(scope.row)">查看</el-button>
@@ -95,6 +103,9 @@
             <el-form-item label="绩点">
               <el-input v-model="currentStudent.gpa" disabled></el-input>
             </el-form-item>
+            <el-form-item label="状态">
+              <el-input v-model="currentStudent.status" disabled></el-input>
+            </el-form-item>
           </el-form>
           <div slot="footer" class="dialog-footer">
             <el-button type="primary" @click="submitForm1">刷 新</el-button>
@@ -114,6 +125,9 @@
             </el-form-item>
             <el-form-item label="学苑">
               <el-input v-model="currentStudent.department" disabled></el-input>
+            </el-form-item>
+            <el-form-item label="状态">
+              <el-input v-model="currentStudent.status" disabled></el-input>
             </el-form-item>
             <el-form-item label="已录入绩点">
               <el-input v-model="currentStudent.gpa" disabled></el-input>
@@ -217,12 +231,19 @@ export default {
       */
       Students: [],
       currentStudent: {},
-
       dialogVisible: false,
       applyVisible: false,
+      statusFilters: [ // 筛选选项
+        { text: '已修改', value: '已修改' },
+        { text: '未修改', value: '未修改' }
+      ],
+      filteredStatus: '' // 筛选的状态值
     };
   },
   methods: {
+    handleStatusFilter(value, row) {
+      return row.status === value; // 根据状态值进行筛选
+    },
     getIndex(index){
       console.log(index);
     },

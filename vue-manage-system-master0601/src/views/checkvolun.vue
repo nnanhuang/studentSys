@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import {changePassword} from '../api/login.js'
+import { getStuVol } from "../api/getStuInfo.js";
 export default {
  computed: {
    crumbs() {
@@ -52,8 +52,20 @@ export default {
    };
  },
  methods: {
-   
+  getTime() {
+      getStuVol().then((response) => {
+        const userData = response.data;
+        this.user.stu_no = userData.stuNo;
+        this.user.year = userData.year;
+        this.user.time = userData.time;
+      }).catch((error) => {
+        console.error("Failed to get student volunteer time:", error);
+      });
+    },
  },
+ mounted() {
+    this.getTime();
+  },
 };
 </script>
 

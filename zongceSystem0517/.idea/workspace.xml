@@ -5,13 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1ebd37f2-da71-4426-8bed-45febf57912b" name="变更" comment="yy-commit0621">
-      <change afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-2WYNCBQA.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-2WYNCBQA.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/src/api/changeStuInfo.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/agile0509.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/zongceSystem0517/src/main/java/com/example/agile0509/vo/VolunUpdateReqVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/auto-imports.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/auto-imports.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/components.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/components.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/src/components/sidebar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/src/components/sidebar.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/src/router/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/src/router/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/src/views/checkgpa.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/src/views/checkgpa.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/src/views/checkvolun.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/src/views/checkvolun.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/src/views/pwGPA.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/src/views/pwGPA.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/src/views/pwVolun.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/src/views/pwVolun.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/vite.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/vite.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zongceSystem0517/src/main/java/com/example/agile0509/controller/AssessController.java" beforeDir="false" afterPath="$PROJECT_DIR$/zongceSystem0517/src/main/java/com/example/agile0509/controller/AssessController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zongceSystem0517/src/main/java/com/example/agile0509/mapper/ScoreMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/zongceSystem0517/src/main/java/com/example/agile0509/mapper/ScoreMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zongceSystem0517/src/main/java/com/example/agile0509/mapper/VolunteerMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/zongceSystem0517/src/main/java/com/example/agile0509/mapper/VolunteerMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zongceSystem0517/src/main/java/com/example/agile0509/pojo/Score.java" beforeDir="false" afterPath="$PROJECT_DIR$/zongceSystem0517/src/main/java/com/example/agile0509/pojo/Score.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zongceSystem0517/src/main/java/com/example/agile0509/pojo/VolunteerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/zongceSystem0517/src/main/java/com/example/agile0509/pojo/VolunteerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zongceSystem0517/src/main/java/com/example/agile0509/toExcel/GpaExcelComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/zongceSystem0517/src/main/java/com/example/agile0509/toExcel/GpaExcelComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zongceSystem0517/src/main/java/com/example/agile0509/vo/GPAUpdateReqVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/zongceSystem0517/src/main/java/com/example/agile0509/vo/GPAUpdateReqVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zongceSystem0517/src/main/java/com/example/agile0509/vo/StuGPAReqVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/zongceSystem0517/src/main/java/com/example/agile0509/vo/StuGPAReqVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zongceSystem0517/src/main/java/com/example/agile0509/vo/StuVolunteerReqVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/zongceSystem0517/src/main/java/com/example/agile0509/vo/StuVolunteerReqVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zongceSystem0517/src/main/resources/mapper/ScoreMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/zongceSystem0517/src/main/resources/mapper/ScoreMapper.xml" afterDir="false" />
     </list>
-    <list id="9b37907d-dae9-4d00-8091-a8eecd6bbc2f" name="新的变更列表" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -118,7 +132,6 @@
   <component name="TaskManager">
     <task active="true" id="Default" summary="默认任务">
       <changelist id="1ebd37f2-da71-4426-8bed-45febf57912b" name="变更" comment="" />
-      <changelist id="9b37907d-dae9-4d00-8091-a8eecd6bbc2f" name="新的变更列表" comment="" />
       <created>1686757473791</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -131,6 +144,8 @@
       <workItem from="1686761183859" duration="23562000" />
       <workItem from="1687335737862" duration="590000" />
       <workItem from="1687336645075" duration="648000" />
+      <workItem from="1687338516600" duration="7537000" />
+      <workItem from="1687451298067" duration="1364000" />
     </task>
     <task id="LOCAL-00001" summary="yy-commit0621">
       <created>1687337737155</created>

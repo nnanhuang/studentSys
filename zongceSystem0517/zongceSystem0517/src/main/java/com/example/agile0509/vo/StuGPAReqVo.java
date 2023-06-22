@@ -8,6 +8,7 @@ public class StuGPAReqVo {
     private Integer id;
     private String department;
     private String gpa;
+    private String status;
 
     public StuGPAReqVo() {
     }

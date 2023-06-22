@@ -15,6 +15,6 @@ public interface VolunteerMapper extends BaseMapper<VolunteerService>,BatchInser
 
     List<VolunteerService> getVolunteers();
 
-    @Update("UPDATE volunteerService SET duration = #{newtime} WHERE studentID = #{studentID}")
-    void updateTime(Integer studentID, Double time, Double newtime);
+    @Update("UPDATE volunteerService SET duration = #{newtime}, status = #{status} WHERE studentID = #{studentID}")
+    void updateTimeAndStatus(Integer studentID, Double time, Double newtime,Boolean status);
 }
