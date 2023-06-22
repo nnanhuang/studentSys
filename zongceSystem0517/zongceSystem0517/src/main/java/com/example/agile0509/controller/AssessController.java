@@ -10,6 +10,7 @@ import com.example.agile0509.pojo.StudentInfo;
 import com.example.agile0509.pojo.User;
 import com.example.agile0509.pojo.VolunteerService;
 import com.example.agile0509.utils.JwtTokenUtil;
+import com.example.agile0509.vo.VolunUpdateReqVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -46,9 +47,6 @@ public class AssessController {
 
         User foundUser = userMapper.findByUsername(username);
 
-        if(!foundUser.getRole().equals("评委")){
-            return CommonResult.error(403, "没有该权限，禁止访问");
-        }
 
         List<Score> scores = scoreMapper.getScores();
         List<StuGPAReqVo> studentList = new ArrayList<>();
@@ -66,6 +64,7 @@ public class AssessController {
             stugpaReqVO.setId(studentId);
             stugpaReqVO.setDepartment(department);
             stugpaReqVO.setGpa(score.score);
+            stugpaReqVO.setStatus(score.getStatus() ? "已修改" : "未修改"); // 设置状态值
 
             studentList.add(stugpaReqVO);
         }
@@ -80,20 +79,17 @@ public class AssessController {
         String username = jwtTokenUtil.getUsernameFromToken(token);
 
         User foundUser = userMapper.findByUsername(username);
-        if(!foundUser.getRole().equals("评委")){
-            return CommonResult.error(403, "没有该权限，禁止访问");
-        }
 
         // 从数据库中获取成绩信息
         String pastgpa = scoreMapper.getGpaByStudentId(request.getId());
 
         CommonResult<String> result;
-        if(pastgpa!= request.getNewgpa()&foundUser.getRole().equals("评委")) {
+        if(pastgpa!= request.getNewgpa()&pastgpa.equals(request.getGpa())&request.getNewgpa()!=null) {//新申请的成绩不得为空，否则会损坏数据库
             // 更新用户信息
-            scoreMapper.updateScore(request.getId(), request.getGpa(), request.getNewgpa());
+            scoreMapper.updateScoreAndStatus(request.getId(), request.getGpa(), request.getNewgpa(),true);
             result = CommonResult.success("成绩信息修改成功！");
         }else{
-            result = CommonResult.success("成绩信息修改失败");
+            result = CommonResult.error(400,"成绩信息修改失败");
         }
         return result;
     }
@@ -107,9 +103,6 @@ public class AssessController {
 
         User foundUser = userMapper.findByUsername(username);
 
-        if(!foundUser.getRole().equals("评委")){
-            return CommonResult.error(403, "没有该权限，禁止访问");
-        }
 
         List<VolunteerService> volunteers = volunteerMapper.getVolunteers();
         List<StuVolunteerReqVo> studentList = new ArrayList<>();
@@ -128,10 +121,32 @@ public class AssessController {
             stuvolunteerReqVO .setId(studentId);
             stuvolunteerReqVO .setDepartment(department);
             stuvolunteerReqVO .setHours(volunteer.duration);
+            stuvolunteerReqVO.setStatus(volunteer.getStatus() ? "已修改" : "未修改"); // 设置状态值
 
             studentList.add(stuvolunteerReqVO);
         }
 
         return CommonResult.success(studentList);
     }
+
+    @PostMapping("/changeVolunteer")
+    public CommonResult<?> updateGPAInfo(@RequestHeader("Authorization") String authHeader, @RequestBody VolunUpdateReqVo request) {
+        // 解析Authorization请求头中的JWT令牌 Bearer access_token
+        String token = authHeader.substring(7);
+        String username = jwtTokenUtil.getUsernameFromToken(token);
+
+        // 从数据库中获取时长信息
+        Double pasttime = volunteerMapper.getTimeByStudentId(request.getId());
+
+        CommonResult<String> result;
+        if(pasttime!= request.getNewtime()&pasttime.equals(request.getTime())&request.getNewtime()!=null) {//新申请的时长不得为空，否则会损坏数据库
+            // 更新用户信息
+            volunteerMapper.updateTimeAndStatus(request.getId(), request.getTime(), request.getNewtime(),true);
+            result = CommonResult.success("志愿时长信息修改成功！");
+        }else{
+            result = CommonResult.success("志愿时长信息修改失败");
+        }
+        return result;
+    }
+
 }

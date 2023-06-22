@@ -8,6 +8,7 @@ public class StuVolunteerReqVo {
     private Integer id;
     private String department;
     private Double hours;
+    private String status;
 
     public StuVolunteerReqVo() {
     }

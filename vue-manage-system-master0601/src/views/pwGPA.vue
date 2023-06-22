@@ -16,12 +16,12 @@
               <el-button
                 slot="append"
                 icon="el-icon-search"
-                @click="handleCurrentChange(1)"
+                @click="searchStudent"
               ></el-button>
             </el-input>
           </el-col>
           <el-col :span="3">
-            <el-button type="primary" @click="goAddPage">搜索学生</el-button>
+            <el-button type="primary" @click="searchStudent">搜索学生</el-button>
           </el-col>
         </el-row>
 
@@ -30,13 +30,45 @@
         <div class="space2"></div>
         <el-table :data="paginatedStudents" stripe border bordereight="250" style="width: 100%" v-slot="scope">
           <el-table-column type="index" width="50"></el-table-column>
-          <el-table-column prop="name" label="姓名"></el-table-column>
-          <el-table-column prop="id" label="学号"></el-table-column>
-          <el-table-column prop="department" label="学苑"></el-table-column>
-          <el-table-column prop="gpa" label="绩点"></el-table-column>
+          <el-table-column prop="name" label="姓名">
+            <template #default="scope">
+            <div :class="{ 'highlighted-row': scope.row.isHighlighted }">
+              {{ scope.row.name }}
+            </div>
+            </template>
+          </el-table-column>
+          <el-table-column prop="id" label="学号">
+            <template #default="scope">
+            <div :class="{ 'highlighted-row': scope.row.isHighlighted }">
+              {{ scope.row.id }}
+            </div>
+            </template>
+          </el-table-column>
+          <el-table-column prop="department" label="学苑">
+            <template #default="scope">
+            <div :class="{ 'highlighted-row': scope.row.isHighlighted }">
+              {{ scope.row.department }}
+            </div>
+            </template>
+          </el-table-column>
+          <el-table-column prop="gpa" label="绩点">
+            <template #default="scope">
+            <div :class="{ 'highlighted-row': scope.row.isHighlighted }">
+              {{ scope.row.gpa }}
+            </div>
+            </template>
+          </el-table-column>
+          <el-table-column prop="status" label="状态" :filters="statusFilters" :filter-method="handleStatusFilter">
+         <template #default="scope">
+         <div :class="{ 'highlighted-row': scope.row.isHighlighted }">
+         {{ scope.row.status }}
+         </div>
+         </template>
+         </el-table-column>
+
           <el-table-column prop="action1" label="操作" fixed="right">
             <template #default="scope">
-              <el-button type="text" @click="show1(scope.row)">查看</el-button>
+              <el-button type="link" @click="show1(scope.row)">查看</el-button>
             </template>
           </el-table-column>
           <el-table-column prop="action2" label="操作" fixed="right">
@@ -46,13 +78,14 @@
           </el-table-column>
         </el-table>
 
+        <!--  
         <el-table style="width: 100%" border :data="tableData" v-slot="scope">
           <template v-for="(item,index) in tableHead">
             <el-table-column :prop="item.column_name" :label="item.column_comment" :key="index" v-if="item.column_name != 'id'" @click='getIndex(index)'></el-table-column>
           </template>
           {{scope.row}}
         </el-table>
-
+       -->
 
 
         
@@ -69,6 +102,9 @@
             </el-form-item>
             <el-form-item label="绩点">
               <el-input v-model="currentStudent.gpa" disabled></el-input>
+            </el-form-item>
+            <el-form-item label="状态">
+              <el-input v-model="currentStudent.status" disabled></el-input>
             </el-form-item>
           </el-form>
           <div slot="footer" class="dialog-footer">
@@ -90,6 +126,9 @@
             <el-form-item label="学苑">
               <el-input v-model="currentStudent.department" disabled></el-input>
             </el-form-item>
+            <el-form-item label="状态">
+              <el-input v-model="currentStudent.status" disabled></el-input>
+            </el-form-item>
             <el-form-item label="已录入绩点">
               <el-input v-model="currentStudent.gpa" disabled></el-input>
             </el-form-item>
@@ -102,6 +141,7 @@
             <el-button @click="applyVisible = false">取 消</el-button>
           </div>
         </el-dialog>
+        
         <el-pagination
           @size-change="handleSizeChange"
           @current-change="handleCurrentChange"
@@ -116,7 +156,10 @@
     </div>
   </Transition>
 </template>
+
 <script>
+import { checkStuGPA } from "../api/changeStuInfo.js";
+import { changeGPA } from "../api/changeStuInfo.js";
 export default {
   inheritAttrs: false,
   computed: {
@@ -145,6 +188,7 @@ export default {
         pagenum: 1,
         pagesize: 10
       },
+      /**
       Students: [
         { name: '张三', id: '10001', department: '软件学院', gpa: 2.0, applygpa: 2.0, status: '已通过' },
         { name: '李四', id: '10002', department: '计算机学院', gpa: 3.0, applygpa: 2.0, status: '审核中' },
@@ -184,13 +228,22 @@ export default {
           column_name: '关晓彤',
           column_sex: '女'
       }],
+      */
+      Students: [],
       currentStudent: {},
-
       dialogVisible: false,
       applyVisible: false,
+      statusFilters: [ // 筛选选项
+        { text: '已修改', value: '已修改' },
+        { text: '未修改', value: '未修改' }
+      ],
+      filteredStatus: '' // 筛选的状态值
     };
   },
   methods: {
+    handleStatusFilter(value, row) {
+      return row.status === value; // 根据状态值进行筛选
+    },
     getIndex(index){
       console.log(index);
     },
@@ -200,6 +253,43 @@ export default {
     handleCurrentChange(newPage) {
       this.queryInfo.pagenum = newPage;
     },
+    searchStudent() {
+      const studentId = this.queryInfo.query;
+     if (studentId) {
+      const index = this.Students.findIndex((student) =>student.id.toString() === studentId);
+      //console.log(typeof this.Students[0].id);//number类型，即int
+      //console.log(typeof studentId);//string类型，因此要进行类型转换后再对比
+      if (index !== -1) {
+      const pageSize = this.queryInfo.pagesize;
+      const pageNum = Math.ceil((index + 1) / pageSize);
+      this.queryInfo.pagenum = pageNum;
+        // 将匹配到的学生行设为高亮
+        this.Students.forEach((student, idx) => {
+            student.isHighlighted = idx === index;
+          });
+      // 滚动页面到匹配的学生行
+      this.$nextTick(() => {
+        this.scrollToRow(index);
+      });
+     } else {
+      // 如果学号不存在，给出相应的提示或处理逻辑
+      console.log('学号不存在');
+    }
+     }
+  },
+  scrollToRow(index) {
+  const currentPage = this.queryInfo.pagenum;
+  const pageSize = this.queryInfo.pagesize;
+  const startIndex = (currentPage - 1) * pageSize;
+  const relativeIndex = index - startIndex;
+  const table = document.querySelector('.el-table__body-wrapper');
+  console.log(table);
+  const row = table.querySelector(`.el-table__row`);
+  if (row) {
+    row.scrollIntoView({ behavior: 'smooth' });
+  }
+},
+    /*
     getStudentList() {
       // TODO: Implement the logic to retrieve student list based on the queryInfo
       // You can make an API request or filter the existing student list.
@@ -207,6 +297,7 @@ export default {
     goAddPage() {
       this.$router.push("goods/add");
     },
+    */
     show1(row) {
       console.log(row)
       this.currentStudent = Object.assign({}, row);
@@ -224,20 +315,46 @@ export default {
       this.applyVisible = true;
     },
     submitForm1() {
-      this.dialogVisible = true;
-      // TODO: Update current Student's gpa
-      this.currentStudent.gpa = this.currentStudent.newgpa;
+      this.dialogVisible = false;
+      this.$nextTick(() => {
+        this.fetchStudentGPAList();
+      });
     },
     submitForm2() {
-      this.applyVisible = true;
-      // TODO: Update current Student's gpa
-      this.currentStudent.gpa = this.currentStudent.newgpa;
+      console.log(this.currentStudent.id, this.currentStudent.gpa, this.currentStudent.newgpa)
+      // 调用评委修改学生成绩的方法
+      changeGPA(this.currentStudent.id, this.currentStudent.gpa, this.currentStudent.newgpa)
+        .then(response => {
+          // 处理成功响应
+          console.log(response.data);  // 可根据需要进行处理
+        this.applyVisible = false;
+        this.$nextTick(() => {
+        this.fetchStudentGPAList();
+      });
+        })
+        .catch(error => {
+          // 处理错误响应
+          console.error(error);  // 可根据需要进行处理
+        });
     },
-
-  },}
-  
+    fetchStudentGPAList() {
+      checkStuGPA().then(response => {
+        this.Students = response.data;
+      }).catch(error => {
+        console.log(error);
+      });
+    },
+  },
+  mounted() {
+    this.fetchStudentGPAList();
+  }
+}
 </script>
+
 <style>
+.highlighted-row {
+  background-color: #c6f3af;
+}
 .centered-title {
   text-align: center;
 }

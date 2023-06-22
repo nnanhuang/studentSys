@@ -9,8 +9,8 @@
         SELECT * FROM score
     </select>
     <!-- 更新分数 -->
-    <update id="updateScore" parameterType="com.example.agile0509.pojo.Score">
-        UPDATE score SET score = #{newgpa} WHERE studentID = #{id}
+    <update id="updateScoreAndStatus" parameterType="com.example.agile0509.pojo.Score">
+        UPDATE score SET score = #{newgpa} , status = #{status} WHERE studentID = #{id}
     </update>
 
     <insert id="batchInsert" parameterType="list">

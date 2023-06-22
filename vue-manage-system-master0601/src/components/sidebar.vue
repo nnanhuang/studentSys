@@ -151,12 +151,12 @@ const items = [
         subs: [
             {
                 index: '/checkgpa',
-                title: '确认成绩',
+                title: '我的成绩',
                 permiss: '16',
             },
             {
                 index: '/checkvolun',
-                title: '确认志愿时长',
+                title: '我的志愿时长',
                 permiss: '17',
             },
             {

@@ -15,5 +15,5 @@ public interface ScoreMapper extends BaseMapper<Score>,BatchInsertMapper<Score>{
 
     List<Score> getScores();
 
-    void updateScore(Integer id, String gpa, String newgpa);
+    void updateScoreAndStatus(Integer id, String gpa, String newgpa,Boolean status);
 }

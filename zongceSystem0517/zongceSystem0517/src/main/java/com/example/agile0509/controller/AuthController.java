@@ -34,6 +34,7 @@ public class AuthController {
     @Autowired
     private JwtTokenUtil jwtTokenUtil;
 
+    /*
     @PostMapping("/login")
     public CommonResult<?> login(@RequestBody StuLoginVo stuLogin) {
         System.out.println(stuLogin);
@@ -50,6 +51,32 @@ public class AuthController {
         //添加角色验证逻辑
 
         String username = stuLogin.getUsername();
+
+        // 生成访问令牌和刷新令牌
+        String accessToken = jwtTokenUtil.generateAccessToken(username);
+        String refreshToken = jwtTokenUtil.generateRefreshToken(username);
+        TokenReqVO token_resp = new TokenReqVO(accessToken, refreshToken);
+
+        CommonResult<TokenReqVO> result = CommonResult.success(token_resp);
+
+        return result;
+    }*/
+    @PostMapping("/login")
+    public CommonResult<?> login(@RequestBody LoginReqVO loginUser) {
+
+        User user = userMapper.findByUsername(loginUser.getUsername());
+
+        if (user == null) {
+            return CommonResult.error(50007, "登录失败，账号密码不正确");
+        }
+
+        if (!loginUser.getPassword().equals(user.getPassword())) {
+            return CommonResult.error(50007, "登录失败，账号密码不正确");
+        }
+
+        //添加角色验证逻辑
+
+        String username = loginUser.getUsername();
 
         // 生成访问令牌和刷新令牌
         String accessToken = jwtTokenUtil.generateAccessToken(username);
