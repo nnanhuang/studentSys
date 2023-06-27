@@ -35,10 +35,15 @@ public class StudentInfoController {
     private ExcelComponent excelComponent;
 
 
-    @PostMapping("/upload")
-    public Boolean updown(@RequestParam("file") MultipartFile file) throws IOException {
-        excelComponent.importConsumerFile(file);
-        return true;
+    @RequestMapping("/upload")
+    public CommonResult<String> updown(@RequestParam("file") MultipartFile file){
+        try{
+            excelComponent.importConsumerFile(file);
+        } catch (IOException e) {
+            return CommonResult.error(522,"上传失败");
+        }
+
+        return CommonResult.success("上传成功");
     }
 
     @RequestMapping("/getList")

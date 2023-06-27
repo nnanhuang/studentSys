@@ -66,6 +66,6 @@ public class StudentInfo {
     private String political;
 
     @ExcelProperty(value = "stu_type", index = 15)
-    private String stutype;
+    private String stuType;
 
 }

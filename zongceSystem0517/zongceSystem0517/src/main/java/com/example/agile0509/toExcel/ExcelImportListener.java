@@ -21,7 +21,7 @@ public abstract class ExcelImportListener<T> implements ReadListener<T> {
     /**
      * 缓存大小,100条数据写入一次数据库
      */
-    private static final int BATCH_SIZE = 100;
+    private static final int BATCH_SIZE = 10;
 
     /**
      * 缓存数据,用来存储缓存数据()
@@ -44,7 +44,9 @@ public abstract class ExcelImportListener<T> implements ReadListener<T> {
 
     @Override
     public void doAfterAllAnalysed(AnalysisContext analysisContext) {
-        getMapper().batchInsert(cacheList);
+        if(cacheList.size() > 0){
+            getMapper().batchInsert(cacheList);
+        }
         log.info("完成最后一批Excel记录的导入，条数为：{}", cacheList.size());
     }
 
