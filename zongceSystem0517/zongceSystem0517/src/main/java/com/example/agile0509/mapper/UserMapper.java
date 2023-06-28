@@ -2,6 +2,7 @@ package com.example.agile0509.mapper;
 
 import com.example.agile0509.pojo.User;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -14,4 +15,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UserMapper {
     User findByUsername(String username);
+
+    @Select("SELECT id FROM user WHERE username=#{username}")
+    int getUserIdByUsername(String username);
 }

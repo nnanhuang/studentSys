@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1ebd37f2-da71-4426-8bed-45febf57912b" name="变更" comment="yy-commit0622">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="1ebd37f2-da71-4426-8bed-45febf57912b" name="变更" comment="yy-commit 动态菜单">
+      <change afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/src/api/dynamicRBAC.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +19,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -33,7 +34,7 @@
     </option>
     <option name="myId2Visible">
       <map>
-        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="false" />
       </map>
     </option>
   </component>
@@ -65,6 +66,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="SDK" />
@@ -74,7 +76,16 @@
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.example.agile0509.service" />
+      <recent name="com.example.agile0509.service.impl" />
       <recent name="com.example.agile0509.vo" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.agile0509.vo" />
+      <recent name="com.example.agile0509.mapper" />
+      <recent name="com.example.agile0509.pojo" />
+      <recent name="com.example.agile0509.service.impl" />
+      <recent name="com.example.agile0509.controller" />
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.Application">
@@ -126,7 +137,8 @@
       <workItem from="1687335737862" duration="590000" />
       <workItem from="1687336645075" duration="648000" />
       <workItem from="1687338516600" duration="7537000" />
-      <workItem from="1687451298067" duration="2001000" />
+      <workItem from="1687451298067" duration="2578000" />
+      <workItem from="1687884299660" duration="11678000" />
     </task>
     <task id="LOCAL-00001" summary="yy-commit0621">
       <created>1687337737155</created>
@@ -142,7 +154,28 @@
       <option name="project" value="LOCAL" />
       <updated>1687458205431</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="yy-commit0622">
+      <created>1687460393763</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1687460393763</updated>
+    </task>
+    <task id="LOCAL-00004" summary="yy-commit 动态菜单">
+      <created>1687972602426</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1687972602426</updated>
+    </task>
+    <task id="LOCAL-00005" summary="yy-commit 动态菜单">
+      <created>1687972969852</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1687972969853</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -163,7 +196,8 @@
     <MESSAGE value="commit0621" />
     <MESSAGE value="yy-commit0621" />
     <MESSAGE value="yy-commit0622" />
-    <option name="LAST_COMMIT_MESSAGE" value="yy-commit0622" />
+    <MESSAGE value="yy-commit 动态菜单" />
+    <option name="LAST_COMMIT_MESSAGE" value="yy-commit 动态菜单" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
