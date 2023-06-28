@@ -50,12 +50,14 @@
     </div>
 </template>
 
-<script setup lang="ts">
+<script setup> //lang="ts"
 import { computed } from 'vue';
-import { useSidebarStore } from '../store/sidebar';
+import { useSidebarStore } from '../store/sidebar.ts';
 import { useRoute } from 'vue-router';
+import {getMenu} from "../api/dynamicRBAC.js";
 
 const items = [
+    /*
     {
         icon: 'Odometer',
         index: '/dashboard',
@@ -69,31 +71,34 @@ const items = [
         permiss: '2',
         subs: [
             {
+                icon:'null',
                 index: '/import',
                 title: '导入学生信息',
                 permiss: '3',
                 subs: [
                     {
+                        icon:'null',
                         index: '/importExcel',
                         title: '导入基本信息',
-                        permiss: '3',
+                        permiss: '4',
+                        subs:[]
                     },
                     {
                         index: '/importGpa',
                         title: '导入成绩信息',
-                        permiss: '4',
+                        permiss: '5',
                     },
                     {
                         index: '/importVolun',
                         title: '导入志愿服务信息',
-                        permiss: '5',
+                        permiss: '6',
                     },
                 ],
             },
             {
                 index: '/ScoreSummary',
                 title: '导出学生信息',
-                permiss: '6',
+                permiss: '7',
             },
          
         ],
@@ -102,42 +107,42 @@ const items = [
         icon: 'Edit',
         index: '3',
         title: '评委模块',
-        permiss: '7',
+        permiss: '8',
         subs: [
             {
                 index: '/pwGPA',
                 title: '绩点审核',
-                permiss: '8',
+                permiss: '9',
             },
             {
                 index: '/pwVolun',
                 title: '志愿时长审核',
-                permiss: '9',
+                permiss: '10',
             },
             {
                 index: '4',
                 title: '各项打分',
-                permiss: '10',
+                permiss: '11',
                 subs: [
                     {
                         index: '/assessResearch',
                         title: '学生科研情况',
-                        permiss: '11',
+                        permiss: '12',
                     },
                     {
                         index: '/assessServePosition',
                         title: '学生骨干服务',
-                        permiss: '12',
+                        permiss: '13',
                     },
                     {
                         index: '/assessSocialActivity',
                         title: '学生社会实践',
-                        permiss: '13',
+                        permiss: '14',
                     },
                     {
                         index: '/assessStuConclusion',
                         title: '学生学年总结',
-                        permiss: '14',
+                        permiss: '15',
                     },
                 ],
             },
@@ -147,53 +152,53 @@ const items = [
         icon: 'Setting',
         index: '/icon',
         title: '学生模块',
-        permiss: '15',
+        permiss: '16',
         subs: [
             {
                 index: '/checkgpa',
                 title: '我的成绩',
-                permiss: '16',
+                permiss: '17',
             },
             {
                 index: '/checkvolun',
                 title: '我的志愿时长',
-                permiss: '17',
+                permiss: '18',
             },
             {
                 index: '/addInfo',
                 title: '基本信息填报',
-                permiss: '18',
+                permiss: '19',
             },
             {
                 index: '4',
                 title: '成绩信息填报',
-                permiss: '19',
+                permiss: '20',
                 subs: [
                     {
                         index: '/addResearch',
                         title: '科研情况',
-                        permiss: '20',
+                        permiss: '21',
                     },
                     {
                         index: '/addServePosition',
                         title: '骨干服务',
-                        permiss: '21',
+                        permiss: '22',
                     },
                     {
                         index: '/addSocial',
                         title: '社会实践',
-                        permiss: '22',
+                        permiss: '23',
                     },
                     {
                         index: '/Statement',
                         title: '学年总结',
-                        permiss: '23',
+                        permiss: '24',
                     },
                 ],
             },
         ],
     },
-    
+    */
 ];
 
 const route = useRoute();
@@ -202,6 +207,21 @@ const onRoutes = computed(() => {
 });
 
 const sidebar = useSidebarStore();
+
+async function fetchMenu() {
+  try {
+    const response = await getMenu(); // 调用getMenu函数获取菜单数据
+    console.log(response.data);
+    items.splice(0, items.length, ...response.data); // 使用响应数据更新items数组
+    console.log(items);
+    // 更新侧边栏菜单项
+    sidebar.setItems(items);
+  } catch (error) {
+    console.error('Failed to fetch menu:', error);
+  }
+}
+
+fetchMenu(); // 在页面加载时调用接口获取菜单
 </script>
 
 <style scoped>
