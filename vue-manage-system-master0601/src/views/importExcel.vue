@@ -6,6 +6,8 @@
         method="post"
         action="http://localhost:28080/studentInfo/upload"
         accept=".xlsx,.xls"
+        :on-success="handleAvatarSuccess"
+        :on-error="handleUploadError"
         :show-file-list="false"
         name="file"
       >
@@ -65,7 +67,17 @@ export default {
         console.log(res);
         this.stuInfoList = res.data;
       });
-    }
+    },
+    handleUploadError(err, file, fileList) { //上传失败钩子函数
+	    console.log('err', err)
+		  console.log('err', JSON.parse(err.message))
+		  if (file.status == 'fail') {
+			  ElMessage.error("上传失败")
+		  }
+    },
+    handleAvatarSuccess() { //上传成功
+	    ElMessage.success("上传成功！")
+    },
   }
 };
 </script>

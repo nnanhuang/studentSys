@@ -7,22 +7,22 @@
         values
         <foreach collection="list" item="item" index="index" separator=",">
             (
-            #{item.ID},
+            #{item.studentID},
             #{item.name},
             #{item.EnglishName},
-            #{item.social_ID},
-            #{item.stu_ID},
+            #{item.socialID},
+            #{item.stuNo},
             #{item.gender},
             #{item.phone},
             #{item.email},
             #{item.year},
-            #{item.school_ID},
+            #{item.schoolID},
             #{item.place},
             #{item.nationality},
             #{item.birthday},
             #{item.majorID},
             #{item.political},
-            #{item.stu_type}
+            #{item.stuType}
             )
         </foreach>
     </insert>

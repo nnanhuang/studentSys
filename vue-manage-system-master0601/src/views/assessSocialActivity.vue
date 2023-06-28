@@ -7,7 +7,7 @@
                 <div class="space2"></div>
                 <h1 class="centered-title">社会实践评委评分</h1>
                 <div class="space3"></div>
-                <el-table :data="socialList" stripe border bordereight="250" style="width: 100%">
+                <el-table :data="paginatedSocial" stripe border bordereight="250" style="width: 100%">
                     <el-table-column type="index" width="50"></el-table-column>
                     <el-table-column prop="name" label="姓名"></el-table-column>
                     <el-table-column prop="stuNo" label="学号"></el-table-column>
@@ -41,6 +41,17 @@
                         <el-button @click="applyVisible = false">取 消</el-button>
                     </div>
                 </el-dialog>
+                <el-pagination
+                    @size-change="handleSizeChange"
+                    @current-change="handleCurrentChange"
+                    :current-page="queryInfo.pagenum"
+                    :page-sizes="[10, 20, 50]"
+                    :page-size="queryInfo.pagesize"
+                    layout="total, sizes, prev, pager, next, jumper"
+                    :total="socialList.length"
+                    background
+                >
+                </el-pagination>
             </el-card>
         </div>
     </Transition>
@@ -72,12 +83,22 @@
                 const end = start + this.queryInfo.pagesize;
                 return this.Students.slice(start, end);
             },
+            paginatedSocial() {//名字根据内容而定
+                const start = (this.queryInfo.pagenum - 1) * this.queryInfo.pagesize;
+                const end = start + this.queryInfo.pagesize;
+                return this.socialList.slice(start, end);//此处也需要修改
+            },
         },
         data() {
             return {
                 socialList: [
                     {stuNo: '1', name: '11111', isAssess: "未评分", socialScore: null},
                 ],
+                queryInfo: {
+                    query: "",
+                    pagenum: 1,
+                    pagesize: 10
+                },
                 social: {},
                 scoreSum: {
                     socialScore: null,
@@ -99,6 +120,12 @@
         methods: {
             handleSizeChange(newSize) {
                 this.queryInfo.pagesize = newSize;
+            },
+            handleSizeChange(newSize) {
+                this.queryInfo.pagesize = newSize;
+                },
+                handleCurrentChange(newPage) {
+                this.queryInfo.pagenum = newPage;
             },
             handleCurrentChange(newPage) {
                 this.queryInfo.pagenum = newPage;
