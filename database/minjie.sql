@@ -11,7 +11,7 @@
  Target Server Version : 80030
  File Encoding         : 65001
 
- Date: 23/06/2023 02:57:46
+ Date: 30/06/2023 02:48:33
 */
 
 SET NAMES utf8mb4;
@@ -37,6 +37,49 @@ INSERT INTO `major` VALUES (4, '金融信息与工程管理系');
 INSERT INTO `major` VALUES (5, '数字艺术与艺术传播系');
 
 -- ----------------------------
+-- Table structure for nodes
+-- ----------------------------
+DROP TABLE IF EXISTS `nodes`;
+CREATE TABLE `nodes`  (
+  `id` int NOT NULL,
+  `type` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `icon` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `index` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `title` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT '0',
+  `permiss` int NULL DEFAULT NULL,
+  `parent_id` int NULL DEFAULT NULL,
+  INDEX `id`(`id` ASC) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of nodes
+-- ----------------------------
+INSERT INTO `nodes` VALUES (1, 'menu', 'Odometer', '/dashboard', '系统首页', 1, NULL);
+INSERT INTO `nodes` VALUES (2, 'menu', 'Calendar', '1', '学工模块', 2, NULL);
+INSERT INTO `nodes` VALUES (3, 'menu', NULL, '/import', '导入学生信息', 3, 2);
+INSERT INTO `nodes` VALUES (4, 'menu', NULL, '/importExcel', '导入基本信息', 4, 3);
+INSERT INTO `nodes` VALUES (5, 'menu', NULL, '/importGpa', '导入成绩信息', 5, 3);
+INSERT INTO `nodes` VALUES (6, 'menu', NULL, '/importVolun', '导入志愿服务信息', 6, 3);
+INSERT INTO `nodes` VALUES (7, 'menu', NULL, '/ScoreSummary', '导出学生信息', 7, 2);
+INSERT INTO `nodes` VALUES (8, 'menu', 'Edit', '3', '评委模块', 8, NULL);
+INSERT INTO `nodes` VALUES (9, 'menu', NULL, '/pwGPA', '绩点审核', 9, 8);
+INSERT INTO `nodes` VALUES (10, 'menu', NULL, '/pwVolun', '志愿时长审核', 10, 8);
+INSERT INTO `nodes` VALUES (11, 'menu', NULL, '4', '各项打分', 11, 8);
+INSERT INTO `nodes` VALUES (12, 'menu', NULL, '/assessResearch', '学生科研情况', 12, 11);
+INSERT INTO `nodes` VALUES (13, 'menu', NULL, '/assessServePosition', '学生骨干服务', 13, 11);
+INSERT INTO `nodes` VALUES (14, 'menu', NULL, '/assessSocialActivity', '学生社会实践', 14, 11);
+INSERT INTO `nodes` VALUES (15, 'menu', NULL, '/assessStuConclusion', '学生学年总结', 15, 11);
+INSERT INTO `nodes` VALUES (16, 'menu', 'Setting', '/icon', '学生模块', 16, NULL);
+INSERT INTO `nodes` VALUES (17, 'menu', NULL, '/checkgpa', '我的成绩', 17, 16);
+INSERT INTO `nodes` VALUES (18, 'menu', NULL, '/checkvolun', '我的志愿时长', 18, 16);
+INSERT INTO `nodes` VALUES (19, 'menu', NULL, '/addInfo', '基本信息填报', 19, 16);
+INSERT INTO `nodes` VALUES (20, 'menu', NULL, '4', '成绩信息填报', 20, 16);
+INSERT INTO `nodes` VALUES (21, 'menu', NULL, '/addResearch', '科研情况', 21, 20);
+INSERT INTO `nodes` VALUES (22, 'menu', NULL, '/addServePosition', '骨干服务', 22, 20);
+INSERT INTO `nodes` VALUES (23, 'menu', NULL, '/addSocial', '社会实践', 23, 20);
+INSERT INTO `nodes` VALUES (24, 'menu', NULL, '/Statement', '学年总结', 24, 20);
+
+-- ----------------------------
 -- Table structure for orgservice
 -- ----------------------------
 DROP TABLE IF EXISTS `orgservice`;
@@ -46,7 +89,7 @@ CREATE TABLE `orgservice`  (
   `time` varchar(50) CHARACTER SET utf16 COLLATE utf16_unicode_ci NULL DEFAULT NULL,
   `content` varchar(255) CHARACTER SET utf16 COLLATE utf16_unicode_ci NULL DEFAULT NULL,
   PRIMARY KEY (`ID`, `studentID`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf16 COLLATE = utf16_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf16 COLLATE = utf16_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of orgservice
@@ -54,6 +97,86 @@ CREATE TABLE `orgservice`  (
 INSERT INTO `orgservice` VALUES (1, '1', '哈哈哈哈', '哈哈哈哈');
 INSERT INTO `orgservice` VALUES (4, '2', '嘿嘿嘿黑', '急急急');
 INSERT INTO `orgservice` VALUES (5, '1', '阿斯顿发送到', '是打发点');
+
+-- ----------------------------
+-- Table structure for role
+-- ----------------------------
+DROP TABLE IF EXISTS `role`;
+CREATE TABLE `role`  (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of role
+-- ----------------------------
+INSERT INTO `role` VALUES (1, 'student');
+INSERT INTO `role` VALUES (2, 'admin');
+INSERT INTO `role` VALUES (3, 'social_judge');
+INSERT INTO `role` VALUES (4, 'sci_judge');
+INSERT INTO `role` VALUES (5, 'volunteer_judge');
+INSERT INTO `role` VALUES (6, 'org_judge');
+INSERT INTO `role` VALUES (7, 'sum_judge');
+INSERT INTO `role` VALUES (8, 'gpa_judge');
+
+-- ----------------------------
+-- Table structure for role_nodes
+-- ----------------------------
+DROP TABLE IF EXISTS `role_nodes`;
+CREATE TABLE `role_nodes`  (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `role_id` int NULL DEFAULT NULL,
+  `node_id` int NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE,
+  INDEX `role_id`(`role_id` ASC) USING BTREE,
+  INDEX `node_id`(`node_id` ASC) USING BTREE,
+  CONSTRAINT `role_nodes_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `role` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  CONSTRAINT `role_nodes_ibfk_2` FOREIGN KEY (`node_id`) REFERENCES `nodes` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE = InnoDB AUTO_INCREMENT = 41 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of role_nodes
+-- ----------------------------
+INSERT INTO `role_nodes` VALUES (1, 1, 1);
+INSERT INTO `role_nodes` VALUES (2, 1, 16);
+INSERT INTO `role_nodes` VALUES (3, 1, 17);
+INSERT INTO `role_nodes` VALUES (4, 1, 18);
+INSERT INTO `role_nodes` VALUES (5, 1, 19);
+INSERT INTO `role_nodes` VALUES (6, 1, 20);
+INSERT INTO `role_nodes` VALUES (7, 1, 21);
+INSERT INTO `role_nodes` VALUES (8, 1, 22);
+INSERT INTO `role_nodes` VALUES (9, 1, 23);
+INSERT INTO `role_nodes` VALUES (10, 1, 24);
+INSERT INTO `role_nodes` VALUES (11, 2, 1);
+INSERT INTO `role_nodes` VALUES (12, 2, 2);
+INSERT INTO `role_nodes` VALUES (13, 2, 3);
+INSERT INTO `role_nodes` VALUES (14, 2, 4);
+INSERT INTO `role_nodes` VALUES (15, 2, 5);
+INSERT INTO `role_nodes` VALUES (16, 2, 6);
+INSERT INTO `role_nodes` VALUES (17, 2, 7);
+INSERT INTO `role_nodes` VALUES (18, 3, 1);
+INSERT INTO `role_nodes` VALUES (19, 3, 8);
+INSERT INTO `role_nodes` VALUES (20, 3, 14);
+INSERT INTO `role_nodes` VALUES (21, 4, 1);
+INSERT INTO `role_nodes` VALUES (22, 4, 8);
+INSERT INTO `role_nodes` VALUES (23, 4, 12);
+INSERT INTO `role_nodes` VALUES (24, 4, 11);
+INSERT INTO `role_nodes` VALUES (25, 3, 11);
+INSERT INTO `role_nodes` VALUES (26, 5, 1);
+INSERT INTO `role_nodes` VALUES (27, 5, 8);
+INSERT INTO `role_nodes` VALUES (28, 5, 10);
+INSERT INTO `role_nodes` VALUES (29, 6, 1);
+INSERT INTO `role_nodes` VALUES (30, 6, 8);
+INSERT INTO `role_nodes` VALUES (31, 6, 11);
+INSERT INTO `role_nodes` VALUES (32, 6, 13);
+INSERT INTO `role_nodes` VALUES (33, 7, 1);
+INSERT INTO `role_nodes` VALUES (34, 7, 8);
+INSERT INTO `role_nodes` VALUES (35, 7, 11);
+INSERT INTO `role_nodes` VALUES (36, 7, 15);
+INSERT INTO `role_nodes` VALUES (37, 8, 1);
+INSERT INTO `role_nodes` VALUES (38, 8, 8);
+INSERT INTO `role_nodes` VALUES (39, 8, 9);
 
 -- ----------------------------
 -- Table structure for school
@@ -101,7 +224,7 @@ CREATE TABLE `sciperformance`  (
   `content` varchar(255) CHARACTER SET utf16 COLLATE utf16_unicode_ci NULL DEFAULT NULL,
   `type` varchar(255) CHARACTER SET utf16 COLLATE utf16_unicode_ci NULL DEFAULT NULL,
   PRIMARY KEY (`ID`, `studentID`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 103 CHARACTER SET = utf16 COLLATE = utf16_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 104 CHARACTER SET = utf16 COLLATE = utf16_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of sciperformance
@@ -220,7 +343,7 @@ CREATE TABLE `score`  (
   `score` varchar(255) CHARACTER SET utf16 COLLATE utf16_unicode_ci NULL DEFAULT NULL,
   `status` tinyint(1) NULL DEFAULT 0,
   PRIMARY KEY (`ID`, `studentID`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 100 CHARACTER SET = utf16 COLLATE = utf16_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 101 CHARACTER SET = utf16 COLLATE = utf16_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of score
@@ -481,7 +604,7 @@ CREATE TABLE `statement`  (
   `content` varchar(255) CHARACTER SET utf16 COLLATE utf16_unicode_ci NULL DEFAULT NULL,
   `type` varchar(255) CHARACTER SET utf16 COLLATE utf16_unicode_ci NULL DEFAULT NULL,
   PRIMARY KEY (`ID`, `studentID`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 106 CHARACTER SET = utf16 COLLATE = utf16_unicode_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 107 CHARACTER SET = utf16 COLLATE = utf16_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of statement
@@ -517,7 +640,7 @@ CREATE TABLE `studentinfo`  (
   INDEX `majorID`(`majorID` ASC) USING BTREE,
   CONSTRAINT `majorID` FOREIGN KEY (`majorID`) REFERENCES `major` (`ID`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `school_ID` FOREIGN KEY (`school_ID`) REFERENCES `school` (`ID`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 100 CHARACTER SET = utf16 COLLATE = utf16_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 101 CHARACTER SET = utf16 COLLATE = utf16_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of studentinfo
@@ -1649,7 +1772,7 @@ CREATE TABLE `user`  (
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `username_UNIQUE`(`username` ASC) USING BTREE,
   INDEX `username_INDEX`(`username` ASC) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of user
@@ -1660,6 +1783,34 @@ INSERT INTO `user` VALUES (3, '788', '788');
 INSERT INTO `user` VALUES (4, '687', '687');
 INSERT INTO `user` VALUES (5, '228', '228');
 INSERT INTO `user` VALUES (6, '221', '221');
+INSERT INTO `user` VALUES (7, '002', '002');
+INSERT INTO `user` VALUES (8, '003', '003');
+
+-- ----------------------------
+-- Table structure for user_roles
+-- ----------------------------
+DROP TABLE IF EXISTS `user_roles`;
+CREATE TABLE `user_roles`  (
+  `user_id` int NOT NULL,
+  `role_id` int NULL DEFAULT NULL,
+  INDEX `user_id`(`user_id` ASC) USING BTREE,
+  INDEX `role_id`(`role_id` ASC) USING BTREE,
+  CONSTRAINT `user_roles_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `user_roles_ibfk_2` FOREIGN KEY (`role_id`) REFERENCES `role` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE = InnoDB CHARACTER SET = utf16 COLLATE = utf16_unicode_ci ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of user_roles
+-- ----------------------------
+INSERT INTO `user_roles` VALUES (1, 3);
+INSERT INTO `user_roles` VALUES (2, 2);
+INSERT INTO `user_roles` VALUES (3, 1);
+INSERT INTO `user_roles` VALUES (4, 4);
+INSERT INTO `user_roles` VALUES (5, 5);
+INSERT INTO `user_roles` VALUES (6, 6);
+INSERT INTO `user_roles` VALUES (7, 7);
+INSERT INTO `user_roles` VALUES (8, 8);
+INSERT INTO `user_roles` VALUES (8, 2);
 
 -- ----------------------------
 -- Table structure for volunteerservice
