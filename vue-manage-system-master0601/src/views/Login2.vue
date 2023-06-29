@@ -43,6 +43,8 @@
 <script>
 import {login} from '../api/login.js'
 import {setToken} from '../utils/auth'
+//import {fetchMenu} from '../utils/menu.js'
+//import { eventBus } from '../eventBus';
 
 export default {
   data() {
@@ -66,6 +68,10 @@ export default {
           login(this.loginForm.username,this.loginForm.password).then(res =>{
               console.log(res)
               setToken(res.data.accessToken)
+
+              // 发送登录成功事件通知菜单数据需要更新
+              //eventBus.$emit('loginSuccess');
+
               this.$router.push({ path: '/dashboard' })
             }).catch(() => {
               // 登录失败，显示错误提示

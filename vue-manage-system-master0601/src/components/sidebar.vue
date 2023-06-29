@@ -52,11 +52,15 @@
 
 <script setup> //lang="ts"
 import { computed } from 'vue';
+import { onMounted} from 'vue';
 import { useSidebarStore } from '../store/sidebar.ts';
 import { useRoute } from 'vue-router';
 import {getMenu} from "../api/dynamicRBAC.js";
+import { reactive } from 'vue';
+//import { eventBus } from '../eventBus';
+//import { fetchMenu } from '../utils/menu.js'; // 导入fetchMenu方法
 
-const items = [
+//const items = [
     /*
     {
         icon: 'Odometer',
@@ -199,7 +203,10 @@ const items = [
         ],
     },
     */
-];
+//];
+
+// 在组件外部定义响应式对象用于存储菜单项
+const items = reactive([]);
 
 const route = useRoute();
 const onRoutes = computed(() => {
@@ -208,20 +215,33 @@ const onRoutes = computed(() => {
 
 const sidebar = useSidebarStore();
 
+
+// 监听全局事件，接收到事件后执行获取菜单数据的操作
+//eventBus.$on('loginSuccess', () => {
+//  fetchMenu();
+//});
+/*在登录成功后并没有触发组件的重新渲染，所以无法及时更新侧边栏的菜单数据,因此在我们的框架里全局事件总线并不适用*/
+
+// 获取菜单数据
 async function fetchMenu() {
-  try {
+    try {
     const response = await getMenu(); // 调用getMenu函数获取菜单数据
     console.log(response.data);
     items.splice(0, items.length, ...response.data); // 使用响应数据更新items数组
     console.log(items);
-    // 更新侧边栏菜单项
-    sidebar.setItems(items);
   } catch (error) {
     console.error('Failed to fetch menu:', error);
   }
 }
 
-fetchMenu(); // 在页面加载时调用接口获取菜单
+
+onMounted(() => {
+      fetchMenu(); // 在组件挂载时调用 fetchMenu() 函数
+    });
+
+
+
+
 </script>
 
 <style scoped>

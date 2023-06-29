@@ -1,10 +1,10 @@
 import { defineStore } from 'pinia';
+import { reactive } from 'vue';
 
 export const useSidebarStore = defineStore('sidebar', {
 	state: () => {
 		return {
 			collapse: false,
-			items: [] // 添加一个items属性用于存储菜单项
 		};
 	},
 	getters: {},
@@ -12,8 +12,11 @@ export const useSidebarStore = defineStore('sidebar', {
 		handleCollapse() {
 			this.collapse = !this.collapse;
 		},
-		setItems(items) { // 添加setItems方法用于更新菜单项
-			this.items = items;
-		  }
 	}
 });
+
+//items: [] // 添加一个items属性用于存储菜单项
+			//items: reactive([]), // 将 items 定义为响应式对象
+//setItems(items) { // 添加setItems方法用于更新菜单项
+		//	this.items = items;
+		//  },

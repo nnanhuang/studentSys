@@ -135,6 +135,7 @@ public class UserController {
                 }
             }
         }
+        System.out.println(nodes);
         List<Menu> menu=authService.convertToMenus(nodes);
             /*
             // 获取角色对应的权限列表
