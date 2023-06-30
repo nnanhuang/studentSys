@@ -355,3 +355,34 @@ export function getStuInfo() {
     method: 'get'
   })
 }
+
+//修改评分规则
+export function changeWeights(gpa,gpaLimit,volun,volunLimit,sci,sciLimit,org,orgLimit,social,socialLimit,sum,sumLimit) {
+  const data = {
+    gpa,
+    volun,
+    sci,
+    org,
+    social,
+    sum,
+    gpaLimit,
+    volunLimit,
+    sciLimit,
+    orgLimit,
+    socialLimit,
+    sumLimit,
+  }
+  return request({
+    url: '/rules/change',
+    method: 'post',
+    data: data
+  })
+}
+
+// 获取评分规则
+export function getRules() {
+  return request({
+    url: '/rules/get',
+    method: 'post'
+  })
+}

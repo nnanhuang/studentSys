@@ -26,7 +26,7 @@ const routes: RouteRecordRaw[] = [
                 name: 'checkgpa',
                 meta: {
                     title: '我的成绩',
-                    permiss: '16',
+                    permiss: '17',
                 },
                 component: () => import(/* webpackChunkName: "table" */ '../views/checkgpa.vue'),
             },
@@ -35,7 +35,7 @@ const routes: RouteRecordRaw[] = [
                 name: 'checkvolun',
                 meta: {
                     title: '我的志愿时长',
-                    permiss: '17',
+                    permiss: '18',
                 },
                 component: () => import(/* webpackChunkName: "" */ '../views/checkvolun.vue'),
             },
@@ -44,7 +44,7 @@ const routes: RouteRecordRaw[] = [
                 name: 'assessResearch',
                 meta: {
                     title: '学生科研情况',
-                    permiss: '11',
+                    permiss: '12',
                 },
                 component: () => import(/* webpackChunkName: "form" */ '../views/assessSci.vue'),
             },
@@ -53,7 +53,7 @@ const routes: RouteRecordRaw[] = [
                 name: 'assessServePosition',
                 meta: {
                     title: '学生骨干服务',
-                    permiss: '12',
+                    permiss: '13',
                 },
                 component: () => import(/* webpackChunkName: "tabs" */ '../views/assessServePosition.vue'),
             },
@@ -62,7 +62,7 @@ const routes: RouteRecordRaw[] = [
                 name: 'assessSocialActivity',
                 meta: {
                     title: '学生社会实践',
-                    permiss: '13',
+                    permiss: '14',
                 },
                 component: () => import(/* webpackChunkName: "donate" */ '../views/assessSocialActivity.vue'),
             },
@@ -71,7 +71,7 @@ const routes: RouteRecordRaw[] = [
                 name: 'assessStuConclusion',
                 meta: {
                     title: '学生学年总结',
-                    permiss: '14',
+                    permiss: '15',
                 },
                 component: () => import(/* webpackChunkName: "upload" */ '../views/assessStuConclusion.vue'),
             },
@@ -80,7 +80,7 @@ const routes: RouteRecordRaw[] = [
                 name: 'addInfo',
                 meta: {
                     title: '基本信息填报',
-                    permiss: '18',
+                    permiss: '19',
                 },
                 component: () => import(/* webpackChunkName: "icon" */ '../views/addInfo.vue'),
             },
@@ -97,7 +97,7 @@ const routes: RouteRecordRaw[] = [
                 name: 'addResearch',
                 meta: {
                     title: '科研情况',
-                    permiss: '20',
+                    permiss: '21',
                 },
                 component: () => import(/* webpackChunkName: "editor" */ '../views/addResearch.vue'),
             },
@@ -106,7 +106,7 @@ const routes: RouteRecordRaw[] = [
                 name: 'viewSubmittedSci',
                 meta: {
                     title: '已提交的科研情况',
-                    permiss: '',
+                    permiss: '25',
                 },
                 component: () => import(/* webpackChunkName: "editor" */ '../views/viewSci.vue'),
             },
@@ -115,7 +115,7 @@ const routes: RouteRecordRaw[] = [
                 name: 'viewSubmittedSocial',
                 meta: {
                     title: '已提交的社会实践情况',
-                    permiss: '',
+                    permiss: '26',
                 },
                 component: () => import(/* webpackChunkName: "editor" */ '../views/viewSocial.vue'),
             },
@@ -124,7 +124,7 @@ const routes: RouteRecordRaw[] = [
                 name: 'addServePosition',
                 meta: {
                     title: '骨干服务',
-                    permiss: '21',
+                    permiss: '22',
                 },
                 component: () => import(/* webpackChunkName: "markdown" */ '../views/addServePosition.vue'),
             },
@@ -133,7 +133,7 @@ const routes: RouteRecordRaw[] = [
                 name: 'viewSubmittedServePosition',
                 meta: {
                     title: '已提交的骨干服务情况',
-                    permiss: '',
+                    permiss: '27',
                 },
                 component: () => import(/* webpackChunkName: "editor" */ '../views/viewServePosition.vue'),
             },
@@ -142,7 +142,7 @@ const routes: RouteRecordRaw[] = [
                 name: 'Statement',
                 meta: {
                     title: '学年总结',
-                    permiss: '23',
+                    permiss: '24',
                 },
                 component: () => import(/* webpackChunkName: "export" */ '../views/Statement.vue'),
             },
@@ -151,7 +151,7 @@ const routes: RouteRecordRaw[] = [
                 name: 'addSocial',
                 meta: {
                     title: '社会实践',
-                    permiss: '22',
+                    permiss: '23',
                 },
                 component: () => import(/* webpackChunkName: "import" */ '../views/addSocial.vue'),
             },
@@ -195,7 +195,7 @@ const routes: RouteRecordRaw[] = [
                 path: '/importVolun',
                 name: 'importVolun',
                 meta: {
-                    title: '志愿时长审核',
+                    title: '导入志愿服务信息',
                     permiss: '5',
                 },
                 component: () => import(/* webpackChunkName: "import" */ '../views/importVolun.vue'),
@@ -208,6 +208,24 @@ const routes: RouteRecordRaw[] = [
                     permiss: '6',
                 },
                 component: () => import(/* webpackChunkName: "import" */ '../views/ScoreSummary.vue'),
+            },
+            {
+                path: '/weights',
+                name: 'weights',
+                meta: {
+                    title: '修改评分规则',
+                    permiss: '29',
+                },
+                component: () => import(/* webpackChunkName: "editor" */ '../views/weights.vue'),
+            },
+            {
+                path: '/importWhiteList',
+                name: 'importWhiteList',
+                meta: {
+                    title: '导入白名单',
+                    permiss: '28',
+                },
+                component: () => import(/* webpackChunkName: "editor" */ '../views/weights.vue'),
             },
             
 ]},
