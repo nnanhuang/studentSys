@@ -5,9 +5,7 @@ import com.example.agile0509.mapper.NodeMapper;
 import com.example.agile0509.mapper.RoleMapper;
 import com.example.agile0509.mapper.UserMapper;
 import com.example.agile0509.mapper.UserRoleMapper;
-import com.example.agile0509.pojo.Menu;
-import com.example.agile0509.pojo.Node;
-import com.example.agile0509.pojo.Role;
+import com.example.agile0509.pojo.*;
 import com.example.agile0509.service.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -130,6 +128,25 @@ public class AuthServiceImpl implements AuthService {
         }
     }
 
+    @Override
+    public List<Router> convertToRouters(List<Node> nodes) {
+        List<Router> routers= new ArrayList<>();
+        for(Node node:nodes){
+            String path=node.getIndex();
+            // 正则表达式检查路径是否以斜杠开头
+            if (!path.matches("^/.*")) {//筛选出菜单中不需要路由的部分
+                continue; // 跳过不以斜杠开头的路径
+            }
+            String name = node.getIndex().replaceAll("/", "");
+            String title=node.getTitle();
+            String permiss= String.valueOf(node.getPermiss());
+            Meta meta=new Meta(title,permiss);
+            String component=node.getComponent();
+            Router router=new Router(path,name,meta,component);
+            routers.add(router);
+        }
+        return routers;
+    }
 }
 
 

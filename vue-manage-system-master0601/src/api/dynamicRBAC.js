@@ -18,3 +18,11 @@ export function getMenu() {
   })
 }
 
+// 获取用户动态路由
+export function getRouter() {
+  return request({
+    url: '/user/get/router',
+    method: 'get'
+  })
+}
+

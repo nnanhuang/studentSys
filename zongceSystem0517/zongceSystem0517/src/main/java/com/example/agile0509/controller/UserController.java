@@ -7,6 +7,7 @@ import com.example.agile0509.mapper.UserMapper;
 import com.example.agile0509.pojo.Menu;
 import com.example.agile0509.pojo.Node;
 import com.example.agile0509.pojo.Role;
+import com.example.agile0509.pojo.Router;
 import com.example.agile0509.service.impl.AuthServiceImpl;
 import com.example.agile0509.utils.JwtTokenUtil;
 import com.example.agile0509.vo.RoleVO;
@@ -61,11 +62,11 @@ public class UserController {
         return result;
     }
 
-    /*
-    @GetMapping("/get/auth")
-    public CommonResult<?> getAuth(@RequestHeader("Authorization") String authHeader) {
 
-        // 解析Authorization请求头中的JWT令牌 Bearer access_token
+    @GetMapping("/get/router")
+    public CommonResult<?> getRouter(@RequestHeader("Authorization") String authHeader) {
+
+       // 解析Authorization请求头中的JWT令牌 Bearer access_token
         String token = authHeader.substring(7);
         String username = jwtTokenUtil.getUsernameFromToken(token);
 
@@ -76,35 +77,29 @@ public class UserController {
         List<Role> roles = authService.getRolesByUserId(userId);
 
         // 构建包含角色和权限的结果对象
-        List<RolePermissionVO> rolePermissions = new ArrayList<>();
+        List<Node> nodes = new ArrayList<>();
+        Set<Integer> addedNodeIds = new HashSet<>(); // 用于存储已添加的节点ID
         for (Role role : roles) {
 
             //获取角色ID
-            int roleId= roleMapper.getRoleIdByName(role.getName());
+            int roleId = roleMapper.getRoleIdByName(role.getName());
 
-            // 获取角色对应的权限列表
-            List<Permission> permissions = authService.getPermissionsByRoleId(roleId);
-            System.out.println(permissions);
-            // 遍历每个 Permission 对象，去除 URL 中的 \r
-            for (Permission permission : permissions) {
-                String cleanedUrl = permission.getUrl().replaceAll("\r", "");
-                permission.setUrl(cleanedUrl);
+            List<Node> roleNodes = authService.getMenuByRoleId(roleId);
+
+            for (Node node : roleNodes) {//如果直接add很有可能导致菜单重复
+                if (!addedNodeIds.contains(node.getId())) {//获取所有type的node即为路由的node
+                    nodes.add(node);
+                    addedNodeIds.add(node.getId());
+                }
             }
-
-            // 构建角色权限对象，并将权限列表赋值
-            RolePermissionVO rolePermission = new RolePermissionVO();
-            rolePermission.setRole(role.getName());
-            rolePermission.setPermissions(permissions);
-
-            // 将角色权限对象添加到结果列表
-            rolePermissions.add(rolePermission);
-
         }
-        // 封装结果并返回
-        CommonResult<List<RolePermissionVO>> result = CommonResult.success(rolePermissions);
+        System.out.println(nodes);
+        List<Router> router=authService.convertToRouters(nodes);
+        CommonResult<List<Router>> result = CommonResult.success(router);
         return result;
     }
-    */
+
+
     @GetMapping("/get/menu")
     public CommonResult<?> getMenu(@RequestHeader("Authorization") String authHeader) {
 
@@ -129,7 +124,7 @@ public class UserController {
             List<Node> roleNodes = authService.getMenuByRoleId(roleId);
 
             for (Node node : roleNodes) {//如果直接add很有可能导致菜单重复
-                if (!addedNodeIds.contains(node.getId())) {
+                if (!addedNodeIds.contains(node.getId())&& node.getType()) {//获取type为true的node即为菜单的node
                     nodes.add(node);
                     addedNodeIds.add(node.getId());
                 }

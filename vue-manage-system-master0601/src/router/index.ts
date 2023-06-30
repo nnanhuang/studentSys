@@ -11,7 +11,8 @@ const routes: RouteRecordRaw[] = [
         path: '/',
         name: 'Home',
         component: Home,
-        children: [
+        children: [   
+            
             {
                 path: '/dashboard',
                 name: 'dashboard',
@@ -19,26 +20,26 @@ const routes: RouteRecordRaw[] = [
                     title: '系统首页',
                     permiss: '1',
                 },
-                component: () => import(/* webpackChunkName: "dashboard" */ '../views/dashboard.vue'),
+                component: () => import(/* webpackChunkName: "dashboard" */  '../views/dashboard.vue'),
             },
-            {
+            /*{
                 path: '/checkgpa',
                 name: 'checkgpa',
                 meta: {
                     title: '我的成绩',
                     permiss: '17',
                 },
-                component: () => import(/* webpackChunkName: "table" */ '../views/checkgpa.vue'),
-            },
-            {
+                component: () => import(/* webpackChunkName: "table" */ //'../views/checkgpa.vue'),
+           // },
+           /* {
                 path: '/checkvolun',
                 name: 'checkvolun',
                 meta: {
                     title: '我的志愿时长',
                     permiss: '18',
                 },
-                component: () => import(/* webpackChunkName: "" */ '../views/checkvolun.vue'),
-            },
+                component: () => import(/* webpackChunkName: "" */ //'../views/checkvolun.vue'),
+            /*},
             {
                 path: '/assessResearch',
                 name: 'assessResearch',
@@ -46,8 +47,8 @@ const routes: RouteRecordRaw[] = [
                     title: '学生科研情况',
                     permiss: '12',
                 },
-                component: () => import(/* webpackChunkName: "form" */ '../views/assessSci.vue'),
-            },
+                component: () => import(/* webpackChunkName: "form" */ //'../views/assessSci.vue'),
+            /*},
             {
                 path: '/assessServePosition',
                 name: 'assessServePosition',
@@ -55,8 +56,8 @@ const routes: RouteRecordRaw[] = [
                     title: '学生骨干服务',
                     permiss: '13',
                 },
-                component: () => import(/* webpackChunkName: "tabs" */ '../views/assessServePosition.vue'),
-            },
+                component: () => import(/* webpackChunkName: "tabs" */ //'../views/assessServePosition.vue'),
+            /*},
             {
                 path: '/assessSocialActivity',
                 name: 'assessSocialActivity',
@@ -64,7 +65,7 @@ const routes: RouteRecordRaw[] = [
                     title: '学生社会实践',
                     permiss: '14',
                 },
-                component: () => import(/* webpackChunkName: "donate" */ '../views/assessSocialActivity.vue'),
+                component: () => import(/* webpackChunkName: "donate" */ /*'../views/assessSocialActivity.vue'),
             },
             {
                 path: '/assessStuConclusion',
@@ -73,7 +74,7 @@ const routes: RouteRecordRaw[] = [
                     title: '学生学年总结',
                     permiss: '15',
                 },
-                component: () => import(/* webpackChunkName: "upload" */ '../views/assessStuConclusion.vue'),
+                component: () => import(/* webpackChunkName: "upload" */ /*'../views/assessStuConclusion.vue'),
             },
             {
                 path: '/addInfo',
@@ -82,7 +83,7 @@ const routes: RouteRecordRaw[] = [
                     title: '基本信息填报',
                     permiss: '19',
                 },
-                component: () => import(/* webpackChunkName: "icon" */ '../views/addInfo.vue'),
+                component: () => import(/* webpackChunkName: "icon" */ /*'../views/addInfo.vue'),
             },
             {
                 path: '/user',
@@ -90,7 +91,7 @@ const routes: RouteRecordRaw[] = [
                 meta: {
                     title: '个人中心',
                 },
-                component: () => import(/* webpackChunkName: "user" */ '../views/user.vue'),
+                component: () => import(/* webpackChunkName: "user" */ /*'../views/user.vue'),
             },
             {
                 path: '/addResearch',
@@ -99,7 +100,7 @@ const routes: RouteRecordRaw[] = [
                     title: '科研情况',
                     permiss: '21',
                 },
-                component: () => import(/* webpackChunkName: "editor" */ '../views/addResearch.vue'),
+                component: () => import(/* webpackChunkName: "editor" */ /*'../views/addResearch.vue'),
             },
             {
                 path: '/viewSubmittedSci',
@@ -108,7 +109,7 @@ const routes: RouteRecordRaw[] = [
                     title: '已提交的科研情况',
                     permiss: '25',
                 },
-                component: () => import(/* webpackChunkName: "editor" */ '../views/viewSci.vue'),
+                component: () => import(/* webpackChunkName: "editor" */ /*'../views/viewSci.vue'),
             },
             {
                 path: '/viewSubmittedSocial',
@@ -117,7 +118,7 @@ const routes: RouteRecordRaw[] = [
                     title: '已提交的社会实践情况',
                     permiss: '26',
                 },
-                component: () => import(/* webpackChunkName: "editor" */ '../views/viewSocial.vue'),
+                component: () => import(/* webpackChunkName: "editor" */ /*'../views/viewSocial.vue'),
             },
             {
                 path: '/addServePosition',
@@ -126,7 +127,7 @@ const routes: RouteRecordRaw[] = [
                     title: '骨干服务',
                     permiss: '22',
                 },
-                component: () => import(/* webpackChunkName: "markdown" */ '../views/addServePosition.vue'),
+                component: () => import(/* webpackChunkName: "markdown" */ /*'../views/addServePosition.vue'),
             },
             {
                 path: '/viewSubmittedServePosition',
@@ -135,7 +136,7 @@ const routes: RouteRecordRaw[] = [
                     title: '已提交的骨干服务情况',
                     permiss: '27',
                 },
-                component: () => import(/* webpackChunkName: "editor" */ '../views/viewServePosition.vue'),
+                component: () => import(/* webpackChunkName: "editor" */ /*'../views/viewServePosition.vue'),
             },
             {
                 path: '/Statement',
@@ -144,7 +145,7 @@ const routes: RouteRecordRaw[] = [
                     title: '学年总结',
                     permiss: '24',
                 },
-                component: () => import(/* webpackChunkName: "export" */ '../views/Statement.vue'),
+                component: () => import(/* webpackChunkName: "export" */ /*'../views/Statement.vue'),
             },
             {
                 path: '/addSocial',
@@ -153,7 +154,7 @@ const routes: RouteRecordRaw[] = [
                     title: '社会实践',
                     permiss: '23',
                 },
-                component: () => import(/* webpackChunkName: "import" */ '../views/addSocial.vue'),
+                component: () => import(/* webpackChunkName: "import" */ /*'../views/addSocial.vue'),
             },
             {
                 path: '/pwGPA',
@@ -162,7 +163,7 @@ const routes: RouteRecordRaw[] = [
                     title: '绩点审核',
                     permiss: '8',
                 },
-                component: () => import(/* webpackChunkName: "import" */ '../views/pwGPA.vue'),
+                component: () => import(/* webpackChunkName: "import" */ /*'../views/pwGPA.vue'),
             },
             {
                 path: '/pwVolun',
@@ -171,7 +172,7 @@ const routes: RouteRecordRaw[] = [
                     title: '志愿时长审核',
                     permiss: '9',
                 },
-                component: () => import(/* webpackChunkName: "import" */ '../views/pwVolun.vue'),
+                component: () => import(/* webpackChunkName: "import" */ /*'../views/pwVolun.vue'),
             },
             {
                 path: '/importExcel',
@@ -180,7 +181,7 @@ const routes: RouteRecordRaw[] = [
                     title: '导入基本信息',
                     permiss: '3',
                 },
-                component: () => import(/* webpackChunkName: "import" */ '../views/importExcel.vue'),
+                component: () => import(/* webpackChunkName: "import" */ /*'../views/importExcel.vue'),
             },
             {
                 path: '/importGpa',
@@ -189,7 +190,7 @@ const routes: RouteRecordRaw[] = [
                     title: '导入成绩信息',
                     permiss: '4',
                 },
-                component: () => import(/* webpackChunkName: "import" */ '../views/importGpa.vue'),
+                component: () => import(/* webpackChunkName: "import" */ /*'../views/importGpa.vue'),
             },
             {
                 path: '/importVolun',
@@ -198,7 +199,7 @@ const routes: RouteRecordRaw[] = [
                     title: '导入志愿服务信息',
                     permiss: '5',
                 },
-                component: () => import(/* webpackChunkName: "import" */ '../views/importVolun.vue'),
+                component: () => import(/* webpackChunkName: "import" */ /*'../views/importVolun.vue'),
             },
             {
                 path: '/ScoreSummary',
@@ -207,7 +208,7 @@ const routes: RouteRecordRaw[] = [
                     title: '导出学生信息',
                     permiss: '6',
                 },
-                component: () => import(/* webpackChunkName: "import" */ '../views/ScoreSummary.vue'),
+                component: () => import(/* webpackChunkName: "import" */ /*'../views/ScoreSummary.vue'),
             },
             {
                 path: '/weights',
@@ -216,7 +217,7 @@ const routes: RouteRecordRaw[] = [
                     title: '修改评分规则',
                     permiss: '29',
                 },
-                component: () => import(/* webpackChunkName: "editor" */ '../views/weights.vue'),
+                component: () => import(/* webpackChunkName: "editor" */ /*'../views/weights.vue'),
             },
             {
                 path: '/importWhiteList',
@@ -225,10 +226,12 @@ const routes: RouteRecordRaw[] = [
                     title: '导入白名单',
                     permiss: '28',
                 },
-                component: () => import(/* webpackChunkName: "editor" */ '../views/weights.vue'),
+                component: () => import(/* webpackChunkName: "editor" */ /*'../views/weights.vue'),
             },
+            */
             
 ]},
+
     {
         path: '/login',
         name: 'Login',
@@ -270,7 +273,24 @@ router.beforeEach((to, from, next) => {
 
 //重定向，可注释勿删
  import { getAccessToken } from '../utils/auth.js'
- router.beforeEach((to, from, next) => {
+ import {getRouter} from "../api/dynamicRBAC.js";
+ router.beforeEach(async(to, from, next) => {
+    if (to.name === 'dashboard') {
+        // 获取子路由数据
+        const response = await getRouter();
+        const childRoutes =response.data
+        console.log(childRoutes);
+        // 更新 Home 路由的子路由配置
+        const homeRouteIndex = routes.findIndex((route) => route.name === 'Home');
+        if (homeRouteIndex !== -1) {
+            routes[homeRouteIndex].children= convertToRoutes(childRoutes);
+        }
+        // 重新设置路由配置
+        //router.matcher = createRouter().matcher;
+        router.addRoute(routes[homeRouteIndex]);
+      }
+
+
      if (getAccessToken()) {
        if (to.path === '/login') {
                next({ path: '/' })
@@ -287,6 +307,22 @@ router.beforeEach((to, from, next) => {
      }
    })
 
+// 辅助函数，将从后端获取的子路由数据转换为 Vue Router 的路由配置
+function convertToRoutes(childRoutes) {
+    if (!Array.isArray(childRoutes)) {
+        console.error('Invalid childRoutes format.');
+        return [];
+      }
 
+    return childRoutes.map((route) => ({
+      path: route.path,
+      name: route.name,
+      meta: {
+        title: route.meta.title,
+        permiss: route.meta.permiss,
+      },
+      component: () => import(`../views/${route.component}.vue`),
+    }));
+  }
 
 export default router;

@@ -11,7 +11,7 @@
  Target Server Version : 80030
  File Encoding         : 65001
 
- Date: 29/06/2023 19:32:31
+ Date: 01/07/2023 07:36:41
 */
 
 SET NAMES utf8mb4;
@@ -42,51 +42,67 @@ INSERT INTO `major` VALUES (5, '数字艺术与艺术传播系');
 DROP TABLE IF EXISTS `nodes`;
 CREATE TABLE `nodes`  (
   `id` int NOT NULL,
-  `type` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `type` tinyint(1) UNSIGNED ZEROFILL NOT NULL,
   `icon` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   `index` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
-  `title` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `title` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT '0',
   `permiss` int NULL DEFAULT NULL,
   `parent_id` int NULL DEFAULT NULL,
-  `component` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `component` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
   INDEX `id`(`id` ASC) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of nodes
 -- ----------------------------
-INSERT INTO `nodes` VALUES (1, 'menu', 'Odometer', '/dashboard', '系统首页', 1, NULL,'dashboard');
-INSERT INTO `nodes` VALUES (2, 'menu', 'Calendar', '1', '学工模块', 2, NULL,'dashboard');
-INSERT INTO `nodes` VALUES (3, 'menu', NULL, '/import', '导入学生信息', 3, 2,'dashboard');
-INSERT INTO `nodes` VALUES (4, 'menu', NULL, '/importExcel', '导入基本信息', 4, 3,'importExcel');
-INSERT INTO `nodes` VALUES (5, 'menu', NULL, '/importGpa', '导入成绩信息', 5, 3,'importGpa');
-INSERT INTO `nodes` VALUES (6, 'menu', NULL, '/importVolun', '导入志愿服务信息', 6, 3,'importVolun');
-INSERT INTO `nodes` VALUES (7, 'menu', NULL, '/ScoreSummary', '导出学生信息', 7, 2,'ScoreSummary');
-INSERT INTO `nodes` VALUES (8, 'menu', 'Edit', '3', '评委模块', 8, NULL,'dashboard');
-INSERT INTO `nodes` VALUES (9, 'menu', NULL, '/pwGPA', '绩点审核', 9, 8,'pwGPA');
-INSERT INTO `nodes` VALUES (10, 'menu', NULL, '/pwVolun', '志愿时长审核', 10, 8,'pwVolun');
-INSERT INTO `nodes` VALUES (11, 'menu', NULL, '4', '各项打分', 11, 8,'dashboard');
-INSERT INTO `nodes` VALUES (12, 'menu', NULL, '/assessResearch', '学生科研情况', 12, 11,'assessSci');
-INSERT INTO `nodes` VALUES (13, 'menu', NULL, '/assessServePosition', '学生骨干服务', 13, 11,'assessServePosition');
-INSERT INTO `nodes` VALUES (14, 'menu', NULL, '/assessSocialActivity', '学生社会实践', 14, 11,'assessSocialActivity');
-INSERT INTO `nodes` VALUES (15, 'menu', NULL, '/assessStuConclusion', '学生学年总结', 15, 11,'assessStuConclusion');
-INSERT INTO `nodes` VALUES (16, 'menu', 'Setting', '/icon', '学生模块', 16, NULL,'dashboard');
-INSERT INTO `nodes` VALUES (17, 'menu', NULL, '/checkgpa', '我的成绩', 17, 16,'checkgpa');
-INSERT INTO `nodes` VALUES (18, 'menu', NULL, '/checkvolun', '我的志愿时长', 18, 16,'checkvolun');
-INSERT INTO `nodes` VALUES (19, 'menu', NULL, '/addInfo', '基本信息填报', 19, 16,'addInfo');
-INSERT INTO `nodes` VALUES (20, 'menu', NULL, '4', '成绩信息填报', 20, 16,'dashboard');
-INSERT INTO `nodes` VALUES (21, 'menu', NULL, '/addResearch', '科研情况', 21, 20,'addResearch');
-INSERT INTO `nodes` VALUES (22, 'menu', NULL, '/addServePosition', '骨干服务', 22, 20,'addServePosition');
-INSERT INTO `nodes` VALUES (23, 'menu', NULL, '/addSocial', '社会实践', 23, 20,'addSocial');
-INSERT INTO `nodes` VALUES (24, 'menu', NULL, '/Statement', '学年总结', 24, 20,'Statement');
-INSERT INTO `nodes` VALUES (25, 'menu', NULL, '/viewSubmittedSci', '已提交的科研情况', 25, NULL,'viewSci');
-INSERT INTO `nodes` VALUES (26, 'menu', NULL, '/viewSubmittedSocial', '已提交的社会实践情况', 26, NULL,'viewSocial');
-INSERT INTO `nodes` VALUES (27, 'menu', NULL, '/viewSubmittedServePosition', '已提交的骨干服务情况', 27, NULL,'viewServePosition');
-INSERT INTO `nodes` VALUES (28, 'menu', NULL, '/importWhiteList', '导入白名单', 28, 3,'importWhiteList');
-INSERT INTO `nodes` VALUES (29, 'menu', NULL, '/weights', '修改评分规则', 29, 3,'weights');
-INSERT INTO `nodes` VALUES (30, 'menu', NULL, '/login', '导入白名单', NULL, NULL,'Login2');
-INSERT INTO `nodes` VALUES (31, 'menu', NULL, '/403', '导入白名单', NULL, NULL,'403');
-INSERT INTO `nodes` VALUES (32, 'menu', NULL, '/user', '个人中心', NULL, NULL,'user');
+INSERT INTO `nodes` VALUES (1, 1, 'Odometer', '/dashboard', '系统首页', 1, NULL, 'dashboard');
+INSERT INTO `nodes` VALUES (2, 1, 'Calendar', '1', '学工模块', 2, NULL, 'dashboard');
+INSERT INTO `nodes` VALUES (3, 1, NULL, '/import', '导入学生信息', 3, 2, 'dashboard');
+INSERT INTO `nodes` VALUES (4, 1, NULL, '/importExcel', '导入基本信息', 4, 3, 'importExcel');
+INSERT INTO `nodes` VALUES (5, 1, NULL, '/importGpa', '导入成绩信息', 5, 3, 'importGpa');
+INSERT INTO `nodes` VALUES (6, 1, NULL, '/importVolun', '导入志愿服务信息', 6, 3, 'importVolun');
+INSERT INTO `nodes` VALUES (7, 1, NULL, '/ScoreSummary', '导出学生信息', 7, 2, 'ScoreSummary');
+INSERT INTO `nodes` VALUES (8, 1, 'Edit', '3', '评委模块', 8, NULL, 'dashboard');
+INSERT INTO `nodes` VALUES (9, 1, NULL, '/pwGPA', '绩点审核', 9, 8, 'pwGPA');
+INSERT INTO `nodes` VALUES (10, 1, NULL, '/pwVolun', '志愿时长审核', 10, 8, 'pwVolun');
+INSERT INTO `nodes` VALUES (11, 1, NULL, '4', '各项打分', 11, 8, 'dashboard');
+INSERT INTO `nodes` VALUES (12, 1, NULL, '/assessResearch', '学生科研情况', 12, 11, 'assessSci');
+INSERT INTO `nodes` VALUES (13, 1, NULL, '/assessServePosition', '学生骨干服务', 13, 11, 'assessServePosition');
+INSERT INTO `nodes` VALUES (14, 1, NULL, '/assessSocialActivity', '学生社会实践', 14, 11, 'assessSocialActivity');
+INSERT INTO `nodes` VALUES (15, 1, NULL, '/assessStuConclusion', '学生学年总结', 15, 11, 'assessStuConclusion');
+INSERT INTO `nodes` VALUES (16, 1, 'Setting', '/icon', '学生模块', 16, NULL, 'dashboard');
+INSERT INTO `nodes` VALUES (17, 1, NULL, '/checkgpa', '我的成绩', 17, 16, 'checkgpa');
+INSERT INTO `nodes` VALUES (18, 1, NULL, '/checkvolun', '我的志愿时长', 18, 16, 'checkvolun');
+INSERT INTO `nodes` VALUES (19, 1, NULL, '/addInfo', '基本信息填报', 19, 16, 'addInfo');
+INSERT INTO `nodes` VALUES (20, 1, NULL, '4', '成绩信息填报', 20, 16, 'dashboard');
+INSERT INTO `nodes` VALUES (21, 1, NULL, '/addResearch', '科研情况', 21, 20, 'addResearch');
+INSERT INTO `nodes` VALUES (22, 1, NULL, '/addServePosition', '骨干服务', 22, 20, 'addServePosition');
+INSERT INTO `nodes` VALUES (23, 1, NULL, '/addSocial', '社会实践', 23, 20, 'addSocial');
+INSERT INTO `nodes` VALUES (24, 1, NULL, '/Statement', '学年总结', 24, 20, 'Statement');
+INSERT INTO `nodes` VALUES (25, 0, NULL, '/viewSubmittedSci', '已提交的科研情况', 25, NULL, 'viewSci');
+INSERT INTO `nodes` VALUES (26, 0, NULL, '/viewSubmittedSocial', '已提交的社会实践情况', 26, NULL, 'viewSocial');
+INSERT INTO `nodes` VALUES (27, 0, NULL, '/viewSubmittedServePosition', '已提交的骨干服务情况', 27, NULL, 'viewServePosition');
+INSERT INTO `nodes` VALUES (28, 0, NULL, '/importWhiteList', '导入白名单', 28, 3, 'importWhiteList');
+INSERT INTO `nodes` VALUES (29, 0, NULL, '/weights', '修改评分规则', 29, 3, 'weights');
+
+-- ----------------------------
+-- Table structure for orgservice
+-- ----------------------------
+DROP TABLE IF EXISTS `orgservice`;
+CREATE TABLE `orgservice`  (
+  `ID` int NOT NULL AUTO_INCREMENT,
+  `studentID` varchar(255) CHARACTER SET utf16 COLLATE utf16_unicode_ci NOT NULL,
+  `time` varchar(50) CHARACTER SET utf16 COLLATE utf16_unicode_ci NULL DEFAULT NULL,
+  `content` varchar(255) CHARACTER SET utf16 COLLATE utf16_unicode_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`ID`, `studentID`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf16 COLLATE = utf16_unicode_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of orgservice
+-- ----------------------------
+INSERT INTO `orgservice` VALUES (1, '1', '哈哈哈哈', '哈哈哈哈');
+INSERT INTO `orgservice` VALUES (4, '2', '嘿嘿嘿黑', '急急急');
+INSERT INTO `orgservice` VALUES (5, '1', '阿斯顿发送到', '是打发点');
 
 -- ----------------------------
 -- Table structure for role
@@ -123,7 +139,7 @@ CREATE TABLE `role_nodes`  (
   INDEX `node_id`(`node_id` ASC) USING BTREE,
   CONSTRAINT `role_nodes_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `role` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `role_nodes_ibfk_2` FOREIGN KEY (`node_id`) REFERENCES `nodes` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 40 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 41 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of role_nodes
@@ -167,223 +183,11 @@ INSERT INTO `role_nodes` VALUES (36, 7, 15);
 INSERT INTO `role_nodes` VALUES (37, 8, 1);
 INSERT INTO `role_nodes` VALUES (38, 8, 8);
 INSERT INTO `role_nodes` VALUES (39, 8, 9);
-INSERT INTO `role_nodes` VALUES (40, 1, 25);
-INSERT INTO `role_nodes` VALUES (41, 1, 26);
-INSERT INTO `role_nodes` VALUES (42, 1, 27);
+INSERT INTO `role_nodes` VALUES (40, 4, 25);
+INSERT INTO `role_nodes` VALUES (41, 3, 26);
+INSERT INTO `role_nodes` VALUES (42, 6, 27);
 INSERT INTO `role_nodes` VALUES (43, 2, 28);
 INSERT INTO `role_nodes` VALUES (44, 2, 29);
-
-
-
--- ----------------------------
--- Table structure for permissions
--- ----------------------------
-DROP TABLE IF EXISTS `permissions`;
-CREATE TABLE `permissions` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `title` varchar(255) DEFAULT NULL,
-  `url` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
--- ----------------------------
--- Records of permissions
--- ----------------------------
-INSERT INTO `permissions` VALUES ('1', '评委获取成绩', '/teacher/getGPA');
-INSERT INTO `permissions` VALUES ('2', '评委获取志愿时长', '/teacher/getVolunteer');
-INSERT INTO `permissions` VALUES ('3', '评委修改成绩', '/teacher/changeGPA');
-INSERT INTO `permissions` VALUES ('4', '评委修改志愿时长', '/teacher/changeVolunteer');
-INSERT INTO `permissions` VALUES ('5', '获取用户角色', '/user/get/role');
-INSERT INTO `permissions` VALUES ('6', '获取用户动态菜单', '/user/get/menu');
-INSERT INTO `permissions` VALUES ('7', '学生获取成绩', '/stu/getStuGPA');
-INSERT INTO `permissions` VALUES ('8', '学生获取志愿时长', '/stu/getStuVolunteer');
-INSERT INTO `permissions` VALUES ('9', '用户登录', '/auth/login');
-INSERT INTO `permissions` VALUES ('10', '获取用户信息', '/user/profile/get');
-INSERT INTO `permissions` VALUES ('11', '获取学生成绩汇总数据', '/scoreSum/getList');
-INSERT INTO `permissions` VALUES ('12', '用户注册', '/auth/register');
-INSERT INTO `permissions` VALUES ('13', '修改密码', '/user/password/update');
-INSERT INTO `permissions` VALUES ('14', '修改个人信息', '/user/update');
-INSERT INTO `permissions` VALUES ('15', '提交科研信息', '/sci/add');
-INSERT INTO `permissions` VALUES ('16', '学生查看科研情况', '/sci/viewSubmitted');
-INSERT INTO `permissions` VALUES ('17', '删除科研记录', '/sci/delete');
-INSERT INTO `permissions` VALUES ('18', '修改科研记录', '/sci/modify');
-INSERT INTO `permissions` VALUES ('19', '提交社会实践记录', '/social/add');
-INSERT INTO `permissions` VALUES ('20', '学生查看社会实践记录', '/social/viewSubmitted');
-INSERT INTO `permissions` VALUES ('21', '删除社会实践记录', '/social/delete');
-INSERT INTO `permissions` VALUES ('22', '修改社会实践记录', '/social/modify');
-INSERT INTO `permissions` VALUES ('23', '提交骨干服务', '/servePosition/add');
-INSERT INTO `permissions` VALUES ('24', '学生查看骨干服务', '/servePosition/viewSubmitted');
-INSERT INTO `permissions` VALUES ('25', '删除骨干服务记录', '/servePosition/delete');
-INSERT INTO `permissions` VALUES ('26', '修改骨干服务记录', '/servePosition/modify');
-INSERT INTO `permissions` VALUES ('27', '评委查看科研经历分数', '/sci/viewScoreInfo');
-INSERT INTO `permissions` VALUES ('28', '评委查看科研经历记录', '/sci/viewSubmittedT');
-INSERT INTO `permissions` VALUES ('29', '评委提交科研经历打分', '/sci/submitScore');
-INSERT INTO `permissions` VALUES ('30', '评委查看骨干服务分数', '/servePosition/viewStuScore');
-INSERT INTO `permissions` VALUES ('31', '评委查看骨干服务记录', '/servePosition/viewSubmittedT');
-INSERT INTO `permissions` VALUES ('32', '评委提交骨干服务打分', '/servePosition/submitScore');
-INSERT INTO `permissions` VALUES ('34', '评委查看社会实践分数', '/social/viewStuScore');
-INSERT INTO `permissions` VALUES ('35', '评委查看社会实践记录', '/social/viewSubmittedT');
-INSERT INTO `permissions` VALUES ('36', '评委提交社会实践打分', '/social/submitSPSScore');
-INSERT INTO `permissions` VALUES ('37', '导入基本信息Excel', '/studentInfo/upload');
-INSERT INTO `permissions` VALUES ('38', '获取基本信息列表', '/studentInfo/getList');
-INSERT INTO `permissions` VALUES ('39', '导入志愿时长Excel', '/volun/upload');
-INSERT INTO `permissions` VALUES ('40', '获取志愿时长列表', '/volun/getList');
-INSERT INTO `permissions` VALUES ('41', '导入GPAExcel', '/gpa/upload');
-INSERT INTO `permissions` VALUES ('42', '获取GPA列表', '/gpa/getList');
-INSERT INTO `permissions` VALUES ('43', '导入白名单Excel', '/whiteList/upload');
-INSERT INTO `permissions` VALUES ('44', '获取白名单列表', '/whiteList/getList');
-
-
-
--- ----------------------------
--- Table structure for role_permissions
--- ----------------------------
-DROP TABLE IF EXISTS `role_permissions`;
-CREATE TABLE `role_permissions` (
-  `role_id` int NOT NULL,
-  `permission_id` int NOT NULL,
-  PRIMARY KEY (`role_id`,`permission_id`),
-  KEY `FK_permission_id` (`permission_id`),
-  CONSTRAINT `FK_permission_id` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`),
-  CONSTRAINT `FK_role_id` FOREIGN KEY (`role_id`) REFERENCES `role` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
--- ----------------------------
--- Records of role_permissions
--- ----------------------------
-INSERT INTO `role_permissions` VALUES ('2', '1');
-INSERT INTO `role_permissions` VALUES ('8', '1');
-INSERT INTO `role_permissions` VALUES ('2', '2');
-INSERT INTO `role_permissions` VALUES ('5', '2');
-INSERT INTO `role_permissions` VALUES ('2', '3');
-INSERT INTO `role_permissions` VALUES ('2', '4');
-INSERT INTO `role_permissions` VALUES ('5', '4');
-INSERT INTO `role_permissions` VALUES ('8', '4');
-INSERT INTO `role_permissions` VALUES ('1', '5');
-INSERT INTO `role_permissions` VALUES ('2', '5');
-INSERT INTO `role_permissions` VALUES ('3', '5');
-INSERT INTO `role_permissions` VALUES ('4', '5');
-INSERT INTO `role_permissions` VALUES ('5', '5');
-INSERT INTO `role_permissions` VALUES ('6', '5');
-INSERT INTO `role_permissions` VALUES ('7', '5');
-INSERT INTO `role_permissions` VALUES ('8', '5');
-INSERT INTO `role_permissions` VALUES ('1', '6');
-INSERT INTO `role_permissions` VALUES ('2', '6');
-INSERT INTO `role_permissions` VALUES ('3', '6');
-INSERT INTO `role_permissions` VALUES ('4', '6');
-INSERT INTO `role_permissions` VALUES ('5', '6');
-INSERT INTO `role_permissions` VALUES ('6', '6');
-INSERT INTO `role_permissions` VALUES ('7', '6');
-INSERT INTO `role_permissions` VALUES ('8', '6');
-INSERT INTO `role_permissions` VALUES ('1', '7');
-INSERT INTO `role_permissions` VALUES ('2', '7');
-INSERT INTO `role_permissions` VALUES ('1', '8');
-INSERT INTO `role_permissions` VALUES ('2', '8');
-INSERT INTO `role_permissions` VALUES ('1', '9');
-INSERT INTO `role_permissions` VALUES ('2', '9');
-INSERT INTO `role_permissions` VALUES ('3', '9');
-INSERT INTO `role_permissions` VALUES ('4', '9');
-INSERT INTO `role_permissions` VALUES ('5', '9');
-INSERT INTO `role_permissions` VALUES ('6', '9');
-INSERT INTO `role_permissions` VALUES ('7', '9');
-INSERT INTO `role_permissions` VALUES ('8', '9');
-INSERT INTO `role_permissions` VALUES ('1', '10');
-INSERT INTO `role_permissions` VALUES ('2', '10');
-INSERT INTO `role_permissions` VALUES ('3', '10');
-INSERT INTO `role_permissions` VALUES ('4', '10');
-INSERT INTO `role_permissions` VALUES ('5', '10');
-INSERT INTO `role_permissions` VALUES ('6', '10');
-INSERT INTO `role_permissions` VALUES ('7', '10');
-INSERT INTO `role_permissions` VALUES ('8', '10');
-INSERT INTO `role_permissions` VALUES ('2', '11');
-INSERT INTO `role_permissions` VALUES ('7', '11');
-INSERT INTO `role_permissions` VALUES ('1', '13');
-INSERT INTO `role_permissions` VALUES ('2', '13');
-INSERT INTO `role_permissions` VALUES ('3', '13');
-INSERT INTO `role_permissions` VALUES ('4', '13');
-INSERT INTO `role_permissions` VALUES ('5', '13');
-INSERT INTO `role_permissions` VALUES ('6', '13');
-INSERT INTO `role_permissions` VALUES ('7', '13');
-INSERT INTO `role_permissions` VALUES ('8', '13');
-INSERT INTO `role_permissions` VALUES ('1', '14');
-INSERT INTO `role_permissions` VALUES ('2', '14');
-INSERT INTO `role_permissions` VALUES ('3', '14');
-INSERT INTO `role_permissions` VALUES ('4', '14');
-INSERT INTO `role_permissions` VALUES ('5', '14');
-INSERT INTO `role_permissions` VALUES ('6', '14');
-INSERT INTO `role_permissions` VALUES ('7', '14');
-INSERT INTO `role_permissions` VALUES ('8', '14');
-INSERT INTO `role_permissions` VALUES ('1', '15');
-INSERT INTO `role_permissions` VALUES ('2', '15');
-INSERT INTO `role_permissions` VALUES ('1', '16');
-INSERT INTO `role_permissions` VALUES ('2', '16');
-INSERT INTO `role_permissions` VALUES ('1', '17');
-INSERT INTO `role_permissions` VALUES ('2', '17');
-INSERT INTO `role_permissions` VALUES ('1', '18');
-INSERT INTO `role_permissions` VALUES ('2', '18');
-INSERT INTO `role_permissions` VALUES ('1', '19');
-INSERT INTO `role_permissions` VALUES ('2', '19');
-INSERT INTO `role_permissions` VALUES ('1', '20');
-INSERT INTO `role_permissions` VALUES ('2', '20');
-INSERT INTO `role_permissions` VALUES ('1', '21');
-INSERT INTO `role_permissions` VALUES ('2', '21');
-INSERT INTO `role_permissions` VALUES ('1', '22');
-INSERT INTO `role_permissions` VALUES ('2', '22');
-INSERT INTO `role_permissions` VALUES ('1', '23');
-INSERT INTO `role_permissions` VALUES ('2', '23');
-INSERT INTO `role_permissions` VALUES ('1', '24');
-INSERT INTO `role_permissions` VALUES ('2', '24');
-INSERT INTO `role_permissions` VALUES ('1', '25');
-INSERT INTO `role_permissions` VALUES ('2', '25');
-INSERT INTO `role_permissions` VALUES ('1', '26');
-INSERT INTO `role_permissions` VALUES ('2', '26');
-INSERT INTO `role_permissions` VALUES ('2', '27');
-INSERT INTO `role_permissions` VALUES ('4', '27');
-INSERT INTO `role_permissions` VALUES ('2', '28');
-INSERT INTO `role_permissions` VALUES ('4', '28');
-INSERT INTO `role_permissions` VALUES ('2', '29');
-INSERT INTO `role_permissions` VALUES ('4', '29');
-INSERT INTO `role_permissions` VALUES ('2', '30');
-INSERT INTO `role_permissions` VALUES ('6', '30');
-INSERT INTO `role_permissions` VALUES ('2', '31');
-INSERT INTO `role_permissions` VALUES ('6', '31');
-INSERT INTO `role_permissions` VALUES ('2', '32');
-INSERT INTO `role_permissions` VALUES ('6', '32');
-INSERT INTO `role_permissions` VALUES ('2', '34');
-INSERT INTO `role_permissions` VALUES ('3', '34');
-INSERT INTO `role_permissions` VALUES ('2', '35');
-INSERT INTO `role_permissions` VALUES ('3', '35');
-INSERT INTO `role_permissions` VALUES ('2', '36');
-INSERT INTO `role_permissions` VALUES ('3', '36');
-INSERT INTO `role_permissions` VALUES ('2', '37');
-INSERT INTO `role_permissions` VALUES ('2', '38');
-INSERT INTO `role_permissions` VALUES ('2', '39');
-INSERT INTO `role_permissions` VALUES ('2', '40');
-INSERT INTO `role_permissions` VALUES ('2', '41');
-INSERT INTO `role_permissions` VALUES ('2', '42');
-INSERT INTO `role_permissions` VALUES ('2', '43');
-INSERT INTO `role_permissions` VALUES ('2', '44');
-
-
--- ----------------------------
--- Table structure for orgservice
--- ----------------------------
-DROP TABLE IF EXISTS `orgservice`;
-CREATE TABLE `orgservice`  (
-  `ID` int NOT NULL AUTO_INCREMENT,
-  `studentID` varchar(255) CHARACTER SET utf16 COLLATE utf16_unicode_ci NOT NULL,
-  `time` varchar(50) CHARACTER SET utf16 COLLATE utf16_unicode_ci NULL DEFAULT NULL,
-  `content` varchar(255) CHARACTER SET utf16 COLLATE utf16_unicode_ci NULL DEFAULT NULL,
-  PRIMARY KEY (`ID`, `studentID`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf16 COLLATE = utf16_unicode_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Records of orgservice
--- ----------------------------
-INSERT INTO `orgservice` VALUES (1, '1', '哈哈哈哈', '哈哈哈哈');
-INSERT INTO `orgservice` VALUES (4, '2', '嘿嘿嘿黑', '急急急');
-INSERT INTO `orgservice` VALUES (5, '1', '阿斯顿发送到', '是打发点');
-
 
 -- ----------------------------
 -- Table structure for school
@@ -2009,9 +1813,9 @@ CREATE TABLE `user_roles`  (
 -- ----------------------------
 -- Records of user_roles
 -- ----------------------------
-INSERT INTO `user_roles` VALUES (1, 1);
+INSERT INTO `user_roles` VALUES (1, 3);
 INSERT INTO `user_roles` VALUES (2, 2);
-INSERT INTO `user_roles` VALUES (3, 3);
+INSERT INTO `user_roles` VALUES (3, 1);
 INSERT INTO `user_roles` VALUES (4, 4);
 INSERT INTO `user_roles` VALUES (5, 5);
 INSERT INTO `user_roles` VALUES (6, 6);

@@ -5,11 +5,12 @@ import lombok.Data;
 @Data
 public class Node {
     private int id;
-    private String type;
+    private Boolean type;
     private String icon;
     private String index;
     private String title;
     private int permiss;
     private int parentId;
+    private String component;
 
 }
