@@ -1,0 +1,295 @@
+Index: zongceSystem0517/src/main/java/com/example/agile0509/config/CorsConfig.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.agile0509.config;\r\nimport org.springframework.beans.factory.annotation.Autowired;\r\nimport org.springframework.context.annotation.Configuration;\r\nimport org.springframework.web.servlet.config.annotation.CorsRegistry;\r\nimport org.springframework.web.servlet.config.annotation.InterceptorRegistry;\r\nimport org.springframework.web.servlet.config.annotation.WebMvcConfigurer;\r\n\r\n/**\r\n * @author Junzhe\r\n * @ClassName CorsConfig\r\n * @date 2023/5/16 16:40\r\n */\r\n\r\n/**\r\n * @author YuanYue\r\n * 进行修改：明确允许content-type，避免服务器未正确处理预检请求\r\n * @date 2023/5/20\r\n */\r\n\r\n@Configuration\r\npublic class CorsConfig implements WebMvcConfigurer {\r\n\r\n    @Override\r\n    public void addCorsMappings(CorsRegistry registry) {  //解决springboot和ajax传数据时请求跨域的问题\r\n        registry.addMapping(\"/**\")\r\n                .allowedHeaders(\"*\")\r\n                .allowedMethods(\"GET\", \"HEAD\", \"POST\", \"PUT\", \"DELETE\",\"OPTIONS\")\r\n                .allowedOriginPatterns(\"*\")\r\n                .allowCredentials(true)\r\n                .exposedHeaders(\"content-type\")  // 明确允许 \"content-type\" 头部字段在跨域请求的响应中被暴露出来,解决跨域\r\n                .maxAge(3600);\r\n\r\n        registry.addMapping(\"/**\")\r\n                .allowedHeaders(\"x-requested-with\", \"Authorization\", \"content-type\"); // 添加允许的请求头\r\n\r\n        WebMvcConfigurer.super.addCorsMappings(registry);\r\n    }\r\n\r\n    @Autowired\r\n    private AuthorizationInterceptor authorizationInterceptor;\r\n\r\n    @Override\r\n    public void addInterceptors(InterceptorRegistry registry) {\r\n        registry.addInterceptor(authorizationInterceptor).addPathPatterns(\"/**\");\r\n    }\r\n\r\n}\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/zongceSystem0517/src/main/java/com/example/agile0509/config/CorsConfig.java b/zongceSystem0517/src/main/java/com/example/agile0509/config/CorsConfig.java
+--- a/zongceSystem0517/src/main/java/com/example/agile0509/config/CorsConfig.java	
++++ b/zongceSystem0517/src/main/java/com/example/agile0509/config/CorsConfig.java	
+@@ -36,6 +36,7 @@
+         WebMvcConfigurer.super.addCorsMappings(registry);
+     }
+ 
++
+     @Autowired
+     private AuthorizationInterceptor authorizationInterceptor;
+ 
+@@ -44,5 +45,6 @@
+         registry.addInterceptor(authorizationInterceptor).addPathPatterns("/**");
+     }
+ 
++
+ }
+ 
+Index: zongceSystem0517/src/main/java/com/example/agile0509/config/AuthorizationInterceptor.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.agile0509.config;\r\n\r\n\r\nimport com.example.agile0509.pojo.Permission;\r\nimport com.example.agile0509.service.AuthService;\r\nimport com.example.agile0509.utils.JwtTokenUtil;\r\nimport org.springframework.beans.factory.annotation.Autowired;\r\nimport org.springframework.stereotype.Component;\r\nimport org.springframework.web.servlet.HandlerInterceptor;\r\n\r\nimport javax.servlet.http.HttpServletRequest;\r\nimport javax.servlet.http.HttpServletResponse;\r\nimport java.io.PrintWriter;\r\nimport java.util.List;\r\n\r\n@Component\r\npublic class AuthorizationInterceptor implements HandlerInterceptor {\r\n\r\n    @Autowired\r\n    private JwtTokenUtil jwtTokenUtil;\r\n\r\n    @Autowired\r\n    private AuthService authService;\r\n\r\n    @Override\r\n    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {\r\n        // 获取请求头中的Authorization令牌\r\n        String authHeader = request.getHeader(\"Authorization\");\r\n        String requestUri = request.getRequestURI();\r\n        // 如果用户访问登录页面，则不进行拦截，直接放行\r\n        if (requestUri.equals(\"/auth/login\")) {\r\n            return true;\r\n        }\r\n\r\n        if (authHeader != null && authHeader.startsWith(\"Bearer \")) {\r\n            // 解析令牌获取用户名和角色信息\r\n            String token = authHeader.substring(7);\r\n            String username = jwtTokenUtil.getUsernameFromToken(token);\r\n\r\n            // 调用Authervice中的方法来获取用户ID\r\n            int userId = authService.getUserIdByUsername(username);\r\n\r\n            // 根据用户ID调用AuthService中的方法来获取用户角色\r\n            //注意此处获得的permissions与控制器get方法不同（获得是每个角色对应\r\n            //其是遍历角色列表将拥有的权限不重复添加至list内\r\n            List<Permission> permissions = authService.getPermissionsByUserId(userId);\r\n\r\n            // 判断用户是否具有访问当前请求路径的权限\r\n            if (!hasAccess(permissions, request.getRequestURI())) {//获取的uri表示请求的路径部分，不包含协议、主机名和端口号。\r\n                response.setContentType(\"application/json\");\r\n                response.setCharacterEncoding(\"UTF-8\");\r\n                response.setStatus(HttpServletResponse.SC_FORBIDDEN);\r\n                String errorMessage = \"Access Denied\";\r\n                PrintWriter writer = response.getWriter();\r\n                writer.print(\"{\\\"error\\\": \\\"\" + errorMessage + \"\\\"}\");\r\n                writer.flush();\r\n                return false;\r\n            }\r\n        } else {\r\n            response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);\r\n            response.setContentType(\"application/json\");\r\n            response.setCharacterEncoding(\"UTF-8\");\r\n            String errorMessage = \"Unauthorized\";\r\n            PrintWriter writer = response.getWriter();\r\n            writer.print(\"{\\\"error\\\": \\\"\" + errorMessage + \"\\\"}\");\r\n            writer.flush();\r\n            return false;\r\n        }\r\n\r\n        return true;\r\n    }\r\n\r\n    private boolean hasAccess(List<Permission> permissions, String requestUri) {\r\n        // 根据角色和权限信息判断是否具有访问权限\r\n        // 可根据自己的业务逻辑进行权限判断，例如遍历角色和权限信息，匹配请求路径是否在允许访问的范围内\r\n        // 可以使用正则表达式或字符串匹配等方式进行判断\r\n\r\n        //目前采用遍历权限列表来判断用户是否具有访问权限，细化可根据用户目前角色判断是否具有访问权限\r\n        for (Permission permission : permissions) {\r\n            System.out.println(permission);\r\n            //注意url从数据库取出至后端后会输入末尾的\\r，因此需要用正则表达式去掉后再比较\r\n            //String cleanedUrl = permission.getUrl().replaceAll(\"\\r\", \"\");\r\n            // 判断权限是否具有访问权限\r\n            if (permission.getUrl().equals(requestUri)) {\r\n                return true;\r\n            }\r\n        }\r\n\r\n        return false;\r\n    }\r\n}\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/zongceSystem0517/src/main/java/com/example/agile0509/config/AuthorizationInterceptor.java b/zongceSystem0517/src/main/java/com/example/agile0509/config/AuthorizationInterceptor.java
+--- a/zongceSystem0517/src/main/java/com/example/agile0509/config/AuthorizationInterceptor.java	
++++ b/zongceSystem0517/src/main/java/com/example/agile0509/config/AuthorizationInterceptor.java	
+@@ -26,7 +26,9 @@
+     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+         // 获取请求头中的Authorization令牌
+         String authHeader = request.getHeader("Authorization");
++        System.out.println(authHeader);
+         String requestUri = request.getRequestURI();
++        System.out.println(request.getRequestURI());
+         // 如果用户访问登录页面，则不进行拦截，直接放行
+         if (requestUri.equals("/auth/login")) {
+             return true;
+@@ -35,6 +37,19 @@
+         if (authHeader != null && authHeader.startsWith("Bearer ")) {
+             // 解析令牌获取用户名和角色信息
+             String token = authHeader.substring(7);
++
++            // 检查令牌是否过期
++            if (jwtTokenUtil.isTokenExpired(token)) {
++                response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
++                response.setContentType("application/json");
++                response.setCharacterEncoding("UTF-8");
++                String errorMessage = "Token Expired";
++                PrintWriter writer = response.getWriter();
++                writer.print("{\"error\": \"" + errorMessage + "\"}");
++                writer.flush();
++                return false;
++            }
++
+             String username = jwtTokenUtil.getUsernameFromToken(token);
+ 
+             // 调用Authervice中的方法来获取用户ID
+Index: zongceSystem0517/src/main/java/com/example/agile0509/pojo/Social.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.agile0509.pojo;\r\n\r\nimport com.fasterxml.jackson.annotation.JsonSubTypes;\r\nimport lombok.Data;\r\nimport lombok.extern.jbosslog.JBossLog;\r\n\r\nimport javax.persistence.Lob;\r\n\r\n@Data\r\npublic class Social {\r\n    private int id;\r\n    private String stuId;\r\n    private String time;\r\n    private String content;\r\n    private String material;\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/zongceSystem0517/src/main/java/com/example/agile0509/pojo/Social.java b/zongceSystem0517/src/main/java/com/example/agile0509/pojo/Social.java
+--- a/zongceSystem0517/src/main/java/com/example/agile0509/pojo/Social.java	
++++ b/zongceSystem0517/src/main/java/com/example/agile0509/pojo/Social.java	
+@@ -4,7 +4,7 @@
+ import lombok.Data;
+ import lombok.extern.jbosslog.JBossLog;
+ 
+-import javax.persistence.Lob;
++//import javax.persistence.Lob;
+ 
+ @Data
+ public class Social {
+Index: zongceSystem0517/src/main/java/com/example/agile0509/utils/JwtTokenUtil.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.agile0509.utils;\r\n\r\nimport io.jsonwebtoken.Claims;\r\nimport io.jsonwebtoken.JwtException;\r\nimport io.jsonwebtoken.Jwts;\r\nimport io.jsonwebtoken.SignatureAlgorithm;\r\nimport org.springframework.beans.factory.annotation.Value;\r\nimport org.springframework.stereotype.Component;\r\n\r\nimport java.util.Date;\r\nimport java.util.HashMap;\r\nimport java.util.Map;\r\nimport java.util.function.Function;\r\n\r\n@Component\r\npublic class JwtTokenUtil {\r\n\r\n    @Value(\"${jwt.secret}\")\r\n    private String secret;\r\n\r\n    @Value(\"${jwt.access_token.expiration}\")\r\n    private Long accessTokenExpiration;\r\n\r\n    @Value(\"${jwt.refresh_token.expiration}\")\r\n    private Long refreshTokenExpiration;\r\n\r\n    public String generateAccessToken(String username) {\r\n        Map<String, Object> claims = new HashMap<>();\r\n        return doGenerateToken(claims, username, accessTokenExpiration);\r\n    }\r\n\r\n    public String generateRefreshToken(String username) {\r\n        Map<String, Object> claims = new HashMap<>();\r\n        return doGenerateToken(claims, username, refreshTokenExpiration);\r\n    }\r\n\r\n    private String doGenerateToken(Map<String, Object> claims, String username, Long expiration) {\r\n        return Jwts.builder()\r\n                .setClaims(claims)\r\n                .setSubject(username)\r\n                .setIssuedAt(new Date(System.currentTimeMillis()))\r\n                .setExpiration(new Date(System.currentTimeMillis() + expiration * 1000))\r\n                .signWith(SignatureAlgorithm.HS256,secret)\r\n                .compact();\r\n    }\r\n\r\n    public String getUsernameFromToken(String token) {\r\n        return getClaimFromToken(token, Claims::getSubject);\r\n    }\r\n\r\n    public Date getExpirationDateFromToken(String token) {\r\n        return getClaimFromToken(token, Claims::getExpiration);\r\n    }\r\n\r\n    public <T> T getClaimFromToken(String token, Function<Claims, T> claimsResolver) {\r\n        Claims claims = getAllClaimsFromToken(token);\r\n        return claimsResolver.apply(claims);\r\n    }\r\n\r\n    private Claims getAllClaimsFromToken(String token) {\r\n        return Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody();\r\n    }\r\n\r\n    private Boolean isTokenExpired(String token) {\r\n        Date expiration = getExpirationDateFromToken(token);\r\n        return expiration.before(new Date());\r\n    }\r\n\r\n    public Boolean validateToken(String token) {\r\n        try {\r\n            Jwts.parser().setSigningKey(secret).parseClaimsJws(token);\r\n            return !isTokenExpired(token);\r\n        } catch (JwtException | IllegalArgumentException e) {\r\n            return false;\r\n        }\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/zongceSystem0517/src/main/java/com/example/agile0509/utils/JwtTokenUtil.java b/zongceSystem0517/src/main/java/com/example/agile0509/utils/JwtTokenUtil.java
+--- a/zongceSystem0517/src/main/java/com/example/agile0509/utils/JwtTokenUtil.java	
++++ b/zongceSystem0517/src/main/java/com/example/agile0509/utils/JwtTokenUtil.java	
+@@ -61,7 +61,7 @@
+         return Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody();
+     }
+ 
+-    private Boolean isTokenExpired(String token) {
++    public Boolean isTokenExpired(String token) {
+         Date expiration = getExpirationDateFromToken(token);
+         return expiration.before(new Date());
+     }
+Index: ../vue-manage-system-master0601/node_modules/.vite/deps/chunk-FDT3GP7H.js
+===================================================================
+diff --git a/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-FDT3GP7H.js b/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-FDT3GP7H.js
+deleted file mode 100644
+--- a/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-FDT3GP7H.js	
++++ /dev/null	
+@@ -1,3 +0,0 @@
+-// node_modules/element-plus/es/components/base/style/css.mjs
+-import "C:/Users/t1897/Desktop/minjiezongce/repo/studentSys/vue-manage-system-master0601/node_modules/element-plus/theme-chalk/base.css";
+-//# sourceMappingURL=chunk-FDT3GP7H.js.map
+Index: ../vue-manage-system-master0601/node_modules/.vite/deps/chunk-UJKXPHG5.js.map
+===================================================================
+diff --git a/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-UJKXPHG5.js.map b/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-UJKXPHG5.js.map
+deleted file mode 100644
+--- a/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-UJKXPHG5.js.map	
++++ /dev/null	
+@@ -1,7 +0,0 @@
+-{
+-  "version": 3,
+-  "sources": ["../../element-plus/es/components/tooltip/style/css.mjs"],
+-  "sourcesContent": ["import '../../base/style/css.mjs';\r\nimport 'element-plus/theme-chalk/el-tooltip.css';\r\nimport '../../popper/style/css.mjs';\r\n//# sourceMappingURL=css.mjs.map\r\n"],
+-  "mappings": ";AACA,OAAO;",
+-  "names": []
+-}
+Index: ../vue-manage-system-master0601/node_modules/.vite/deps/chunk-D4KFNUZW.js.map
+===================================================================
+diff --git a/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-D4KFNUZW.js.map b/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-D4KFNUZW.js.map
+deleted file mode 100644
+--- a/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-D4KFNUZW.js.map	
++++ /dev/null	
+@@ -1,7 +0,0 @@
+-{
+-  "version": 3,
+-  "sources": ["../../element-plus/es/components/checkbox/style/css.mjs"],
+-  "sourcesContent": ["import '../../base/style/css.mjs';\r\nimport 'element-plus/theme-chalk/el-checkbox.css';\r\n//# sourceMappingURL=css.mjs.map\r\n"],
+-  "mappings": ";AACA,OAAO;",
+-  "names": []
+-}
+Index: ../vue-manage-system-master0601/node_modules/.vite/deps/chunk-BZUMWMBO.js.map
+===================================================================
+diff --git a/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-BZUMWMBO.js.map b/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-BZUMWMBO.js.map
+deleted file mode 100644
+--- a/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-BZUMWMBO.js.map	
++++ /dev/null	
+@@ -1,7 +0,0 @@
+-{
+-  "version": 3,
+-  "sources": ["../../element-plus/es/components/scrollbar/style/css.mjs"],
+-  "sourcesContent": ["import '../../base/style/css.mjs';\r\nimport 'element-plus/theme-chalk/el-scrollbar.css';\r\n//# sourceMappingURL=css.mjs.map\r\n"],
+-  "mappings": ";AACA,OAAO;",
+-  "names": []
+-}
+Index: ../vue-manage-system-master0601/node_modules/.vite/deps/chunk-LOIGM5DD.js.map
+===================================================================
+diff --git a/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-LOIGM5DD.js.map b/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-LOIGM5DD.js.map
+deleted file mode 100644
+--- a/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-LOIGM5DD.js.map	
++++ /dev/null	
+@@ -1,7 +0,0 @@
+-{
+-  "version": 3,
+-  "sources": ["../../element-plus/es/components/tag/style/css.mjs"],
+-  "sourcesContent": ["import '../../base/style/css.mjs';\r\nimport 'element-plus/theme-chalk/el-tag.css';\r\n//# sourceMappingURL=css.mjs.map\r\n"],
+-  "mappings": ";AACA,OAAO;",
+-  "names": []
+-}
+Index: ../vue-manage-system-master0601/node_modules/.vite/deps/chunk-BZUMWMBO.js
+===================================================================
+diff --git a/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-BZUMWMBO.js b/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-BZUMWMBO.js
+deleted file mode 100644
+--- a/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-BZUMWMBO.js	
++++ /dev/null	
+@@ -1,3 +0,0 @@
+-// node_modules/element-plus/es/components/scrollbar/style/css.mjs
+-import "C:/Users/t1897/Desktop/minjiezongce/repo/studentSys/vue-manage-system-master0601/node_modules/element-plus/theme-chalk/el-scrollbar.css";
+-//# sourceMappingURL=chunk-BZUMWMBO.js.map
+Index: ../vue-manage-system-master0601/node_modules/.vite/deps/chunk-Q4CRD3JF.js
+===================================================================
+diff --git a/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-Q4CRD3JF.js b/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-Q4CRD3JF.js
+deleted file mode 100644
+--- a/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-Q4CRD3JF.js	
++++ /dev/null	
+@@ -1,3 +0,0 @@
+-// node_modules/element-plus/es/components/input/style/css.mjs
+-import "C:/Users/t1897/Desktop/minjiezongce/repo/studentSys/vue-manage-system-master0601/node_modules/element-plus/theme-chalk/el-input.css";
+-//# sourceMappingURL=chunk-Q4CRD3JF.js.map
+Index: ../vue-manage-system-master0601/node_modules/.vite/deps/chunk-P2TCDZWM.js.map
+===================================================================
+diff --git a/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-P2TCDZWM.js.map b/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-P2TCDZWM.js.map
+deleted file mode 100644
+--- a/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-P2TCDZWM.js.map	
++++ /dev/null	
+@@ -1,7 +0,0 @@
+-{
+-  "version": 3,
+-  "sources": ["../../element-plus/es/components/button/style/css.mjs"],
+-  "sourcesContent": ["import '../../base/style/css.mjs';\r\nimport 'element-plus/theme-chalk/el-button.css';\r\n//# sourceMappingURL=css.mjs.map\r\n"],
+-  "mappings": ";AACA,OAAO;",
+-  "names": []
+-}
+Index: ../vue-manage-system-master0601/node_modules/.vite/deps/chunk-G3DECN73.js.map
+===================================================================
+diff --git a/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-G3DECN73.js.map b/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-G3DECN73.js.map
+deleted file mode 100644
+--- a/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-G3DECN73.js.map	
++++ /dev/null	
+@@ -1,7 +0,0 @@
+-{
+-  "version": 3,
+-  "sources": ["../../element-plus/es/components/popper/style/css.mjs"],
+-  "sourcesContent": ["import '../../base/style/css.mjs';\r\nimport 'element-plus/theme-chalk/el-popper.css';\r\n//# sourceMappingURL=css.mjs.map\r\n"],
+-  "mappings": ";AACA,OAAO;",
+-  "names": []
+-}
+Index: ../vue-manage-system-master0601/node_modules/.vite/deps/chunk-G3DECN73.js
+===================================================================
+diff --git a/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-G3DECN73.js b/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-G3DECN73.js
+deleted file mode 100644
+--- a/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-G3DECN73.js	
++++ /dev/null	
+@@ -1,3 +0,0 @@
+-// node_modules/element-plus/es/components/popper/style/css.mjs
+-import "C:/Users/t1897/Desktop/minjiezongce/repo/studentSys/vue-manage-system-master0601/node_modules/element-plus/theme-chalk/el-popper.css";
+-//# sourceMappingURL=chunk-G3DECN73.js.map
+Index: ../vue-manage-system-master0601/node_modules/.vite/deps/chunk-P2TCDZWM.js
+===================================================================
+diff --git a/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-P2TCDZWM.js b/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-P2TCDZWM.js
+deleted file mode 100644
+--- a/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-P2TCDZWM.js	
++++ /dev/null	
+@@ -1,3 +0,0 @@
+-// node_modules/element-plus/es/components/button/style/css.mjs
+-import "C:/Users/t1897/Desktop/minjiezongce/repo/studentSys/vue-manage-system-master0601/node_modules/element-plus/theme-chalk/el-button.css";
+-//# sourceMappingURL=chunk-P2TCDZWM.js.map
+Index: ../vue-manage-system-master0601/node_modules/.vite/deps/chunk-LOIGM5DD.js
+===================================================================
+diff --git a/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-LOIGM5DD.js b/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-LOIGM5DD.js
+deleted file mode 100644
+--- a/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-LOIGM5DD.js	
++++ /dev/null	
+@@ -1,3 +0,0 @@
+-// node_modules/element-plus/es/components/tag/style/css.mjs
+-import "C:/Users/t1897/Desktop/minjiezongce/repo/studentSys/vue-manage-system-master0601/node_modules/element-plus/theme-chalk/el-tag.css";
+-//# sourceMappingURL=chunk-LOIGM5DD.js.map
+Index: ../vue-manage-system-master0601/node_modules/.vite/deps/chunk-FDT3GP7H.js.map
+===================================================================
+diff --git a/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-FDT3GP7H.js.map b/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-FDT3GP7H.js.map
+deleted file mode 100644
+--- a/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-FDT3GP7H.js.map	
++++ /dev/null	
+@@ -1,7 +0,0 @@
+-{
+-  "version": 3,
+-  "sources": ["../../element-plus/es/components/base/style/css.mjs"],
+-  "sourcesContent": ["import 'element-plus/theme-chalk/base.css';\r\n//# sourceMappingURL=css.mjs.map\r\n"],
+-  "mappings": ";AAAA,OAAO;",
+-  "names": []
+-}
+Index: ../vue-manage-system-master0601/node_modules/.vite/deps/chunk-UJKXPHG5.js
+===================================================================
+diff --git a/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-UJKXPHG5.js b/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-UJKXPHG5.js
+deleted file mode 100644
+--- a/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-UJKXPHG5.js	
++++ /dev/null	
+@@ -1,3 +0,0 @@
+-// node_modules/element-plus/es/components/tooltip/style/css.mjs
+-import "C:/Users/t1897/Desktop/minjiezongce/repo/studentSys/vue-manage-system-master0601/node_modules/element-plus/theme-chalk/el-tooltip.css";
+-//# sourceMappingURL=chunk-UJKXPHG5.js.map
+Index: ../vue-manage-system-master0601/node_modules/.vite/deps/chunk-D4KFNUZW.js
+===================================================================
+diff --git a/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-D4KFNUZW.js b/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-D4KFNUZW.js
+deleted file mode 100644
+--- a/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-D4KFNUZW.js	
++++ /dev/null	
+@@ -1,3 +0,0 @@
+-// node_modules/element-plus/es/components/checkbox/style/css.mjs
+-import "C:/Users/t1897/Desktop/minjiezongce/repo/studentSys/vue-manage-system-master0601/node_modules/element-plus/theme-chalk/el-checkbox.css";
+-//# sourceMappingURL=chunk-D4KFNUZW.js.map
+Index: ../vue-manage-system-master0601/node_modules/.vite/deps/chunk-Q4CRD3JF.js.map
+===================================================================
+diff --git a/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-Q4CRD3JF.js.map b/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-Q4CRD3JF.js.map
+deleted file mode 100644
+--- a/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-Q4CRD3JF.js.map	
++++ /dev/null	
+@@ -1,7 +0,0 @@
+-{
+-  "version": 3,
+-  "sources": ["../../element-plus/es/components/input/style/css.mjs"],
+-  "sourcesContent": ["import '../../base/style/css.mjs';\r\nimport 'element-plus/theme-chalk/el-input.css';\r\n//# sourceMappingURL=css.mjs.map\r\n"],
+-  "mappings": ";AACA,OAAO;",
+-  "names": []
+-}
