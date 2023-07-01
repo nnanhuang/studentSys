@@ -272,23 +272,28 @@ router.beforeEach((to, from, next) => {
 */
 
 //重定向，可注释勿删
- import { getAccessToken } from '../utils/auth.js'
- import {getRouter} from "../api/dynamicRBAC.js";
+import { getAccessToken } from '../utils/auth.js'
+import {getRouter} from "../api/dynamicRBAC.js";
+import {removeToken} from "../utils/auth.js";
  router.beforeEach(async(to, from, next) => {
     if (to.name === 'dashboard') {
         // 获取子路由数据
         const response = await getRouter();
-        const childRoutes =response.data
-        console.log(childRoutes);
-        // 更新 Home 路由的子路由配置
-        const homeRouteIndex = routes.findIndex((route) => route.name === 'Home');
-        if (homeRouteIndex !== -1) {
-            routes[homeRouteIndex].children= convertToRoutes(childRoutes);
+        if(response.code == 200) {
+            const childRoutes = response.data
+            console.log(childRoutes);
+            // 更新 Home 路由的子路由配置
+            const homeRouteIndex = routes.findIndex((route) => route.name === 'Home');
+            if (homeRouteIndex !== -1) {
+                routes[homeRouteIndex].children = convertToRoutes(childRoutes);
+            }
+            // 重新设置路由配置
+            //router.matcher = createRouter().matcher;
+            router.addRoute(routes[homeRouteIndex]);
+        }else if(response.code == 410){
+            removeToken();
         }
-        // 重新设置路由配置
-        //router.matcher = createRouter().matcher;
-        router.addRoute(routes[homeRouteIndex]);
-      }
+    }
 
 
      if (getAccessToken()) {
@@ -308,7 +313,7 @@ router.beforeEach((to, from, next) => {
    })
 
 // 辅助函数，将从后端获取的子路由数据转换为 Vue Router 的路由配置
-function convertToRoutes(childRoutes) {
+function convertToRoutes(childRoutes: any[]) {
     if (!Array.isArray(childRoutes)) {
         console.error('Invalid childRoutes format.');
         return [];
