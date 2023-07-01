@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonSubTypes;
 import lombok.Data;
 import lombok.extern.jbosslog.JBossLog;
 
-import javax.persistence.Lob;
+//import javax.persistence.Lob;
 
 @Data
 public class Social {

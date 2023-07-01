@@ -26,7 +26,9 @@ public class AuthorizationInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         // 获取请求头中的Authorization令牌
         String authHeader = request.getHeader("Authorization");
+        System.out.println(authHeader);
         String requestUri = request.getRequestURI();
+        System.out.println(request.getRequestURI());
         // 如果用户访问登录页面，则不进行拦截，直接放行
         if (requestUri.equals("/auth/login")) {
             return true;
@@ -35,6 +37,19 @@ public class AuthorizationInterceptor implements HandlerInterceptor {
         if (authHeader != null && authHeader.startsWith("Bearer ")) {
             // 解析令牌获取用户名和角色信息
             String token = authHeader.substring(7);
+
+            // 检查令牌是否过期
+            if (jwtTokenUtil.isTokenExpired(token)) {
+                response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+                response.setContentType("application/json");
+                response.setCharacterEncoding("UTF-8");
+                String errorMessage = "Token Expired";
+                PrintWriter writer = response.getWriter();
+                writer.print("{\"error\": \"" + errorMessage + "\"}");
+                writer.flush();
+                return false;
+            }
+
             String username = jwtTokenUtil.getUsernameFromToken(token);
 
             // 调用Authervice中的方法来获取用户ID

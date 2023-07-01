@@ -36,6 +36,7 @@ public class CorsConfig implements WebMvcConfigurer {
         WebMvcConfigurer.super.addCorsMappings(registry);
     }
 
+
     @Autowired
     private AuthorizationInterceptor authorizationInterceptor;
 
@@ -43,6 +44,7 @@ public class CorsConfig implements WebMvcConfigurer {
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(authorizationInterceptor).addPathPatterns("/**");
     }
+
 
 }
 
