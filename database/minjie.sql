@@ -11,7 +11,7 @@
  Target Server Version : 80030
  File Encoding         : 65001
 
- Date: 01/07/2023 07:36:41
+ Date: 01/07/2023 21:12:52
 */
 
 SET NAMES utf8mb4;
@@ -105,6 +105,65 @@ INSERT INTO `orgservice` VALUES (4, '2', '嘿嘿嘿黑', '急急急');
 INSERT INTO `orgservice` VALUES (5, '1', '阿斯顿发送到', '是打发点');
 
 -- ----------------------------
+-- Table structure for permissions
+-- ----------------------------
+DROP TABLE IF EXISTS `permissions`;
+CREATE TABLE `permissions`  (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 45 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of permissions
+-- ----------------------------
+INSERT INTO `permissions` VALUES (1, '评委获取成绩', '/teacher/getGPA');
+INSERT INTO `permissions` VALUES (2, '评委获取志愿时长', '/teacher/getVolunteer');
+INSERT INTO `permissions` VALUES (3, '评委修改成绩', '/teacher/changeGPA');
+INSERT INTO `permissions` VALUES (4, '评委修改志愿时长', '/teacher/changeVolunteer');
+INSERT INTO `permissions` VALUES (5, '获取用户角色', '/user/get/role');
+INSERT INTO `permissions` VALUES (6, '获取用户动态菜单', '/user/get/menu');
+INSERT INTO `permissions` VALUES (7, '学生获取成绩', '/stu/getStuGPA');
+INSERT INTO `permissions` VALUES (8, '学生获取志愿时长', '/stu/getStuVolunteer');
+INSERT INTO `permissions` VALUES (9, '用户登录', '/auth/login');
+INSERT INTO `permissions` VALUES (10, '获取用户信息', '/user/profile/get');
+INSERT INTO `permissions` VALUES (11, '获取学生成绩汇总数据', '/scoreSum/getList');
+INSERT INTO `permissions` VALUES (12, '用户注册', '/auth/register');
+INSERT INTO `permissions` VALUES (13, '修改密码', '/user/password/update');
+INSERT INTO `permissions` VALUES (14, '修改个人信息', '/user/update');
+INSERT INTO `permissions` VALUES (15, '提交科研信息', '/sci/add');
+INSERT INTO `permissions` VALUES (16, '学生查看科研情况', '/sci/viewSubmitted');
+INSERT INTO `permissions` VALUES (17, '删除科研记录', '/sci/delete');
+INSERT INTO `permissions` VALUES (18, '修改科研记录', '/sci/modify');
+INSERT INTO `permissions` VALUES (19, '提交社会实践记录', '/social/add');
+INSERT INTO `permissions` VALUES (20, '学生查看社会实践记录', '/social/viewSubmitted');
+INSERT INTO `permissions` VALUES (21, '删除社会实践记录', '/social/delete');
+INSERT INTO `permissions` VALUES (22, '修改社会实践记录', '/social/modify');
+INSERT INTO `permissions` VALUES (23, '提交骨干服务', '/servePosition/add');
+INSERT INTO `permissions` VALUES (24, '学生查看骨干服务', '/servePosition/viewSubmitted');
+INSERT INTO `permissions` VALUES (25, '删除骨干服务记录', '/servePosition/delete');
+INSERT INTO `permissions` VALUES (26, '修改骨干服务记录', '/servePosition/modify');
+INSERT INTO `permissions` VALUES (27, '评委查看科研经历分数', '/sci/viewScoreInfo');
+INSERT INTO `permissions` VALUES (28, '评委查看科研经历记录', '/sci/viewSubmittedT');
+INSERT INTO `permissions` VALUES (29, '评委提交科研经历打分', '/sci/submitScore');
+INSERT INTO `permissions` VALUES (30, '评委查看骨干服务分数', '/servePosition/viewStuScore');
+INSERT INTO `permissions` VALUES (31, '评委查看骨干服务记录', '/servePosition/viewSubmittedT');
+INSERT INTO `permissions` VALUES (32, '评委提交骨干服务打分', '/servePosition/submitScore');
+INSERT INTO `permissions` VALUES (34, '评委查看社会实践分数', '/social/viewStuScore');
+INSERT INTO `permissions` VALUES (35, '评委查看社会实践记录', '/social/viewSubmittedT');
+INSERT INTO `permissions` VALUES (36, '评委提交社会实践打分', '/social/submitSPSScore');
+INSERT INTO `permissions` VALUES (37, '导入基本信息Excel', '/studentInfo/upload');
+INSERT INTO `permissions` VALUES (38, '获取基本信息列表', '/studentInfo/getList');
+INSERT INTO `permissions` VALUES (39, '导入志愿时长Excel', '/volun/upload');
+INSERT INTO `permissions` VALUES (40, '获取志愿时长列表', '/volun/getList');
+INSERT INTO `permissions` VALUES (41, '导入GPAExcel', '/gpa/upload');
+INSERT INTO `permissions` VALUES (42, '获取GPA列表', '/gpa/getList');
+INSERT INTO `permissions` VALUES (43, '导入白名单Excel', '/whiteList/upload');
+INSERT INTO `permissions` VALUES (44, '获取白名单列表', '/whiteList/getList');
+INSERT INTO `permissions` VALUES (45, '获取用户动态路由', '/user/get/router');
+
+-- ----------------------------
 -- Table structure for role
 -- ----------------------------
 DROP TABLE IF EXISTS `role`;
@@ -188,6 +247,143 @@ INSERT INTO `role_nodes` VALUES (41, 3, 26);
 INSERT INTO `role_nodes` VALUES (42, 6, 27);
 INSERT INTO `role_nodes` VALUES (43, 2, 28);
 INSERT INTO `role_nodes` VALUES (44, 2, 29);
+
+-- ----------------------------
+-- Table structure for role_permissions
+-- ----------------------------
+DROP TABLE IF EXISTS `role_permissions`;
+CREATE TABLE `role_permissions`  (
+  `role_id` int NOT NULL,
+  `permission_id` int NOT NULL,
+  PRIMARY KEY (`role_id`, `permission_id`) USING BTREE,
+  INDEX `FK_permission_id`(`permission_id` ASC) USING BTREE,
+  CONSTRAINT `FK_permission_id` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  CONSTRAINT `FK_role_id` FOREIGN KEY (`role_id`) REFERENCES `role` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of role_permissions
+-- ----------------------------
+INSERT INTO `role_permissions` VALUES (2, 1);
+INSERT INTO `role_permissions` VALUES (8, 1);
+INSERT INTO `role_permissions` VALUES (2, 2);
+INSERT INTO `role_permissions` VALUES (5, 2);
+INSERT INTO `role_permissions` VALUES (2, 3);
+INSERT INTO `role_permissions` VALUES (2, 4);
+INSERT INTO `role_permissions` VALUES (5, 4);
+INSERT INTO `role_permissions` VALUES (8, 4);
+INSERT INTO `role_permissions` VALUES (1, 5);
+INSERT INTO `role_permissions` VALUES (2, 5);
+INSERT INTO `role_permissions` VALUES (3, 5);
+INSERT INTO `role_permissions` VALUES (4, 5);
+INSERT INTO `role_permissions` VALUES (5, 5);
+INSERT INTO `role_permissions` VALUES (6, 5);
+INSERT INTO `role_permissions` VALUES (7, 5);
+INSERT INTO `role_permissions` VALUES (8, 5);
+INSERT INTO `role_permissions` VALUES (1, 6);
+INSERT INTO `role_permissions` VALUES (2, 6);
+INSERT INTO `role_permissions` VALUES (3, 6);
+INSERT INTO `role_permissions` VALUES (4, 6);
+INSERT INTO `role_permissions` VALUES (5, 6);
+INSERT INTO `role_permissions` VALUES (6, 6);
+INSERT INTO `role_permissions` VALUES (7, 6);
+INSERT INTO `role_permissions` VALUES (8, 6);
+INSERT INTO `role_permissions` VALUES (1, 7);
+INSERT INTO `role_permissions` VALUES (2, 7);
+INSERT INTO `role_permissions` VALUES (1, 8);
+INSERT INTO `role_permissions` VALUES (2, 8);
+INSERT INTO `role_permissions` VALUES (1, 9);
+INSERT INTO `role_permissions` VALUES (2, 9);
+INSERT INTO `role_permissions` VALUES (3, 9);
+INSERT INTO `role_permissions` VALUES (4, 9);
+INSERT INTO `role_permissions` VALUES (5, 9);
+INSERT INTO `role_permissions` VALUES (6, 9);
+INSERT INTO `role_permissions` VALUES (7, 9);
+INSERT INTO `role_permissions` VALUES (8, 9);
+INSERT INTO `role_permissions` VALUES (1, 10);
+INSERT INTO `role_permissions` VALUES (2, 10);
+INSERT INTO `role_permissions` VALUES (3, 10);
+INSERT INTO `role_permissions` VALUES (4, 10);
+INSERT INTO `role_permissions` VALUES (5, 10);
+INSERT INTO `role_permissions` VALUES (6, 10);
+INSERT INTO `role_permissions` VALUES (7, 10);
+INSERT INTO `role_permissions` VALUES (8, 10);
+INSERT INTO `role_permissions` VALUES (2, 11);
+INSERT INTO `role_permissions` VALUES (7, 11);
+INSERT INTO `role_permissions` VALUES (1, 13);
+INSERT INTO `role_permissions` VALUES (2, 13);
+INSERT INTO `role_permissions` VALUES (3, 13);
+INSERT INTO `role_permissions` VALUES (4, 13);
+INSERT INTO `role_permissions` VALUES (5, 13);
+INSERT INTO `role_permissions` VALUES (6, 13);
+INSERT INTO `role_permissions` VALUES (7, 13);
+INSERT INTO `role_permissions` VALUES (8, 13);
+INSERT INTO `role_permissions` VALUES (1, 14);
+INSERT INTO `role_permissions` VALUES (2, 14);
+INSERT INTO `role_permissions` VALUES (3, 14);
+INSERT INTO `role_permissions` VALUES (4, 14);
+INSERT INTO `role_permissions` VALUES (5, 14);
+INSERT INTO `role_permissions` VALUES (6, 14);
+INSERT INTO `role_permissions` VALUES (7, 14);
+INSERT INTO `role_permissions` VALUES (8, 14);
+INSERT INTO `role_permissions` VALUES (1, 15);
+INSERT INTO `role_permissions` VALUES (2, 15);
+INSERT INTO `role_permissions` VALUES (1, 16);
+INSERT INTO `role_permissions` VALUES (2, 16);
+INSERT INTO `role_permissions` VALUES (1, 17);
+INSERT INTO `role_permissions` VALUES (2, 17);
+INSERT INTO `role_permissions` VALUES (1, 18);
+INSERT INTO `role_permissions` VALUES (2, 18);
+INSERT INTO `role_permissions` VALUES (1, 19);
+INSERT INTO `role_permissions` VALUES (2, 19);
+INSERT INTO `role_permissions` VALUES (1, 20);
+INSERT INTO `role_permissions` VALUES (2, 20);
+INSERT INTO `role_permissions` VALUES (1, 21);
+INSERT INTO `role_permissions` VALUES (2, 21);
+INSERT INTO `role_permissions` VALUES (1, 22);
+INSERT INTO `role_permissions` VALUES (2, 22);
+INSERT INTO `role_permissions` VALUES (1, 23);
+INSERT INTO `role_permissions` VALUES (2, 23);
+INSERT INTO `role_permissions` VALUES (1, 24);
+INSERT INTO `role_permissions` VALUES (2, 24);
+INSERT INTO `role_permissions` VALUES (1, 25);
+INSERT INTO `role_permissions` VALUES (2, 25);
+INSERT INTO `role_permissions` VALUES (1, 26);
+INSERT INTO `role_permissions` VALUES (2, 26);
+INSERT INTO `role_permissions` VALUES (2, 27);
+INSERT INTO `role_permissions` VALUES (4, 27);
+INSERT INTO `role_permissions` VALUES (2, 28);
+INSERT INTO `role_permissions` VALUES (4, 28);
+INSERT INTO `role_permissions` VALUES (2, 29);
+INSERT INTO `role_permissions` VALUES (4, 29);
+INSERT INTO `role_permissions` VALUES (2, 30);
+INSERT INTO `role_permissions` VALUES (6, 30);
+INSERT INTO `role_permissions` VALUES (2, 31);
+INSERT INTO `role_permissions` VALUES (6, 31);
+INSERT INTO `role_permissions` VALUES (2, 32);
+INSERT INTO `role_permissions` VALUES (6, 32);
+INSERT INTO `role_permissions` VALUES (2, 34);
+INSERT INTO `role_permissions` VALUES (3, 34);
+INSERT INTO `role_permissions` VALUES (2, 35);
+INSERT INTO `role_permissions` VALUES (3, 35);
+INSERT INTO `role_permissions` VALUES (2, 36);
+INSERT INTO `role_permissions` VALUES (3, 36);
+INSERT INTO `role_permissions` VALUES (2, 37);
+INSERT INTO `role_permissions` VALUES (2, 38);
+INSERT INTO `role_permissions` VALUES (2, 39);
+INSERT INTO `role_permissions` VALUES (2, 40);
+INSERT INTO `role_permissions` VALUES (2, 41);
+INSERT INTO `role_permissions` VALUES (2, 42);
+INSERT INTO `role_permissions` VALUES (2, 43);
+INSERT INTO `role_permissions` VALUES (2, 44);
+INSERT INTO `role_permissions` VALUES (1, 45);
+INSERT INTO `role_permissions` VALUES (2, 45);
+INSERT INTO `role_permissions` VALUES (3, 45);
+INSERT INTO `role_permissions` VALUES (4, 45);
+INSERT INTO `role_permissions` VALUES (5, 45);
+INSERT INTO `role_permissions` VALUES (6, 45);
+INSERT INTO `role_permissions` VALUES (7, 45);
+INSERT INTO `role_permissions` VALUES (8, 45);
 
 -- ----------------------------
 -- Table structure for school
