@@ -11,7 +11,7 @@
  Target Server Version : 80030
  File Encoding         : 65001
 
- Date: 01/07/2023 23:52:30
+ Date: 02/07/2023 01:52:50
 */
 
 SET NAMES utf8mb4;
@@ -240,9 +240,9 @@ INSERT INTO `role_nodes` VALUES (36, 7, 15);
 INSERT INTO `role_nodes` VALUES (37, 8, 1);
 INSERT INTO `role_nodes` VALUES (38, 8, 8);
 INSERT INTO `role_nodes` VALUES (39, 8, 9);
-INSERT INTO `role_nodes` VALUES (40, 4, 25);
-INSERT INTO `role_nodes` VALUES (41, 3, 26);
-INSERT INTO `role_nodes` VALUES (42, 6, 27);
+INSERT INTO `role_nodes` VALUES (40, 1, 25);
+INSERT INTO `role_nodes` VALUES (41, 1, 26);
+INSERT INTO `role_nodes` VALUES (42, 1, 27);
 INSERT INTO `role_nodes` VALUES (43, 2, 28);
 INSERT INTO `role_nodes` VALUES (44, 2, 29);
 
@@ -571,7 +571,7 @@ CREATE TABLE `scoresum`  (
 -- ----------------------------
 -- Records of scoresum
 -- ----------------------------
-INSERT INTO `scoresum` VALUES (1, 100, 1, NULL, 11, NULL, NULL, NULL);
+INSERT INTO `scoresum` VALUES (1, 1, 1, NULL, 11, NULL, NULL, NULL);
 INSERT INTO `scoresum` VALUES (2, NULL, 12, NULL, 67, NULL, NULL, NULL);
 INSERT INTO `scoresum` VALUES (3, NULL, NULL, NULL, 11, NULL, NULL, NULL);
 INSERT INTO `scoresum` VALUES (4, 100, NULL, NULL, 90, NULL, NULL, NULL);
