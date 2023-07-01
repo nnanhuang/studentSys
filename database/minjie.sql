@@ -11,7 +11,7 @@
  Target Server Version : 80030
  File Encoding         : 65001
 
- Date: 01/07/2023 21:12:52
+ Date: 01/07/2023 23:52:30
 */
 
 SET NAMES utf8mb4;
@@ -91,18 +91,16 @@ INSERT INTO `nodes` VALUES (29, 0, NULL, '/weights', '修改评分规则', 29, 3
 DROP TABLE IF EXISTS `orgservice`;
 CREATE TABLE `orgservice`  (
   `ID` int NOT NULL AUTO_INCREMENT,
-  `studentID` varchar(255) CHARACTER SET utf16 COLLATE utf16_unicode_ci NOT NULL,
-  `time` varchar(50) CHARACTER SET utf16 COLLATE utf16_unicode_ci NULL DEFAULT NULL,
+  `studentID` int NOT NULL,
+  `time` varchar(255) CHARACTER SET utf16 COLLATE utf16_unicode_ci NULL DEFAULT NULL,
   `content` varchar(255) CHARACTER SET utf16 COLLATE utf16_unicode_ci NULL DEFAULT NULL,
+  `material` longtext CHARACTER SET utf16 COLLATE utf16_unicode_ci NULL,
   PRIMARY KEY (`ID`, `studentID`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf16 COLLATE = utf16_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 103 CHARACTER SET = utf16 COLLATE = utf16_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of orgservice
 -- ----------------------------
-INSERT INTO `orgservice` VALUES (1, '1', '哈哈哈哈', '哈哈哈哈');
-INSERT INTO `orgservice` VALUES (4, '2', '嘿嘿嘿黑', '急急急');
-INSERT INTO `orgservice` VALUES (5, '1', '阿斯顿发送到', '是打发点');
 
 -- ----------------------------
 -- Table structure for permissions
@@ -429,116 +427,14 @@ CREATE TABLE `sciperformance`  (
   `ID` int NOT NULL AUTO_INCREMENT,
   `studentID` int NOT NULL,
   `content` varchar(255) CHARACTER SET utf16 COLLATE utf16_unicode_ci NULL DEFAULT NULL,
-  `type` varchar(255) CHARACTER SET utf16 COLLATE utf16_unicode_ci NULL DEFAULT NULL,
+  `type` enum('论文','比赛','专利','其他') CHARACTER SET utf16 COLLATE utf16_unicode_ci NULL DEFAULT NULL,
+  `material` longtext CHARACTER SET utf16 COLLATE utf16_unicode_ci NULL,
   PRIMARY KEY (`ID`, `studentID`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 104 CHARACTER SET = utf16 COLLATE = utf16_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of sciperformance
 -- ----------------------------
-INSERT INTO `sciperformance` VALUES (1, 1, '8sbGFhDxw1', '专利');
-INSERT INTO `sciperformance` VALUES (2, 2, 'tNj832XdZP', '专利');
-INSERT INTO `sciperformance` VALUES (3, 3, 'sbhut7CVco', '专利');
-INSERT INTO `sciperformance` VALUES (4, 4, '3zK44kdc00', '其他');
-INSERT INTO `sciperformance` VALUES (5, 5, 'LexyK2jUpm', '比赛');
-INSERT INTO `sciperformance` VALUES (6, 6, 'wlxyMGmBQS', '论文');
-INSERT INTO `sciperformance` VALUES (7, 7, 'hwRCOGXjbS', '专利');
-INSERT INTO `sciperformance` VALUES (8, 8, 'Ap2JEDQqvw', '比赛');
-INSERT INTO `sciperformance` VALUES (9, 9, 'Yvk5RfOYM5', '论文');
-INSERT INTO `sciperformance` VALUES (10, 10, 'Ww24PE6zAY', '其他');
-INSERT INTO `sciperformance` VALUES (11, 11, 'prPysgoYi5', '比赛');
-INSERT INTO `sciperformance` VALUES (12, 12, 'QxIT6eQdvn', '论文');
-INSERT INTO `sciperformance` VALUES (13, 13, 'mIfv9j8Wnu', '比赛');
-INSERT INTO `sciperformance` VALUES (14, 14, 'oAWxgC8d8m', '论文');
-INSERT INTO `sciperformance` VALUES (15, 15, 'O5XdLehAQY', '论文');
-INSERT INTO `sciperformance` VALUES (16, 16, '2J82eLavlG', '论文');
-INSERT INTO `sciperformance` VALUES (17, 17, 'keiNlDb8T1', '论文');
-INSERT INTO `sciperformance` VALUES (18, 18, 'KZNwXTU26H', '其他');
-INSERT INTO `sciperformance` VALUES (19, 19, 'UDHk9rhbPh', '比赛');
-INSERT INTO `sciperformance` VALUES (20, 20, 'czVPqjbSZG', '专利');
-INSERT INTO `sciperformance` VALUES (21, 21, '21nM3E3sd1', '其他');
-INSERT INTO `sciperformance` VALUES (22, 22, 'I23PgrOV9v', '比赛');
-INSERT INTO `sciperformance` VALUES (23, 23, 'st40KgRMZm', '其他');
-INSERT INTO `sciperformance` VALUES (24, 24, 'EFtazJNXmq', '比赛');
-INSERT INTO `sciperformance` VALUES (25, 25, 'x1c7PEormc', '其他');
-INSERT INTO `sciperformance` VALUES (26, 26, 'sCiCGyWYqv', '比赛');
-INSERT INTO `sciperformance` VALUES (27, 27, '3diXEGNcTV', '论文');
-INSERT INTO `sciperformance` VALUES (28, 28, 'dpnMiU1cJJ', '专利');
-INSERT INTO `sciperformance` VALUES (29, 29, 'ak2eyYOSVI', '比赛');
-INSERT INTO `sciperformance` VALUES (30, 30, 'SwLZjNZCxs', '其他');
-INSERT INTO `sciperformance` VALUES (31, 31, '8h1ZbXmC6q', '论文');
-INSERT INTO `sciperformance` VALUES (32, 32, 'L2w949bi3M', '比赛');
-INSERT INTO `sciperformance` VALUES (33, 33, 'CVw9nKuVFi', '专利');
-INSERT INTO `sciperformance` VALUES (34, 34, 'l3OJKe1TSi', '论文');
-INSERT INTO `sciperformance` VALUES (35, 35, 'kolNqeZbrQ', '比赛');
-INSERT INTO `sciperformance` VALUES (36, 36, '5wHHzYJAMu', '其他');
-INSERT INTO `sciperformance` VALUES (37, 37, 'KtrIzWIT3E', '比赛');
-INSERT INTO `sciperformance` VALUES (38, 38, 'R4ceWvtJYF', '论文');
-INSERT INTO `sciperformance` VALUES (39, 39, 'd9iLjjEpeA', '比赛');
-INSERT INTO `sciperformance` VALUES (40, 40, '53yikAsbhk', '专利');
-INSERT INTO `sciperformance` VALUES (41, 41, 'RiwcaA0UKm', '论文');
-INSERT INTO `sciperformance` VALUES (42, 42, 'qnGXN06E2r', '其他');
-INSERT INTO `sciperformance` VALUES (43, 43, 'U99Ji4gJzm', '其他');
-INSERT INTO `sciperformance` VALUES (44, 44, 'LH3FP4Gz5W', '论文');
-INSERT INTO `sciperformance` VALUES (45, 45, '4VFUDMw83k', '专利');
-INSERT INTO `sciperformance` VALUES (46, 46, 'sBYQlqCMdR', '其他');
-INSERT INTO `sciperformance` VALUES (47, 47, 'AUKtPsE4pe', '专利');
-INSERT INTO `sciperformance` VALUES (48, 48, 'N9hj5h9sxW', '其他');
-INSERT INTO `sciperformance` VALUES (49, 49, 'ZxaePTjjBB', '专利');
-INSERT INTO `sciperformance` VALUES (50, 50, 'A2jrF9vK7J', '论文');
-INSERT INTO `sciperformance` VALUES (51, 51, 'WGeKfKw5jc', '论文');
-INSERT INTO `sciperformance` VALUES (52, 52, 'joAZYLlXwt', '专利');
-INSERT INTO `sciperformance` VALUES (53, 53, 'V7dFMjhuP3', '其他');
-INSERT INTO `sciperformance` VALUES (54, 54, 'DvPlFFNjSB', '其他');
-INSERT INTO `sciperformance` VALUES (55, 55, 'v69qvt8alO', '论文');
-INSERT INTO `sciperformance` VALUES (56, 56, '0AB659aUlM', '论文');
-INSERT INTO `sciperformance` VALUES (57, 57, '3YL1GiTrlN', '其他');
-INSERT INTO `sciperformance` VALUES (58, 58, 'TXgqwDjYzw', '专利');
-INSERT INTO `sciperformance` VALUES (59, 59, '2C0BPSoO8w', '论文');
-INSERT INTO `sciperformance` VALUES (60, 60, 'OsJ9UtMu3d', '论文');
-INSERT INTO `sciperformance` VALUES (61, 61, 'YUlF3ceKla', '比赛');
-INSERT INTO `sciperformance` VALUES (62, 62, 'At5keTQ5Dj', '比赛');
-INSERT INTO `sciperformance` VALUES (63, 63, 'AjWLjMWU5s', '专利');
-INSERT INTO `sciperformance` VALUES (64, 64, 'cRk91B6nsf', '其他');
-INSERT INTO `sciperformance` VALUES (65, 65, 'lLaUSlFX2Q', '论文');
-INSERT INTO `sciperformance` VALUES (66, 66, 'DWRwGqpIps', '其他');
-INSERT INTO `sciperformance` VALUES (67, 67, 'dalp99XZJR', '论文');
-INSERT INTO `sciperformance` VALUES (68, 68, '250K3hgvwU', '比赛');
-INSERT INTO `sciperformance` VALUES (69, 69, 'sdG4rnJSWu', '专利');
-INSERT INTO `sciperformance` VALUES (70, 70, 'yYuxlE0W0v', '论文');
-INSERT INTO `sciperformance` VALUES (71, 71, 'cQxNcy3egL', '比赛');
-INSERT INTO `sciperformance` VALUES (72, 72, 'KTsJPPVIgy', '比赛');
-INSERT INTO `sciperformance` VALUES (73, 73, 'wfxbcmKHUm', '专利');
-INSERT INTO `sciperformance` VALUES (74, 74, 'V1WPau78m9', '论文');
-INSERT INTO `sciperformance` VALUES (75, 75, '21qvpSA8c6', '专利');
-INSERT INTO `sciperformance` VALUES (76, 76, 'C8cejmlQ35', '比赛');
-INSERT INTO `sciperformance` VALUES (77, 77, 'tbHSvwOxal', '专利');
-INSERT INTO `sciperformance` VALUES (78, 78, 'thRPAjeHqj', '专利');
-INSERT INTO `sciperformance` VALUES (79, 79, 'vTi3Reqzcc', '其他');
-INSERT INTO `sciperformance` VALUES (80, 80, 'CfLxfhvFmw', '专利');
-INSERT INTO `sciperformance` VALUES (81, 81, 'ZCNjSXVuiE', '其他');
-INSERT INTO `sciperformance` VALUES (82, 82, 'AEWUA3PKfS', '比赛');
-INSERT INTO `sciperformance` VALUES (83, 83, 'Qcpxhe4JgA', '专利');
-INSERT INTO `sciperformance` VALUES (84, 84, 'oR9enBzBHk', '论文');
-INSERT INTO `sciperformance` VALUES (85, 85, '5DEZ4QisH2', '其他');
-INSERT INTO `sciperformance` VALUES (86, 86, 'WGcE8J7M6P', '其他');
-INSERT INTO `sciperformance` VALUES (87, 87, 'fvi6loXVzn', '专利');
-INSERT INTO `sciperformance` VALUES (88, 88, '3iKT1qZchV', '其他');
-INSERT INTO `sciperformance` VALUES (89, 89, '11un3RliIm', '论文');
-INSERT INTO `sciperformance` VALUES (90, 90, '68k4YjoQbn', '比赛');
-INSERT INTO `sciperformance` VALUES (91, 91, 'zVsyOBH5Yn', '论文');
-INSERT INTO `sciperformance` VALUES (92, 92, 'DbsZALUN8W', '专利');
-INSERT INTO `sciperformance` VALUES (93, 93, 'Q8Fek1HBDq', '论文');
-INSERT INTO `sciperformance` VALUES (94, 94, 'h8jEWlCG4D', '专利');
-INSERT INTO `sciperformance` VALUES (95, 95, 'tISBStFeoe', '比赛');
-INSERT INTO `sciperformance` VALUES (96, 96, 'HaAqZYIFsg', '其他');
-INSERT INTO `sciperformance` VALUES (97, 97, 'AFAxYfxCM8', '比赛');
-INSERT INTO `sciperformance` VALUES (98, 98, 'KoxHO6sTGP', '论文');
-INSERT INTO `sciperformance` VALUES (99, 99, 'Fi9skbdD4n', '其他');
-INSERT INTO `sciperformance` VALUES (100, 100, 'AjqpZkQOmI', '其他');
-INSERT INTO `sciperformance` VALUES (101, 788, '啊实打实大发', '论文');
-INSERT INTO `sciperformance` VALUES (102, 788, '阿达', '论文');
-INSERT INTO `sciperformance` VALUES (103, 788, '阿达', '论文');
 
 -- ----------------------------
 -- Table structure for score
@@ -688,118 +584,17 @@ INSERT INTO `scoresum` VALUES (47, NULL, NULL, NULL, 11, NULL, NULL, NULL);
 -- ----------------------------
 DROP TABLE IF EXISTS `socialpractice`;
 CREATE TABLE `socialpractice`  (
-  `ID` int NOT NULL,
+  `ID` int NOT NULL AUTO_INCREMENT,
   `studentID` int NOT NULL,
-  `time` datetime NULL DEFAULT NULL,
-  `theme` varchar(255) CHARACTER SET utf16 COLLATE utf16_unicode_ci NULL DEFAULT NULL,
-  `sponsor` varchar(255) CHARACTER SET utf16 COLLATE utf16_unicode_ci NULL DEFAULT NULL,
-  `duration` float NULL DEFAULT NULL,
+  `time` varchar(255) CHARACTER SET utf16 COLLATE utf16_unicode_ci NULL DEFAULT NULL,
+  `content` varchar(255) CHARACTER SET utf16 COLLATE utf16_unicode_ci NULL DEFAULT NULL,
+  `material` longtext CHARACTER SET utf16 COLLATE utf16_unicode_ci NULL,
   PRIMARY KEY (`ID`, `studentID`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf16 COLLATE = utf16_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 13 CHARACTER SET = utf16 COLLATE = utf16_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of socialpractice
 -- ----------------------------
-INSERT INTO `socialpractice` VALUES (1, 1, '2006-08-11 06:57:30', 'Industrial industry', 'He Kee Trading Company Limited', 15.28);
-INSERT INTO `socialpractice` VALUES (2, 2, '2005-09-23 23:50:47', 'Industrial industry', 'Yuan Kee Toy Company Limited', 482.6);
-INSERT INTO `socialpractice` VALUES (3, 3, '2017-05-18 06:42:00', 'Pharmaceutical industry', 'Yoshida Corporation', 995.82);
-INSERT INTO `socialpractice` VALUES (4, 4, '2007-01-18 18:31:50', 'Financial services industry', 'Wallace Food Inc.', 865.7);
-INSERT INTO `socialpractice` VALUES (5, 5, '2012-12-06 06:13:15', 'Electronics industry', 'Marvin Trading LLC', 141.78);
-INSERT INTO `socialpractice` VALUES (6, 6, '2014-07-07 20:43:12', 'Manufacturing industry', 'Xiuying Company Limited', 937.81);
-INSERT INTO `socialpractice` VALUES (7, 7, '2001-07-25 01:22:13', 'Logistic industry', 'Olson Network Systems Inc.', 477.68);
-INSERT INTO `socialpractice` VALUES (8, 8, '2002-10-09 10:25:44', 'Landed property industry', 'Spencer Brothers LLC', 55.01);
-INSERT INTO `socialpractice` VALUES (9, 9, '2019-01-19 07:43:15', 'Pharmaceutical industry', 'Yeow Kee Network Systems Limited', 867.05);
-INSERT INTO `socialpractice` VALUES (10, 10, '2004-07-18 00:11:38', 'Consulting industry', 'Dai Kee Company Limited', 873.97);
-INSERT INTO `socialpractice` VALUES (11, 11, '2016-02-05 17:45:27', 'Manufacturing industry', 'Itsuki Food Corporation', 920.06);
-INSERT INTO `socialpractice` VALUES (12, 12, '2020-12-27 19:41:06', 'Trading industry', 'Anqi Industrial Company Limited', 714.59);
-INSERT INTO `socialpractice` VALUES (13, 13, '2008-02-17 05:19:24', 'Consulting industry', 'Anqi Engineering Company Limited', 380.42);
-INSERT INTO `socialpractice` VALUES (14, 14, '2020-09-12 12:38:50', 'Logistic industry', 'Zhennan Consultants Company Limited', 763.36);
-INSERT INTO `socialpractice` VALUES (15, 15, '2000-06-22 20:39:41', 'Electronics industry', 'Zitao Company Limited', 140.15);
-INSERT INTO `socialpractice` VALUES (16, 16, '2003-04-24 10:30:43', 'Information technology industry', 'Ma Kee Trading Limited', 937.27);
-INSERT INTO `socialpractice` VALUES (17, 17, '2019-02-18 06:04:22', 'Financial services industry', 'Ethel Inc.', 518.34);
-INSERT INTO `socialpractice` VALUES (18, 18, '2010-02-12 06:54:38', 'Logistic industry', 'Rui Pharmaceutical Company Limited', 95.36);
-INSERT INTO `socialpractice` VALUES (19, 19, '2005-09-28 22:03:18', 'Landed property industry', 'Shimizu Corporation', 919.12);
-INSERT INTO `socialpractice` VALUES (20, 20, '2008-03-02 06:20:52', 'Logistic industry', 'Frederick Network Systems LLC', 313.07);
-INSERT INTO `socialpractice` VALUES (21, 21, '2005-03-30 14:19:20', 'Financial services industry', 'Zitao Technology Company Limited', 476.32);
-INSERT INTO `socialpractice` VALUES (22, 22, '2001-09-12 11:55:18', 'Trading industry', 'Tao Kee Development & Trading Company Limited', 114.98);
-INSERT INTO `socialpractice` VALUES (23, 23, '2010-07-12 20:30:31', 'Consulting industry', 'Xiaoming Property Company Limited', 239.7);
-INSERT INTO `socialpractice` VALUES (24, 24, '2010-02-21 23:52:45', 'Catering industry', 'Zitao Food Company Limited', 169.83);
-INSERT INTO `socialpractice` VALUES (25, 25, '2020-03-24 08:40:15', 'Electronics industry', 'Ka Keung Development & Trading Limited', 263.04);
-INSERT INTO `socialpractice` VALUES (26, 26, '2012-07-26 04:03:05', 'Telecommunication industry', 'Kenta Residence Corporation', 330.68);
-INSERT INTO `socialpractice` VALUES (27, 27, '2018-08-21 02:00:10', 'Trading industry', 'Mills Brothers Network Systems Inc.', 307.16);
-INSERT INTO `socialpractice` VALUES (28, 28, '2003-12-15 14:46:05', 'Catering industry', 'Sakamoto Food Corporation', 126.38);
-INSERT INTO `socialpractice` VALUES (29, 29, '2003-05-20 22:46:09', 'Financial services industry', 'Adams Network Systems LLC', 939.57);
-INSERT INTO `socialpractice` VALUES (30, 30, '2009-10-20 09:23:22', 'Logistic industry', 'Fung Kee Network Systems Limited', 195.84);
-INSERT INTO `socialpractice` VALUES (31, 31, '2012-09-27 19:45:40', 'Consulting industry', 'Xiaoming Toy Company Limited', 660.56);
-INSERT INTO `socialpractice` VALUES (32, 32, '2004-01-26 05:16:42', 'Pharmaceutical industry', 'Seiko Food Corporation', 6.04);
-INSERT INTO `socialpractice` VALUES (33, 33, '2019-11-01 12:13:03', 'Industrial industry', 'Maruyama Network Systems Corporation', 699.87);
-INSERT INTO `socialpractice` VALUES (34, 34, '2000-09-16 04:16:37', 'Telecommunication industry', 'Zhennan Consultants Company Limited', 781.12);
-INSERT INTO `socialpractice` VALUES (35, 35, '2013-06-10 14:23:31', 'Logistic industry', 'Lu Pharmaceutical Company Limited', 346.4);
-INSERT INTO `socialpractice` VALUES (36, 36, '2012-07-03 20:26:21', 'Landed property industry', 'Zhong Kee Company Limited', 793.31);
-INSERT INTO `socialpractice` VALUES (37, 37, '2023-01-05 13:27:22', 'Telecommunication industry', 'Ellen Electronic LLC', 974.42);
-INSERT INTO `socialpractice` VALUES (38, 38, '2011-05-24 18:18:04', 'Industrial industry', 'Kikuchi Telecommunication Corporation', 539.43);
-INSERT INTO `socialpractice` VALUES (39, 39, '2004-12-19 14:00:07', 'Financial services industry', 'Aoshi Corporation', 100.29);
-INSERT INTO `socialpractice` VALUES (40, 40, '2010-03-27 21:25:54', 'Financial services industry', 'Tao Kee Network Systems Company Limited', 530.5);
-INSERT INTO `socialpractice` VALUES (41, 41, '2006-02-24 09:45:03', 'Trading industry', 'Lan Company Limited', 194.37);
-INSERT INTO `socialpractice` VALUES (42, 42, '2010-12-19 20:39:42', 'Engineering industry', 'Martin Toy LLC', 878.52);
-INSERT INTO `socialpractice` VALUES (43, 43, '2005-10-12 09:40:59', 'Consulting industry', 'Moreno Technology LLC', 975.52);
-INSERT INTO `socialpractice` VALUES (44, 44, '2004-01-21 04:54:40', 'Electronics industry', 'Arimura Corporation', 395.66);
-INSERT INTO `socialpractice` VALUES (45, 45, '2018-11-27 22:08:17', 'Trading industry', 'Yamada Food Corporation', 84.4);
-INSERT INTO `socialpractice` VALUES (46, 46, '2006-10-21 10:36:54', 'Manufacturing industry', 'Sarah Inc.', 952.45);
-INSERT INTO `socialpractice` VALUES (47, 47, '2010-04-16 21:07:00', 'Engineering industry', 'Chan\'s Limited', 377.46);
-INSERT INTO `socialpractice` VALUES (48, 48, '2017-11-13 14:29:18', 'Electronics industry', 'Denise Inc.', 368.9);
-INSERT INTO `socialpractice` VALUES (49, 49, '2011-11-17 05:10:25', 'Catering industry', 'Siu Wai Consultants Limited', 863.03);
-INSERT INTO `socialpractice` VALUES (50, 50, '2008-02-23 15:33:47', 'Telecommunication industry', 'Carter\'s Toy LLC', 982.89);
-INSERT INTO `socialpractice` VALUES (51, 51, '2009-02-06 07:37:19', 'Financial services industry', 'Takuya Corporation', 807.1);
-INSERT INTO `socialpractice` VALUES (52, 52, '2007-07-12 03:10:32', 'Logistic industry', 'Daichi Logistic Corporation', 521.41);
-INSERT INTO `socialpractice` VALUES (53, 53, '2005-11-18 03:40:51', 'Engineering industry', 'Fang Kee Company Limited', 903.67);
-INSERT INTO `socialpractice` VALUES (54, 54, '2000-03-03 13:54:30', 'Engineering industry', 'Rebecca Inc.', 748.36);
-INSERT INTO `socialpractice` VALUES (55, 55, '2002-10-31 02:20:44', 'Consulting industry', 'Wright Brothers Network Systems Inc.', 442.83);
-INSERT INTO `socialpractice` VALUES (56, 56, '2007-12-21 04:00:48', 'Pharmaceutical industry', 'Chang Kee Technology Limited', 833.43);
-INSERT INTO `socialpractice` VALUES (57, 57, '2016-08-21 10:03:09', 'Engineering industry', 'Marie Consultants Inc.', 290.52);
-INSERT INTO `socialpractice` VALUES (58, 58, '2010-10-31 17:05:51', 'Engineering industry', 'Cheng Toy Company Limited', 746.07);
-INSERT INTO `socialpractice` VALUES (59, 59, '2008-09-02 11:37:17', 'Logistic industry', 'Miu Corporation', 736.99);
-INSERT INTO `socialpractice` VALUES (60, 60, '2015-08-05 08:21:09', 'Landed property industry', 'Itsuki Corporation', 136.5);
-INSERT INTO `socialpractice` VALUES (61, 61, '2002-06-10 21:08:43', 'Consulting industry', 'Wai Man Pharmaceutical Limited', 298.43);
-INSERT INTO `socialpractice` VALUES (62, 62, '2002-01-01 03:32:49', 'Landed property industry', 'Ryota Corporation', 261.34);
-INSERT INTO `socialpractice` VALUES (63, 63, '2018-05-07 22:49:51', 'Engineering industry', 'Tang Kee Company Limited', 511.2);
-INSERT INTO `socialpractice` VALUES (64, 64, '2014-06-07 13:31:47', 'Consulting industry', 'Wai Man Communications Limited', 850.65);
-INSERT INTO `socialpractice` VALUES (65, 65, '2012-06-08 20:23:21', 'Manufacturing industry', 'Jiang Kee Telecommunication Company Limited', 521.1);
-INSERT INTO `socialpractice` VALUES (66, 66, '2001-01-15 06:57:53', 'Logistic industry', 'Nishimura Food Corporation', 806.4);
-INSERT INTO `socialpractice` VALUES (67, 67, '2005-05-07 11:37:56', 'Catering industry', 'Feng Kee Food Company Limited', 369.17);
-INSERT INTO `socialpractice` VALUES (68, 68, '2000-09-23 18:20:53', 'Consulting industry', 'Thomas Communications LLC', 808.06);
-INSERT INTO `socialpractice` VALUES (69, 69, '2001-08-19 17:21:02', 'Engineering industry', 'Rui Company Limited', 312.79);
-INSERT INTO `socialpractice` VALUES (70, 70, '2007-11-19 14:20:53', 'Electronics industry', 'Yuto Communications Corporation', 793.37);
-INSERT INTO `socialpractice` VALUES (71, 71, '2002-04-13 04:46:09', 'Trading industry', 'Morales\'s Trading LLC', 997.56);
-INSERT INTO `socialpractice` VALUES (72, 72, '2009-10-20 12:18:40', 'Financial services industry', 'Kaito Technology Corporation', 816.79);
-INSERT INTO `socialpractice` VALUES (73, 73, '2008-08-31 06:51:18', 'Engineering industry', 'Endo Logistic Corporation', 285.72);
-INSERT INTO `socialpractice` VALUES (74, 74, '2001-07-06 20:21:12', 'Trading industry', 'Howard Electronic Inc.', 498.38);
-INSERT INTO `socialpractice` VALUES (75, 75, '2012-11-11 09:15:36', 'Consulting industry', 'Jin Kee Communications Company Limited', 853.38);
-INSERT INTO `socialpractice` VALUES (76, 76, '2004-01-11 20:14:47', 'Financial services industry', 'Nicole Logistic LLC', 761.05);
-INSERT INTO `socialpractice` VALUES (77, 77, '2018-11-23 03:29:52', 'Engineering industry', 'Pang Kee Limited', 429.11);
-INSERT INTO `socialpractice` VALUES (78, 78, '2013-01-03 11:19:41', 'Logistic industry', 'Tao Kee Toy Limited', 336.71);
-INSERT INTO `socialpractice` VALUES (79, 79, '2011-09-19 10:15:01', 'Pharmaceutical industry', 'Powell Consultants LLC', 231.4);
-INSERT INTO `socialpractice` VALUES (80, 80, '2011-10-01 03:16:47', 'Logistic industry', 'Philip Engineering LLC', 802.47);
-INSERT INTO `socialpractice` VALUES (81, 81, '2009-09-19 00:53:47', 'Consulting industry', 'Burns\'s Inc.', 345.87);
-INSERT INTO `socialpractice` VALUES (82, 82, '2002-12-05 10:54:52', 'Industrial industry', 'Yao Kee Company Limited', 375.62);
-INSERT INTO `socialpractice` VALUES (83, 83, '2017-02-20 15:14:20', 'Manufacturing industry', 'Xiuying Property Company Limited', 999.13);
-INSERT INTO `socialpractice` VALUES (84, 84, '2008-07-07 09:24:45', 'Electronics industry', 'Lai Yan Development & Trading Limited', 329.68);
-INSERT INTO `socialpractice` VALUES (85, 85, '2005-05-18 21:16:16', 'Manufacturing industry', 'Choi Kee Limited', 681.12);
-INSERT INTO `socialpractice` VALUES (86, 86, '2009-11-20 08:17:03', 'Financial services industry', 'Ziyi Company Limited', 496.15);
-INSERT INTO `socialpractice` VALUES (87, 87, '2008-07-21 11:05:00', 'Information technology industry', 'Yuito Corporation', 24.55);
-INSERT INTO `socialpractice` VALUES (88, 88, '2002-01-02 15:48:57', 'Catering industry', 'Wei Kee Consultants Company Limited', 569.6);
-INSERT INTO `socialpractice` VALUES (89, 89, '2004-08-04 06:29:53', 'Catering industry', 'Fujiwara Consultants Corporation', 380.87);
-INSERT INTO `socialpractice` VALUES (90, 90, '2004-12-21 03:57:14', 'Pharmaceutical industry', 'Pak\'s Electronic Limited', 692.35);
-INSERT INTO `socialpractice` VALUES (91, 91, '2002-08-27 22:02:25', 'Electronics industry', 'Adams\'s Food Inc.', 545.99);
-INSERT INTO `socialpractice` VALUES (92, 92, '2004-05-03 16:26:57', 'Manufacturing industry', 'Yunxi Company Limited', 429.86);
-INSERT INTO `socialpractice` VALUES (93, 93, '2004-07-28 20:44:39', 'Trading industry', 'Minato Corporation', 933.96);
-INSERT INTO `socialpractice` VALUES (94, 94, '2007-05-25 11:46:10', 'Electronics industry', 'Deng Toy Company Limited', 697.02);
-INSERT INTO `socialpractice` VALUES (95, 95, '2009-08-03 08:45:08', 'Telecommunication industry', 'Myers Inc.', 103.09);
-INSERT INTO `socialpractice` VALUES (96, 96, '2017-05-05 01:37:46', 'Information technology industry', 'Lu Company Limited', 981.96);
-INSERT INTO `socialpractice` VALUES (97, 97, '2005-12-18 17:38:54', 'Landed property industry', 'Du Company Limited', 578.44);
-INSERT INTO `socialpractice` VALUES (98, 98, '2001-10-12 13:53:06', 'Landed property industry', 'Yuna Pharmaceutical Corporation', 191.99);
-INSERT INTO `socialpractice` VALUES (99, 99, '2018-08-28 17:14:57', 'Catering industry', 'Iwasaki Corporation', 567.91);
-INSERT INTO `socialpractice` VALUES (100, 100, '2007-12-21 12:49:02', 'Landed property industry', 'Yunxi Company Limited', 275.74);
 
 -- ----------------------------
 -- Table structure for statement
