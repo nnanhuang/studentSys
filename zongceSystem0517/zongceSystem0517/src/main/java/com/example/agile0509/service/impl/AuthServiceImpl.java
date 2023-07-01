@@ -1,10 +1,7 @@
 package com.example.agile0509.service.impl;
 
 
-import com.example.agile0509.mapper.NodeMapper;
-import com.example.agile0509.mapper.RoleMapper;
-import com.example.agile0509.mapper.UserMapper;
-import com.example.agile0509.mapper.UserRoleMapper;
+import com.example.agile0509.mapper.*;
 import com.example.agile0509.pojo.*;
 import com.example.agile0509.service.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +23,9 @@ public class AuthServiceImpl implements AuthService {
 
     @Autowired
     private NodeMapper nodeMapper;
+
+    @Autowired
+    private PermissionMapper permissionMapper;
 
 
     public AuthServiceImpl(UserMapper userMapper, UserRoleMapper userroleMapper) {
@@ -146,6 +146,25 @@ public class AuthServiceImpl implements AuthService {
             routers.add(router);
         }
         return routers;
+    }
+
+    @Override
+    public List<Permission> getPermissionsByUserId(int userId){
+        List<Role> roles=getRolesByUserId(userId);
+
+        Set<Permission> permissions = new HashSet<>();  // 使用Set集合确保元素不重复
+
+        for (Role role : roles) {
+            // 获取角色ID
+            int roleId = roleMapper.getRoleIdByName(role.getName());
+
+            List<Permission> rolePermissions = permissionMapper.getPermissionsByRoleId(roleId);
+
+            permissions.addAll(rolePermissions);  // 将角色权限列表添加到权限集合中
+        }
+
+        return new ArrayList<>(permissions);  // 将权限集合转换为列表返
+
     }
 }
 
