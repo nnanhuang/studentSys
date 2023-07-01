@@ -11,6 +11,7 @@ import com.example.agile0509.pojo.Router;
 import com.example.agile0509.service.impl.AuthServiceImpl;
 import com.example.agile0509.utils.JwtTokenUtil;
 import com.example.agile0509.vo.RoleVO;
+import io.jsonwebtoken.ExpiredJwtException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -67,8 +68,13 @@ public class UserController {
     public CommonResult<?> getRouter(@RequestHeader("Authorization") String authHeader) {
 
        // 解析Authorization请求头中的JWT令牌 Bearer access_token
-        String token = authHeader.substring(7);
-        String username = jwtTokenUtil.getUsernameFromToken(token);
+        String username = null;
+        try {
+            String token = authHeader.substring(7);
+            username = jwtTokenUtil.getUsernameFromToken(token);
+        }catch (ExpiredJwtException e) {
+            return CommonResult.error(410,"JWT expired");
+        }
 
         // 调用Authervice中的方法来获取用户ID
         int userId = authService.getUserIdByUsername(username);
