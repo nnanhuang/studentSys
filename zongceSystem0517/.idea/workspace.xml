@@ -5,126 +5,86 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1ebd37f2-da71-4426-8bed-45febf57912b" name="变更" comment="yy-commit 动态路由">
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/auto-imports.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/auto-imports.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/components.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/components.d.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/@element-plus_icons-vue.js" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/@element-plus_icons-vue.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/@element-plus_icons-vue.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/@element-plus_icons-vue.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/_metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/_metadata.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/axios.js" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/axios.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/axios.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/axios.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-2CV4BT6P.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-2CV4BT6P.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-6DGXG3GR.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-6DGXG3GR.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-6H7BQKPQ.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-6H7BQKPQ.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-77LBPQZO.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-77LBPQZO.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-A3KGKJTB.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-A3KGKJTB.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-DLD3WPJF.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-DLD3WPJF.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-ES5LVPHJ.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-ES5LVPHJ.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-FFHHBCK4.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-FFHHBCK4.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-FFSY6GKH.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-FFSY6GKH.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-FI63EDB7.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-FI63EDB7.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-FVZHS5AO.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-FVZHS5AO.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-I55XMKFD.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-I55XMKFD.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-LBVO66RJ.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-LBVO66RJ.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-M3K45AX5.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-M3K45AX5.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-MVDOHVXC.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-MVDOHVXC.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-QFJSFBWO.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-QFJSFBWO.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-RTLLA5M7.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-RTLLA5M7.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-TUR5B5TP.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-TUR5B5TP.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-TWLJ45QX.js" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-TWLJ45QX.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-TWLJ45QX.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-TWLJ45QX.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-UPVVNDCP.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-UPVVNDCP.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-W5Z67ATL.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-W5Z67ATL.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-W7ENWQJW.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-W7ENWQJW.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-YRONFQ4U.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-YRONFQ4U.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-ZG7NF5JV.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-ZG7NF5JV.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-6WMCWO4Q.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-6WMCWO4Q.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-BZUMWMBO.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-BZUMWMBO.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-D4KFNUZW.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-D4KFNUZW.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-FDT3GP7H.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-FDT3GP7H.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-G3DECN73.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-G3DECN73.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-LOIGM5DD.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-LOIGM5DD.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-OOLLJJON.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-OOLLJJON.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-P2TCDZWM.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-P2TCDZWM.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-Q4CRD3JF.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-Q4CRD3JF.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-QN6HPDQI.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-QN6HPDQI.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-SBILK76Y.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-SBILK76Y.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-UJKXPHG5.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-UJKXPHG5.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-X7VHGBI3.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-X7VHGBI3.js.map" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus.js" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es.js" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_avatar_style_css.js" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_avatar_style_css.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_avatar_style_css.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_avatar_style_css.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_button_style_css.js" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_button_style_css.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_button_style_css.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_button_style_css.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_card_style_css.js" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_card_style_css.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_card_style_css.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_card_style_css.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_col_style_css.js" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_col_style_css.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_col_style_css.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_col_style_css.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_dialog_style_css.js" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_dialog_style_css.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_dialog_style_css.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_dialog_style_css.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_card_style_css.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_card_style_css.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_col_style_css.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_col_style_css.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_dialog_style_css.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_dialog_style_css.js.map" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_dropdown-item_style_css.js" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_dropdown-item_style_css.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_dropdown-item_style_css.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_dropdown-item_style_css.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_dropdown-menu_style_css.js" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_dropdown-menu_style_css.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_dropdown-menu_style_css.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_dropdown-menu_style_css.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_dropdown_style_css.js" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_dropdown_style_css.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_dropdown_style_css.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_dropdown_style_css.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_form-item_style_css.js" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_form-item_style_css.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_form-item_style_css.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_form-item_style_css.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_form_style_css.js" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_form_style_css.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_form_style_css.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_form_style_css.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_form-item_style_css.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_form-item_style_css.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_form_style_css.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_form_style_css.js.map" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_icon_style_css.js" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_icon_style_css.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_icon_style_css.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_icon_style_css.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_input_style_css.js" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_input_style_css.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_input_style_css.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_input_style_css.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_input_style_css.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_input_style_css.js.map" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_menu-item_style_css.js" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_menu-item_style_css.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_menu-item_style_css.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_menu-item_style_css.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_menu_style_css.js" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_menu_style_css.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_menu_style_css.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_menu_style_css.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_message_style_css.js" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_message_style_css.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_message_style_css.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_message_style_css.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_option_style_css.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_option_style_css.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_message_style_css.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_message_style_css.js.map" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_pagination_style_css.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_pagination_style_css.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_radio-group_style_css.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_radio-group_style_css.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_radio_style_css.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_radio_style_css.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_row_style_css.js" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_row_style_css.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_row_style_css.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_row_style_css.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_select_style_css.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_select_style_css.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_row_style_css.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_row_style_css.js.map" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_sub-menu_style_css.js" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_sub-menu_style_css.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_sub-menu_style_css.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_sub-menu_style_css.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_table-column_style_css.js" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_table-column_style_css.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_table-column_style_css.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_table-column_style_css.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_table_style_css.js" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_table_style_css.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_table_style_css.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_table_style_css.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_upload_style_css.js" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_upload_style_css.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_upload_style_css.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_upload_style_css.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_locale_lang_zh-cn.js" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_locale_lang_zh-cn.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_locale_lang_zh-cn.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_locale_lang_zh-cn.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_table-column_style_css.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_table-column_style_css.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_table_style_css.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_table_style_css.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_upload_style_css.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_upload_style_css.js.map" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/pinia.js" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/pinia.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/pinia.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/pinia.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/schart__js.js" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/schart__js.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/schart__js.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/schart__js.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/vue-router.js" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/vue-router.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/vue-router.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/vue-router.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/vue.js" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/vue.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/vue.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/vue.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/_2023_7_1_21_07____.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/_2023_7_1_21_07____.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/src/views/addSocial.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/src/views/addSocial.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/src/views/viewSocial.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/src/views/viewSocial.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -190,14 +150,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RequestMappingsPanelOrder0" value="0" />
-    <property name="RequestMappingsPanelOrder1" value="1" />
-    <property name="RequestMappingsPanelWidth0" value="75" />
-    <property name="RequestMappingsPanelWidth1" value="75" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="aspect.path.notification.shown" value="true" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "spring.configuration.checksum": "681f5a7dc63ee99b07e96694c738f39f",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.example.agile0509.pojo" />
@@ -240,7 +203,7 @@
       <item itemvalue="Spring Boot.Application" />
     </list>
   </component>
-  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="应用程序级" UseSingleDictionary="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -268,6 +231,7 @@
       <workItem from="1688175189513" duration="5984000" />
       <workItem from="1688228454284" duration="916000" />
       <workItem from="1688274901739" duration="3080000" />
+      <workItem from="1688282252712" duration="470000" />
     </task>
     <task id="LOCAL-00001" summary="yy-commit0621">
       <created>1687337737155</created>
@@ -308,7 +272,7 @@
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -320,7 +284,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="commit0621" />
