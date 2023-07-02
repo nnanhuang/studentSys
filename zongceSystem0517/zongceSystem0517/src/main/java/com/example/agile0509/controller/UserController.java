@@ -4,10 +4,7 @@ package com.example.agile0509.controller;
 import com.example.agile0509.common.CommonResult;
 import com.example.agile0509.mapper.RoleMapper;
 import com.example.agile0509.mapper.UserMapper;
-import com.example.agile0509.pojo.Menu;
-import com.example.agile0509.pojo.Node;
-import com.example.agile0509.pojo.Role;
-import com.example.agile0509.pojo.Router;
+import com.example.agile0509.pojo.*;
 import com.example.agile0509.service.impl.AuthServiceImpl;
 import com.example.agile0509.utils.JwtTokenUtil;
 import com.example.agile0509.vo.RoleVO;
@@ -159,6 +156,32 @@ public class UserController {
         */
         // 封装结果并返回
         CommonResult<List<Menu>> result = CommonResult.success(menu);
+        return result;
+    }
+
+    @PostMapping("/password/update")
+    public CommonResult<?> updatePwd(@RequestHeader("Authorization") String authHeader,
+                                     @RequestParam("oldPwd") String oldPwd, @RequestParam("newPwd") String newPwd){
+        // 解析Authorization请求头中的JWT令牌 Bearer access_token
+        String token = authHeader.substring(7);
+        String username = jwtTokenUtil.getUsernameFromToken(token);
+
+        User user = userMapper.findByUsername(username);
+        if(!user.getPassword().equals(oldPwd)){
+            CommonResult result = CommonResult.error(411, "error old password");
+            return result;
+        }
+        userMapper.updatePasswordByUsername(username, newPwd);
+        CommonResult<User> result = CommonResult.success(user);
+        return result;
+    }
+
+    @GetMapping("/username/get")
+    public CommonResult<?> gerUsername(@RequestHeader("Authorization") String authHeader){
+        // 解析Authorization请求头中的JWT令牌 Bearer access_token
+        String token = authHeader.substring(7);
+        String username = jwtTokenUtil.getUsernameFromToken(token);
+        CommonResult<String> result = CommonResult.success(username);
         return result;
     }
 }

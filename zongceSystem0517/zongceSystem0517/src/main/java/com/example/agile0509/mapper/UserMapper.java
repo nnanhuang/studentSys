@@ -18,4 +18,6 @@ public interface UserMapper {
 
     @Select("SELECT id FROM user WHERE username=#{username}")
     int getUserIdByUsername(String username);
+
+    void updatePasswordByUsername(String username, String newPwd);
 }

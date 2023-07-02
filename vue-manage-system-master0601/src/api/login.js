@@ -46,14 +46,18 @@ export function register(name, password,idCard,phone,email) {
 }
 
 //修改密码方法
-export function changePassword(newPassword) {
-  const data = {
-    newPassword
-  }
+export function updatePassword(oldPwd, newPwd) {
   return request({
-    url: '/user/password/update',
-    method: 'put',
-    data: data
+    url: `/user/password/update?oldPwd=${oldPwd}&newPwd=${newPwd}`,
+    method: 'post',
+  })
+}
+
+//获取用户名
+export function getUsername() {
+  return request({
+    url: '/user/username/get',
+    method: 'get',
   })
 }
 

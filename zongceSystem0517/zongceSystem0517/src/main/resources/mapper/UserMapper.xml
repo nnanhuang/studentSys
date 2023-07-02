@@ -5,4 +5,8 @@
     <select id="findByUsername" resultType="com.example.agile0509.pojo.User">
         SELECT username, password  FROM user WHERE username = #{username}
     </select>
+
+    <update id="updatePasswordByUsername">
+        UPDATE user SET password = #{newPwd} WHERE username = #{username};
+    </update>
 </mapper>

@@ -96,6 +96,7 @@ public class AuthorizationInterceptor implements HandlerInterceptor {
             //注意url从数据库取出至后端后会输入末尾的\r，因此需要用正则表达式去掉后再比较
             //String cleanedUrl = permission.getUrl().replaceAll("\r", "");
             // 判断权限是否具有访问权限
+            String tmp = permission.getUrl();
             if (permission.getUrl().equals(requestUri)) {
                 return true;
             }
