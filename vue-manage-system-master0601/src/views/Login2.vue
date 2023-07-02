@@ -43,6 +43,7 @@
 <script>
 import {login} from '../api/login.js'
 import {setToken} from '../utils/auth'
+import { usePermissStore } from '../store/permiss'
 //import {fetchMenu} from '../utils/menu.js'
 //import { eventBus } from '../eventBus';
 
@@ -69,11 +70,18 @@ export default {
               console.log(res)
               setToken(res.data.accessToken)
 
+               //用来生成permiss数组密钥
+               const permiss = usePermissStore();
+               const keys = permiss.defaultList['user'];
+			   permiss.handleSet(keys);
+			   localStorage.setItem('ms_keys', JSON.stringify(keys));
+
               // 发送登录成功事件通知菜单数据需要更新
               //eventBus.$emit('loginSuccess');
 
               this.$router.push({ path: '/dashboard' })
             }).catch(() => {
+                //console.log(e)
               // 登录失败，显示错误提示
               ElMessage.error('用户名或密码错误')
               this.loading = false
