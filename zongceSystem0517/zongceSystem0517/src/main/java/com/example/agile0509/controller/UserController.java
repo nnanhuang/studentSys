@@ -4,10 +4,7 @@ package com.example.agile0509.controller;
 import com.example.agile0509.common.CommonResult;
 import com.example.agile0509.mapper.RoleMapper;
 import com.example.agile0509.mapper.UserMapper;
-import com.example.agile0509.pojo.Menu;
-import com.example.agile0509.pojo.Node;
-import com.example.agile0509.pojo.Role;
-import com.example.agile0509.pojo.Router;
+import com.example.agile0509.pojo.*;
 import com.example.agile0509.service.impl.AuthServiceImpl;
 import com.example.agile0509.toExcel.UserExcelComponent;
 import com.example.agile0509.utils.JwtTokenUtil;
@@ -172,5 +169,12 @@ public class UserController {
     public Boolean importFile(@RequestParam("file") MultipartFile file) throws IOException {
         userExcelComponent.importFile(file);
         return true;
+    }
+
+    @RequestMapping("/getList")
+    public CommonResult<List<User>> toList(){
+        //System.out.println(scoreSumService.findScoreSumVo());
+        List<User> userList = userMapper.getUser();
+        return CommonResult.success(userList);
     }
 }

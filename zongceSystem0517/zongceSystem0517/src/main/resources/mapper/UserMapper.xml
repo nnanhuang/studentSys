@@ -18,4 +18,8 @@
             )
         </foreach>
     </insert>
+
+    <select id="getUser" resultType="com.example.agile0509.pojo.User">
+        SELECT * FROM user
+    </select>
 </mapper>

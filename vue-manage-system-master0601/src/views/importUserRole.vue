@@ -18,17 +18,17 @@
     </span>   
   </div>
 
-  <el-table :data="stuInfoList" stripe border style="width: 100%">
+  <el-table :data="userRoleList" stripe border style="width: 100%">
     <!--el-table-column prop="id" label="学生id" header-align="center"> </!--el-table-column-->
     <el-table-column type="index" width="50"></el-table-column>
-    <el-table-column prop="user_id" label="用户id" header-align="center"></el-table-column>
-    <el-table-column prop="role_id" label="角色" header-align="center"></el-table-column>
+    <el-table-column prop="userId" label="用户id" header-align="center"></el-table-column>
+    <el-table-column prop="roleId" label="角色" header-align="center"></el-table-column>
   </el-table>
 </template>
  
 <script>
 import * as XLSX from 'xlsx/xlsx.mjs'
-//import { getUserRole } from "../api/login.js";
+import { getUserRoleList } from "../api/ScoreAndImporting.js";
  
 export default {
   computed: {
@@ -44,14 +44,14 @@ export default {
   },
   data() {
     return {
-      UserRoleList: [],
+      userRoleList: [],
     };
   },
   mounted() {
-    // getUserRole().then((res) => {
-    //   console.log(res);
-    //   this.stuInfoList = res.data;
-    // });
+    getUserRoleList().then((res) => {
+      console.log(res);
+      this.userRoleList = res.data;
+    });
   },
   methods: {
     uploadProgress() {
@@ -64,10 +64,10 @@ export default {
       document.querySelector(".input-file").click();
     },
     refreshPage(){
-      // getUserRole().then((res) => {
-      //   console.log(res);
-      //   this.stuInfoList = res.data;
-      // });
+      getUserRoleList().then((res) => {
+        console.log(res);
+        this.userRoleList = res.data;
+      });
     },
     handleUploadError(err, file, fileList) { //上传失败钩子函数
 	    console.log('err', err)
@@ -75,9 +75,17 @@ export default {
 		  if (file.status == 'fail') {
 			  ElMessage.error("上传失败")
 		  }
+      getUserRoleList().then((res) => {
+        console.log(res);
+        this.userRoleList = res.data;
+      });
     },
     handleAvatarSuccess() { //上传成功
 	    ElMessage.success("上传成功！")
+      getUserRoleList().then((res) => {
+        console.log(res);
+        this.userRoleList = res.data;
+      });
     },
   }
 };
