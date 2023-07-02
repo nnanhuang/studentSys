@@ -24,3 +24,6 @@ hs_err_pid*
 replay_pid*
 
 **/.DS_Store
+**/.idea
+/vue-manage-system-master0601/vue-manage-system-master0601/node_modules/
+/vue-manage-system-master0601/node_modules/

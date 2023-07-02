@@ -20,4 +20,10 @@ public interface ScoreSumMapper extends BaseMapper<ScoreSum>,BatchInsertMapper<S
      * 获取学生成绩信息的列表
      */
     List<ScoreSumVo> findScoreSumVo();
+
+    void updateScore(Integer studentId, double gpa);
+
+    void updateVolun(Integer studentId, double duration);
+
+    void updateFinalScore(Integer studentId, double finalScore);
 }

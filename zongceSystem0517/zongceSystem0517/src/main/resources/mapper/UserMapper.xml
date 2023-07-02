@@ -9,4 +9,18 @@
     <update id="updatePasswordByUsername">
         UPDATE user SET password = #{newPwd} WHERE username = #{username};
     </update>
+
+    <insert id="batchInsert" parameterType="list">
+        insert into user
+        (id, username, password)
+        values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (
+            #{item.id},
+            #{item.username},
+            #{item.password}
+            )
+        </foreach>
+    </insert>
+
 </mapper>

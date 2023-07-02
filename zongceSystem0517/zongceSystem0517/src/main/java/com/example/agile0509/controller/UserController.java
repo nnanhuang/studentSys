@@ -6,12 +6,15 @@ import com.example.agile0509.mapper.RoleMapper;
 import com.example.agile0509.mapper.UserMapper;
 import com.example.agile0509.pojo.*;
 import com.example.agile0509.service.impl.AuthServiceImpl;
+import com.example.agile0509.toExcel.UserExcelComponent;
 import com.example.agile0509.utils.JwtTokenUtil;
 import com.example.agile0509.vo.RoleVO;
 import io.jsonwebtoken.ExpiredJwtException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -32,6 +35,9 @@ public class UserController {
 
     @Autowired
     private AuthServiceImpl authService;
+
+    @Autowired
+    private UserExcelComponent userExcelComponent;
 
 
     @GetMapping("/get/role")
@@ -159,6 +165,7 @@ public class UserController {
         return result;
     }
 
+
     @PostMapping("/password/update")
     public CommonResult<?> updatePwd(@RequestHeader("Authorization") String authHeader,
                                      @RequestParam("oldPwd") String oldPwd, @RequestParam("newPwd") String newPwd){
@@ -183,5 +190,11 @@ public class UserController {
         String username = jwtTokenUtil.getUsernameFromToken(token);
         CommonResult<String> result = CommonResult.success(username);
         return result;
+
+    @PostMapping("/upload")
+    public Boolean importFile(@RequestParam("file") MultipartFile file) throws IOException {
+        userExcelComponent.importFile(file);
+        return true;
+
     }
 }

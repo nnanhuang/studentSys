@@ -37,7 +37,7 @@ public class VolunExcelComponent {
      * @param file 上传的文件
      * @throws IOException 读取文件异常
      */
-    public void importConsumerFile(@RequestParam("file") MultipartFile file) throws IOException {
+    public void importFile(@RequestParam("file") MultipartFile file) throws IOException {
         EasyExcel.read(file.getInputStream())
                 .head(VolunteerService.class)
                 .registerReadListener(new ExcelImportListener<VolunteerService>() {

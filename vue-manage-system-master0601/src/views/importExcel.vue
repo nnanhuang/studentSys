@@ -8,7 +8,10 @@
         accept=".xlsx,.xls"
         :on-success="handleAvatarSuccess"
         :on-error="handleUploadError"
+        :on-progress="uploadProgress"
+        :headers="headerObj"
         :show-file-list="false"
+        
         name="file"
       >
         <el-button type="success" size="medium" class="button" @click="reminder">导入excel</el-button>
@@ -41,12 +44,23 @@ import * as XLSX from 'xlsx/xlsx.mjs'
 import { getStuInfo } from "../api/login.js";
  
 export default {
+  computed: {
+    headerObj(){
+      const jwt= 'Bearer ' + localStorage.getItem('ACCESS_TOKEN')
+      return{
+        Authorization:jwt
+      };
+    },
+  },
   components: {
    
   },
   data() {
     return {
       stuInfoList: [],
+      // headerObj: {
+      //   Authorization: localStorage.getItem("ACCESS_TOKEN"),
+      // },
     };
   },
   mounted() {
@@ -56,6 +70,9 @@ export default {
     });
   },
   methods: {
+    uploadProgress() {
+      ElMessage.success('文件上传中')
+    },
     reminder() {
       ElMessage.success('导入后请刷新页面！')
     },
