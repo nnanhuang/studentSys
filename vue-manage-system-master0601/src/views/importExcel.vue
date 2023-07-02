@@ -94,6 +94,10 @@ export default {
     },
     handleAvatarSuccess() { //上传成功
 	    ElMessage.success("上传成功！")
+      getStuInfo().then((res) => {
+        console.log(res);
+        this.stuInfoList = res.data;
+      });
     },
   }
 };

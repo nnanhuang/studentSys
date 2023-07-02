@@ -18,7 +18,7 @@
     </span>   
   </div>
 
-  <el-table :data="stuInfoList" stripe border style="width: 100%">
+  <el-table :data="userList" stripe border style="width: 100%">
     <!--el-table-column prop="id" label="学生id" header-align="center"> </!--el-table-column-->
     <el-table-column prop="id" label="用户id" header-align="center"></el-table-column>
     <el-table-column prop="username" label="用户名" header-align="center"></el-table-column>
@@ -28,7 +28,7 @@
  
 <script>
 import * as XLSX from 'xlsx/xlsx.mjs'
-import { getStuInfo } from "../api/login.js";
+import { getUserList } from "../api/ScoreAndImporting.js";
  
 export default {
   computed: {
@@ -44,14 +44,14 @@ export default {
   },
   data() {
     return {
-      stuInfoList: [],
+      userList: [],
     };
   },
   mounted() {
-    // getStuInfo().then((res) => {
-    //   console.log(res);
-    //   this.stuInfoList = res.data;
-    // });
+    getUserList().then((res) => {
+      console.log(res);
+      this.userList = res.data;
+    });
   },
   methods: {
     uploadProgress() {
@@ -64,10 +64,10 @@ export default {
       document.querySelector(".input-file").click();
     },
     refreshPage(){
-      // getStuInfo().then((res) => {
-      //   console.log(res);
-      //   this.stuInfoList = res.data;
-      // });
+      getUserList().then((res) => {
+        console.log(res);
+        this.userList = res.data;
+      });
     },
     handleUploadError(err, file, fileList) { //上传失败钩子函数
 	    console.log('err', err)
@@ -75,9 +75,17 @@ export default {
 		  if (file.status == 'fail') {
 			  ElMessage.error("上传失败")
 		  }
+      getUserList().then((res) => {
+        console.log(res);
+        this.userList = res.data;
+      });
     },
     handleAvatarSuccess() { //上传成功
 	    ElMessage.success("上传成功！")
+      getUserList().then((res) => {
+        console.log(res);
+        this.userList = res.data;
+      });
     },
   }
 };

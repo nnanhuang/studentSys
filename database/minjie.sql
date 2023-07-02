@@ -65,15 +65,16 @@ INSERT INTO `nodes` (`id`, `type`, `icon`, `index`, `title`, `permiss`, `parent_
 INSERT INTO `nodes` (`id`, `type`, `icon`, `index`, `title`, `permiss`, `parent_id`, `component`) VALUES (18, 1, NULL, '/checkvolun', '我的志愿时长', 18, 16, 'checkvolun');
 INSERT INTO `nodes` (`id`, `type`, `icon`, `index`, `title`, `permiss`, `parent_id`, `component`) VALUES (19, 1, NULL, '/addInfo', '基本信息填报', 19, 16, 'addInfo');
 INSERT INTO `nodes` (`id`, `type`, `icon`, `index`, `title`, `permiss`, `parent_id`, `component`) VALUES (20, 1, NULL, '4', '成绩信息填报', 20, 16, 'dashboard');
-INSERT INTO `nodes` (`id`, `type`, `icon`, `index`, `title`, `permiss`, `parent_id`, `component`) VALUES (21, 1, NULL, '/addResearch', '科研情况', 21, 20, 'addResearch');
+INSERT INTO `nodes` (`id`, `type`, `icon`, `index`, `title`, `permiss`, `parent_id`, `component`) VALUES (21, 1, NULL, '/viewSubmittedSci', '科研情况', 21, 20, 'viewSci');
 INSERT INTO `nodes` (`id`, `type`, `icon`, `index`, `title`, `permiss`, `parent_id`, `component`) VALUES (22, 1, NULL, '/viewSubmittedServePosition', '骨干服务', 22, 20, 'viewServePosition');
 INSERT INTO `nodes` (`id`, `type`, `icon`, `index`, `title`, `permiss`, `parent_id`, `component`) VALUES (23, 1, NULL, '/viewSubmittedSocial', '社会实践', 23, 20, 'viewSocial');
 INSERT INTO `nodes` (`id`, `type`, `icon`, `index`, `title`, `permiss`, `parent_id`, `component`) VALUES (24, 1, NULL, '/Statement', '学年总结', 24, 20, 'Statement');
-INSERT INTO `nodes` (`id`, `type`, `icon`, `index`, `title`, `permiss`, `parent_id`, `component`) VALUES (25, 0, NULL, '/viewSubmittedSci', '已提交的科研情况', 25, NULL, 'viewSci');
+INSERT INTO `nodes` (`id`, `type`, `icon`, `index`, `title`, `permiss`, `parent_id`, `component`) VALUES (25, 0, NULL, '/addResearch', '科研情况填报', 25, NULL, 'addResearch');
 INSERT INTO `nodes` (`id`, `type`, `icon`, `index`, `title`, `permiss`, `parent_id`, `component`) VALUES (26, 0, NULL, '/addSocial', '已提交的社会实践情况', 26, NULL, 'addSocial');
 INSERT INTO `nodes` (`id`, `type`, `icon`, `index`, `title`, `permiss`, `parent_id`, `component`) VALUES (27, 0, NULL, '/addServePosition', '骨干服务填报', 27, NULL, 'addServePosition');
-INSERT INTO `nodes` (`id`, `type`, `icon`, `index`, `title`, `permiss`, `parent_id`, `component`) VALUES (28, 0, NULL, '/importWhiteList', '导入白名单', 28, 3, 'importWhiteList');
+INSERT INTO `nodes` (`id`, `type`, `icon`, `index`, `title`, `permiss`, `parent_id`, `component`) VALUES (28, 0, NULL, '/importUser', '导入用户名单', 28, 3, 'importUser');
 INSERT INTO `nodes` (`id`, `type`, `icon`, `index`, `title`, `permiss`, `parent_id`, `component`) VALUES (29, 0, NULL, '/weights', '修改评分规则', 29, 3, 'weights');
+INSERT INTO `nodes` (`id`, `type`, `icon`, `index`, `title`, `permiss`, `parent_id`, `component`) VALUES (29, 0, NULL, '/importUserRole', '导入用户权限', 30, 3, 'importUserRole');
 COMMIT;
 
 -- ----------------------------
@@ -157,6 +158,14 @@ INSERT INTO `permissions` (`id`, `title`, `url`) VALUES (45, '获取用户动态
 INSERT INTO `permissions` (`id`, `title`, `url`) VALUES (46, '导入用户角色', '/userRole/upload');
 INSERT INTO `permissions` (`id`, `title`, `url`) VALUES (47, '获取用户动态路由', '/scoreSum/compute');
 INSERT INTO `permissions` (`id`, `title`, `url`) VALUES (48, '获取用户名', '/user/username/get');
+insert into `permissions` (`id`, `title`, `url`) values(49,'删除成绩信息','/gpa/delete');
+insert into `permissions` (`id`, `title`, `url`) values(50,'删除志愿时长信息','/volun/delete');
+insert into `permissions` (`id`, `title`, `url`) values(51,'删除用户名单','/user/delete');
+insert into `permissions` (`id`, `title`, `url`) values(52,'删除用户角色表','/userRole/delete');
+insert into `permissions` (`id`, `title`, `url`) values(53,'删除学生基本信息','/studentInfo/delete');
+insert into `permissions` (`id`, `title`, `url`) values(54,'更新志愿时长至成绩汇总表中','/volun/updateToScoreSum');
+insert into `permissions` (`id`, `title`, `url`) values(55,'更新gpa至成绩汇总表中','/gpa/updateToScoreSum');
+insert into `permissions` (`id`, `title`, `url`) values(56,'获取用户角色信息','/userRole/getList');
 COMMIT;
 
 
@@ -247,6 +256,7 @@ INSERT INTO `role_nodes` (`id`, `role_id`, `node_id`) VALUES (41, 1, 26);
 INSERT INTO `role_nodes` (`id`, `role_id`, `node_id`) VALUES (42, 1, 27);
 INSERT INTO `role_nodes` (`id`, `role_id`, `node_id`) VALUES (43, 2, 28);
 INSERT INTO `role_nodes` (`id`, `role_id`, `node_id`) VALUES (44, 2, 29);
+INSERT INTO `role_nodes` (`id`, `role_id`, `node_id`) VALUES (45, 2, 30);
 COMMIT;
 
 -- ----------------------------
@@ -396,6 +406,15 @@ INSERT INTO `role_permissions` (`role_id`, `permission_id`) VALUES (5, 48);
 INSERT INTO `role_permissions` (`role_id`, `permission_id`) VALUES (6, 48);
 INSERT INTO `role_permissions` (`role_id`, `permission_id`) VALUES (7, 48);
 INSERT INTO `role_permissions` (`role_id`, `permission_id`) VALUES (8, 48);
+insert into `role_permissions` (`role_id`, `permission_id`) values (2, 49);
+insert into `role_permissions` (`role_id`, `permission_id`) values (2, 50);
+insert into `role_permissions` (`role_id`, `permission_id`) values (2, 51);
+insert into `role_permissions` (`role_id`, `permission_id`) values (2, 52);
+insert into `role_permissions` (`role_id`, `permission_id`) values (2, 53);
+insert into `role_permissions` (`role_id`, `permission_id`) values (2, 54);
+insert into `role_permissions` (`role_id`, `permission_id`) values (2, 55);
+insert into `role_permissions` (`role_id`, `permission_id`) values (2, 56);
+
 COMMIT;
 
 -- ----------------------------

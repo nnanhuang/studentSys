@@ -5,6 +5,7 @@
     <select id="getTimeByStudentId" resultType="java.lang.Double">
         SELECT duration FROM volunteerService WHERE studentID = #{studentID}
     </select>
+
     <select id="getVolunteers" resultType="com.example.agile0509.pojo.VolunteerService">
         SELECT * FROM volunteerService
     </select>
@@ -13,12 +14,17 @@
     insert into volunteerService
     (id, studentID, duration)
     values
-    <foreach collection="list" item="item" index="index" separator=",">
-        (
-        #{item.id},
-        #{item.studentId},
-        #{item.duration}
-        )
-    </foreach>
+        <foreach collection="list" item="item" index="index" separator=",">
+            (
+            #{item.id},
+            #{item.studentId},
+            #{item.duration}
+            )
+        </foreach>
     </insert>
+
+    <!--删除库中志愿时长数据-->
+    <delete id="deleteAll">
+        DELETE FROM volunteerService
+    </delete>
 </mapper>

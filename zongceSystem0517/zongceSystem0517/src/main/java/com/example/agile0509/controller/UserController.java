@@ -165,36 +165,16 @@ public class UserController {
         return result;
     }
 
-
-    @PostMapping("/password/update")
-    public CommonResult<?> updatePwd(@RequestHeader("Authorization") String authHeader,
-                                     @RequestParam("oldPwd") String oldPwd, @RequestParam("newPwd") String newPwd){
-        // 解析Authorization请求头中的JWT令牌 Bearer access_token
-        String token = authHeader.substring(7);
-        String username = jwtTokenUtil.getUsernameFromToken(token);
-
-        User user = userMapper.findByUsername(username);
-        if(!user.getPassword().equals(oldPwd)){
-            CommonResult result = CommonResult.error(411, "error old password");
-            return result;
-        }
-        userMapper.updatePasswordByUsername(username, newPwd);
-        CommonResult<User> result = CommonResult.success(user);
-        return result;
-    }
-
-    @GetMapping("/username/get")
-    public CommonResult<?> gerUsername(@RequestHeader("Authorization") String authHeader){
-        // 解析Authorization请求头中的JWT令牌 Bearer access_token
-        String token = authHeader.substring(7);
-        String username = jwtTokenUtil.getUsernameFromToken(token);
-        CommonResult<String> result = CommonResult.success(username);
-        return result;
-
     @PostMapping("/upload")
     public Boolean importFile(@RequestParam("file") MultipartFile file) throws IOException {
         userExcelComponent.importFile(file);
         return true;
+    }
 
+    @RequestMapping("/getList")
+    public CommonResult<List<User>> toList(){
+        //System.out.println(scoreSumService.findScoreSumVo());
+        List<User> userList = userMapper.getUser();
+        return CommonResult.success(userList);
     }
 }

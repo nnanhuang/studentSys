@@ -1,5 +1,6 @@
 package com.example.agile0509.controller;
 
+import com.example.agile0509.common.CommonResult;
 import com.example.agile0509.mapper.ScoreMapper;
 import com.example.agile0509.mapper.ScoreSumMapper;
 import com.example.agile0509.pojo.Score;
@@ -42,6 +43,7 @@ public class GpaController {
         return true;
     }
 
+    @RequestMapping("/updateToScoreSum")
     public void updateIntoSum(){
         List<Score> scoreList = scoreMapper.getScores();
         for(Score score: scoreList){
@@ -49,5 +51,18 @@ public class GpaController {
             double gpa = Double.parseDouble(score.getScore());
             scoreSumMapper.updateScore(studentId, gpa);
         }
+    }
+
+    @RequestMapping("/getList")
+    public CommonResult<List<Score>> toList(){
+        //System.out.println(scoreSumService.findScoreSumVo());
+        List<Score> gpaList = scoreMapper.getScores();
+        return CommonResult.success(gpaList);
+
+    }
+
+    @RequestMapping("/delete")
+    public void deleteAll(){
+        scoreMapper.deleteAll();
     }
 }

@@ -6,6 +6,8 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * @author YuanYue
  * @ClassName UserMapper
@@ -20,6 +22,6 @@ public interface UserMapper extends BaseMapper<User>,BatchInsertMapper<User>{
     @Select("SELECT id FROM user WHERE username=#{username}")
     int getUserIdByUsername(String username);
 
-    void updatePasswordByUsername(String username, String newPwd);
 
+    List<User> getUser();
 }

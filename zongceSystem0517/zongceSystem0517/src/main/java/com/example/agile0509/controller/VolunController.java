@@ -1,5 +1,6 @@
 package com.example.agile0509.controller;
 
+import com.example.agile0509.common.CommonResult;
 import com.example.agile0509.mapper.ScoreSumMapper;
 import com.example.agile0509.mapper.VolunteerMapper;
 import com.example.agile0509.pojo.VolunteerService;
@@ -42,6 +43,7 @@ public class VolunController {
         return true;
     }
 
+    @RequestMapping("/updateToScoreSum")
     public void updateIntoSum(){
         List<VolunteerService> volunList = volunteerMapper.getVolunteers();
         for(VolunteerService volun: volunList){
@@ -49,5 +51,18 @@ public class VolunController {
             double duration = volun.getDuration();
             scoreSumMapper.updateVolun(studentId, duration);
         }
+    }
+
+    @RequestMapping("/getList")
+    public CommonResult<List<VolunteerService>> toList(){
+        //System.out.println(scoreSumService.findScoreSumVo());
+        List<VolunteerService> volunList = volunteerMapper.getVolunteers();
+        return CommonResult.success(volunList);
+
+    }
+
+    @RequestMapping("/delete")
+    public void deleteAll(){
+        volunteerMapper.deleteAll();
     }
 }

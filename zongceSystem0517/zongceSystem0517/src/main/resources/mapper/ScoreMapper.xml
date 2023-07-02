@@ -25,4 +25,9 @@
             )
         </foreach>
     </insert>
+
+    <!--删除库中成绩数据-->
+    <delete id="deleteAll">
+        DELETE FROM score
+    </delete>
 </mapper>

@@ -44,7 +44,7 @@
             <div class="space3"></div>
           <div class="centered-container">
           <el-form-item>  
-            <el-button type="success" @click="do_view"  class="submit-button">查看已提交记录</el-button>
+            <el-button type="success" @click="do_view"  class="submit-button">回到查看页面</el-button>
             <el-button type="primary" @click="do_submit"  class="submit-button">提交本条记录</el-button>
           </el-form-item>
           </div>
