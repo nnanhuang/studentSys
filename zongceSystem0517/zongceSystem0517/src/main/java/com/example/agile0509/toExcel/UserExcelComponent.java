@@ -2,14 +2,13 @@ package com.example.agile0509.toExcel;
 
 /**
  * @author Junzhe
- * @ClassName ExcelComponent
- * @date 2023/5/16 16:52
+ * @date 2023/7/2 0:02
  */
 
 import com.alibaba.excel.EasyExcel;
 import com.example.agile0509.mapper.BatchInsertMapper;
-import com.example.agile0509.mapper.VolunteerMapper;
-import com.example.agile0509.pojo.VolunteerService;
+import com.example.agile0509.mapper.UserMapper;
+import com.example.agile0509.pojo.User;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -21,15 +20,13 @@ import java.io.IOException;
 /**
  * Excel导入组件
  *
- * @author 唐世华
- * @date 2023-03-31
  */
 @Slf4j
 @Component
-public class VolunExcelComponent {
+public class UserExcelComponent {
 
     @Resource
-    private VolunteerMapper volunteerMapper;
+    private UserMapper userMapper;
 
     /**
      * Excel文件分批导入数据库
@@ -39,11 +36,11 @@ public class VolunExcelComponent {
      */
     public void importFile(@RequestParam("file") MultipartFile file) throws IOException {
         EasyExcel.read(file.getInputStream())
-                .head(VolunteerService.class)
-                .registerReadListener(new ExcelImportListener<VolunteerService>() {
+                .head(User.class)
+                .registerReadListener(new ExcelImportListener<User>() {
                     @Override
-                    protected BatchInsertMapper<VolunteerService> getMapper() {
-                        return volunteerMapper;
+                    protected BatchInsertMapper<User> getMapper() {
+                        return userMapper;
                     }
                 }).sheet().doRead();
     }

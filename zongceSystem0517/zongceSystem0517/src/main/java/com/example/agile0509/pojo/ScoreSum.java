@@ -56,12 +56,12 @@ public class ScoreSum {
      * 学习成绩（GPA）
      */
     @ExcelProperty(value = "studyScore", index = 7)
-    private Integer studyScore;
+    private double studyScore;
 
     /**
      * 最终成绩
      */
     @ExcelProperty(value = "finalScore", index = 8)
-    private Integer finalScore;
+    private double finalScore;
 
 }

@@ -164,9 +164,11 @@ INSERT INTO `permissions` (`id`, `title`, `url`) VALUES (39, '导入志愿时长
 INSERT INTO `permissions` (`id`, `title`, `url`) VALUES (40, '获取志愿时长列表', '/volun/getList');
 INSERT INTO `permissions` (`id`, `title`, `url`) VALUES (41, '导入GPAExcel', '/gpa/upload');
 INSERT INTO `permissions` (`id`, `title`, `url`) VALUES (42, '获取GPA列表', '/gpa/getList');
-INSERT INTO `permissions` (`id`, `title`, `url`) VALUES (43, '导入白名单Excel', '/whiteList/upload');
-INSERT INTO `permissions` (`id`, `title`, `url`) VALUES (44, '获取白名单列表', '/whiteList/getList');
+INSERT INTO `permissions` (`id`, `title`, `url`) VALUES (43, '导入白名单Excel', '/user/upload');
+INSERT INTO `permissions` (`id`, `title`, `url`) VALUES (44, '获取白名单列表', '/user/getList');
 INSERT INTO `permissions` (`id`, `title`, `url`) VALUES (45, '获取用户动态路由', '/user/get/router');
+INSERT INTO `permissions` (`id`, `title`, `url`) VALUES (46, '导入用户角色', '/userRole/upload');
+INSERT INTO `permissions` (`id`, `title`, `url`) VALUES (47, '获取用户动态路由', '/scoreSum/compute');
 COMMIT;
 
 -- ----------------------------
@@ -395,6 +397,8 @@ INSERT INTO `role_permissions` (`role_id`, `permission_id`) VALUES (5, 45);
 INSERT INTO `role_permissions` (`role_id`, `permission_id`) VALUES (6, 45);
 INSERT INTO `role_permissions` (`role_id`, `permission_id`) VALUES (7, 45);
 INSERT INTO `role_permissions` (`role_id`, `permission_id`) VALUES (8, 45);
+INSERT INTO `role_permissions` (`role_id`, `permission_id`) VALUES (2, 46);
+INSERT INTO `role_permissions` (`role_id`, `permission_id`) VALUES (2, 47);
 COMMIT;
 
 -- ----------------------------

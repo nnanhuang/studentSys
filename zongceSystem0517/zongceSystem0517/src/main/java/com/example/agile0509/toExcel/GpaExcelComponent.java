@@ -7,7 +7,6 @@ package com.example.agile0509.toExcel;
  */
 
 import com.alibaba.excel.EasyExcel;
-import com.example.agile0509.vo.StuGPAReqVo;
 import com.example.agile0509.mapper.BatchInsertMapper;
 import com.example.agile0509.mapper.ScoreMapper;
 import com.example.agile0509.pojo.Score;
@@ -38,7 +37,7 @@ public class GpaExcelComponent {
      */
     public void importConsumerFile(@RequestParam("file") MultipartFile file) throws IOException {
         EasyExcel.read(file.getInputStream())
-                .head(StuGPAReqVo.class)
+                .head(Score.class)
                 .registerReadListener(new ExcelImportListener<Score>() {
                     @Override
                     protected BatchInsertMapper<Score> getMapper() {

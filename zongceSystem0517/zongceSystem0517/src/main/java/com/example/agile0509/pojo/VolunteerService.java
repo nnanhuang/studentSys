@@ -1,7 +1,6 @@
 package com.example.agile0509.pojo;
 
 import com.alibaba.excel.annotation.ExcelProperty;
-import com.alibaba.excel.annotation.format.DateTimeFormat;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
@@ -15,6 +14,7 @@ public class VolunteerService {
     @ExcelProperty(value = "studentId", index = 1)
     public Integer studentId;
 
+    @ExcelProperty(value = "duration", index = 2)
     public Double duration;
 
     public Boolean status;

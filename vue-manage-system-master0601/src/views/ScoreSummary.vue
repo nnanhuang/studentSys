@@ -11,10 +11,11 @@
       <div style="height: 2px;"></div>
       <div>
         <el-button type="primary" style="float:right" @click="downLoad">导出为excel</el-button>
+        <el-button type="success" style="float:right" @click="compute">计算总成绩</el-button>
       </div>
       <div style="height: 50px;"></div>
 
-      <el-table :data="goodslist" stripe border style="width: 100%">
+      <el-table :data="list" stripe border style="width: 100%">
         <!--el-table-column prop="id" label="学生id" header-align="center"> </!--el-table-column-->
         <el-table-column prop="studentId" label="学生id" header-align="center"></el-table-column>
         <el-table-column prop="socialScore" label="社会实践分数" header-align="center"></el-table-column>
@@ -45,6 +46,7 @@
 
 <script>
 import { getScoreSum } from "../api/login.js";
+import { computeScoreSum } from "../api/ScoreAndImporting.js";
 export default {
   data() {
     return {
@@ -53,65 +55,33 @@ export default {
         pagenum: 1,
         pagesize: 10
       },
-      goodslist: [],
+      list: [],
       total:0,
     };
   },
   mounted() {
     getScoreSum().then((res) => {
       console.log(res);
-      this.goodslist = res;
+      this.list = res;
     });
   },
   methods: {
-    async getGoodsList() {
+    async getList() {
       getScoreSum().then((res) => {
-        this.goodslist = res;
+        this.list = res;
       });
     },
     downLoad() {  //导出excel文件
       window.location.href='http://localhost:28080/scoreSum/download';
       ELMessage.success("导出成功");
     },
-    handleSizeChange(newSize) {
-      this.queryInfo.pagesize = newSize;
-      this.getGoodsList();
+    compute() {  //计算总分
+      computeScoreSum();
+      ElMessage.success('请刷新页面查看计算结果！')
+      getScoreSum().then((res) => {
+        this.list = res;
+      });
     },
-    handleCurrentChange(newPage) {
-      this.queryInfo.pagenum = newPage;
-      this.getGoodsList();
-    },
-    // eslint-disable-next-line no-unused-vars
-    edit(row){
-      alert(JSON.stringify(row));
-    },
-    removeById(id) {
-      this.$confirm("此操作将永久删除该商品, 是否继续?", "提示", {
-        confirmButtonText: "确定",
-        cancelButtonText: "取消",
-        type: "warning"
-      })
-        .then(async () => {
-          const { data } = await this.$http.delete(`goods/${id}`);
-          if (data.meta.status !== 200) {
-            return this.$message.error(data.meta.msg);
-          }
-          this.getGoodsList();
-          this.$message({
-            type: "success",
-            message: "删除成功!"
-          });
-        })
-        .catch(() => {
-          this.$message({
-            type: "info",
-            message: "已取消删除"
-          });
-        });
-    },
-    goAddPage() {
-      this.$router.push("goods/add");
-    }
   }
 };
 </script>

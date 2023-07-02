@@ -1,5 +1,6 @@
 package com.example.agile0509.mapper;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.example.agile0509.pojo.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -13,9 +14,11 @@ import org.springframework.stereotype.Repository;
 
 @Mapper
 @Repository
-public interface UserMapper {
+public interface UserMapper extends BaseMapper<User>,BatchInsertMapper<User>{
     User findByUsername(String username);
 
     @Select("SELECT id FROM user WHERE username=#{username}")
     int getUserIdByUsername(String username);
+
+
 }

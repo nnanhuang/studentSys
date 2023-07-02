@@ -1,5 +1,8 @@
 package com.example.agile0509.controller;
 
+import com.example.agile0509.mapper.ScoreMapper;
+import com.example.agile0509.mapper.ScoreSumMapper;
+import com.example.agile0509.pojo.Score;
 import com.example.agile0509.toExcel.GpaExcelComponent;
 import io.swagger.annotations.Api;
 import org.springframework.stereotype.Controller;
@@ -11,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
 import java.io.IOException;
+import java.util.List;
 
 /**
  * @author Junzhe
@@ -25,9 +29,25 @@ public class GpaController {
     @Resource
     private GpaExcelComponent gpaExcelComponent;
 
+    @Resource
+    private ScoreMapper scoreMapper;
+
+    @Resource
+    private ScoreSumMapper scoreSumMapper;
+
     @PostMapping("/upload")
     public Boolean updown(@RequestParam("file") MultipartFile file) throws IOException {
         gpaExcelComponent.importConsumerFile(file);
+        updateIntoSum();
         return true;
+    }
+
+    public void updateIntoSum(){
+        List<Score> scoreList = scoreMapper.getScores();
+        for(Score score: scoreList){
+            int studentId = score.getStudentId();
+            double gpa = Double.parseDouble(score.getScore());
+            scoreSumMapper.updateScore(studentId, gpa);
+        }
     }
 }

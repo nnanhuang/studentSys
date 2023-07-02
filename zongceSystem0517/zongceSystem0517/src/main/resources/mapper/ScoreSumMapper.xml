@@ -7,4 +7,21 @@
         SELECT * FROM scoreSum
     </select>
 
+    <!-- 更新分数 -->
+    <update id="updateScore" parameterType="com.example.agile0509.pojo.ScoreSum">
+        UPDATE scoresum SET studyScore = #{gpa} WHERE studentID = #{studentId}
+    </update>
+
+    <!-- 更新志愿时长 -->
+    <update id="updateVolun" parameterType="com.example.agile0509.pojo.ScoreSum">
+        UPDATE scoresum SET volunteerScore = #{duration} WHERE studentID = #{studentId}
+    </update>
+
+    <!-- 更新总分 -->
+    <update id="updateFinalScore" parameterType="com.example.agile0509.pojo.ScoreSum">
+        UPDATE scoresum SET finalScore = #{finalScore} WHERE studentID = #{studentId}
+    </update>
+
+
+
 </mapper>

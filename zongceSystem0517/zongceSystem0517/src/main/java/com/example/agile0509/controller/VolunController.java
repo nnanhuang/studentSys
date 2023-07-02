@@ -1,6 +1,9 @@
 package com.example.agile0509.controller;
 
-import com.example.agile0509.toExcel.StuInfoExcelComponent;
+import com.example.agile0509.mapper.ScoreSumMapper;
+import com.example.agile0509.mapper.VolunteerMapper;
+import com.example.agile0509.pojo.VolunteerService;
+import com.example.agile0509.toExcel.VolunExcelComponent;
 import io.swagger.annotations.Api;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
 import java.io.IOException;
+import java.util.List;
 
 /**
  * @author Junzhe
@@ -23,11 +27,27 @@ import java.io.IOException;
 @ResponseBody //这样才能返回相应的对象
 public class VolunController {
     @Resource
-    private StuInfoExcelComponent stuInfoExcelComponent;
+    private VolunExcelComponent volunExcelComponent;
+
+    @Resource
+    private VolunteerMapper volunteerMapper;
+
+    @Resource
+    private ScoreSumMapper scoreSumMapper;
 
     @PostMapping("/upload")
-    public Boolean updown(@RequestParam("file") MultipartFile file) throws IOException {
-        stuInfoExcelComponent.importConsumerFile(file);
+    public Boolean importFile(@RequestParam("file") MultipartFile file) throws IOException {
+        volunExcelComponent.importFile(file);
+        updateIntoSum();
         return true;
+    }
+
+    public void updateIntoSum(){
+        List<VolunteerService> volunList = volunteerMapper.getVolunteers();
+        for(VolunteerService volun: volunList){
+            int studentId = volun.getStudentId();
+            double duration = volun.getDuration();
+            scoreSumMapper.updateVolun(studentId, duration);
+        }
     }
 }
