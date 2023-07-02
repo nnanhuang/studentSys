@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.agile0509.mapper.StaMapper">
+    <!--新增-->
+    <insert id="insertSta" parameterType="list">
+        insert into statement
+            (studentID, type, content)
+        values
+            (#{stuId}, #{type}, #{content})
+    </insert>
+
+    <!--根据学号获取-->
+    <select id="getStaByStuId" resultType="com.example.agile0509.vo.StaVo">
+        SELECT type, content, ID, studentID  FROM statement WHERE studentID = #{stuId}
+    </select>
+
+    <!--根据id删除-->
+    <delete id="deleteSta">
+        DELETE FROM statement WHERE ID = #{StaId}
+    </delete>
+
+    <!-- 更新 parameterType="com.example.agile0509.vo.StaVo"-->
+    <update id="modifySta" >
+        UPDATE statement
+        SET type = #{type}, content = #{content}
+        WHERE ID = #{StaId}
+    </update>
+
+
+</mapper>
