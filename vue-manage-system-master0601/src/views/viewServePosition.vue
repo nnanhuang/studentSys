@@ -68,7 +68,7 @@
         <!--按钮：回到填报页面 -->
         <div class="centered-container">
           <el-form-item>  
-            <el-button type="success" @click="back"  class="back">回到填报页面</el-button>
+            <el-button type="success" @click="add"  class="add">新增记录</el-button>
           </el-form-item>
         </div>
       </el-card>
@@ -116,7 +116,7 @@ export default {
     this.fetchServePositionList();
   },
   methods: {
-    back() {
+    add() {
       this.$router.push({ path: '/addServePosition' })
     },
     handleSizeChange(newSize) {
