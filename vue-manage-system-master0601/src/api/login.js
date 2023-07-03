@@ -337,28 +337,28 @@ export function viewStuSumScore() {
   });
 }
 
-export function viewStatementT(stuNo, name, isAssess, orgScore) {
+export function viewStatementT(stuNo, name, isAssess, sumScore) {
   //老师查看学生提交的个人总结信息
   const data = {
     stuNo,
     name,
     isAssess,
-    orgScore,
+    sumScore,
   };
   return request({
-    url: "/statement/viewSubmittedT",
+    url: "/sta/viewSubmittedT",
     method: "post",
     data: data,
   });
 }
 
 // 提交个人总结评委打分
-export function submitSumScore(stuNo, name, isAssess, orgScore) {
+export function submitSumScore(stuNo, name, isAssess, sumScore) {
   const data = {
     stuNo,
     name,
     isAssess,
-    orgScore,
+    sumScore,
   };
   return request({
     url: "/sta/submitScore",

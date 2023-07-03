@@ -78,7 +78,7 @@
           <h1 class="centered-title">个人总结评委评分</h1>
           <div class="space3"></div>
           <el-table
-            :data="statementRecordList"
+            :data="statementList2"
             stripe
             border
             bordereight="250"
@@ -88,7 +88,7 @@
             <el-table-column
               prop="type"
               label="类型"
-              width="60%"
+              width="30%"
             ></el-table-column>
             <el-table-column prop="content" label="内容"></el-table-column>
           </el-table>
@@ -161,7 +161,7 @@ export default {
       scoreSum: {
         sumScore: null,
       },
-      statementList2: [{ time: "111", content: "222" }],
+      statementList2: [{ type: "111", content: "222" }],
       dialogVisible: false,
       applyVisible: false,
       statusFilters: [
@@ -202,7 +202,7 @@ export default {
       )
         .then((response) => {
           console.log(response.data);
-          this.StatementList2 = response.data;
+          this.statementList2 = response.data;
         })
         .catch((error) => {
           console.log(error);
@@ -221,10 +221,11 @@ export default {
         this.Statement.stuNo,
         this.Statement.name,
         this.Statement.isAssess,
-        this.Statement.sumScore
+        this.scoreSum.sumScore
       )
         .then((response) => {
           console.log(response.data);
+          console.log(this.Statement.sumScore);
           this.applyVisible = false; //关闭弹窗
 
           this.fetchStatementList(); //刷新列表
@@ -322,6 +323,7 @@ export default {
   display: flex;
   justify-content: center;
 }
+
 .highlighted-row {
   background-color: #c6f3af;
 }
