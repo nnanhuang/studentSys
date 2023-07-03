@@ -1,7 +1,9 @@
 <template>
   <Transition>
     <div class="container">
+      <div class="space2"></div>
       <h1 class="centered-title">学生信息确认</h1>
+      <div class="space2"></div>
       <div class="space1"></div>
       <el-form
         ref="form"
@@ -30,7 +32,7 @@
           <el-form-item>
             <!-- <el-button type="primary" @click="submitForm" class="submit"
               >提交</el-button -->
-            >
+            
           </el-form-item>
         </div>
       </el-form>

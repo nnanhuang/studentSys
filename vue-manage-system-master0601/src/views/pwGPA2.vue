@@ -1,6 +1,6 @@
 <template>
   <Transition>
-    <div>
+    <div class="container">
       <h1 class="centered-title">绩点审核</h1>
       <div class="space1"></div>
       <el-card>
@@ -168,6 +168,13 @@ export default {
 </script>
 
 <style>
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 80vh;
+  padding: 10px;
+}
 .centered-title {
   text-align: center;
 }

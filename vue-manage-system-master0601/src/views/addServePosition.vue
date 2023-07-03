@@ -1,12 +1,12 @@
 <template>
   <Transition>
     <div class="container">
-      <h1 class="centered-title">学生骨干服务信息</h1>
       <div class="space1"></div>
+      <h1 class="centered-title">学生骨干服务信息</h1>
+      <div class="line"></div>
+      <div></div>
       <div class="service-description">
-        <p>
-          请填写：服务同学的积极分子需提交入学以来担任学生服务岗位（包括服务学院各部门、学生党支部、团委、研究生会和学生会等）的工作业绩报告。
-        </p>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请填写：服务同学的积极分子需提交入学以来担任学生服务岗位（包括服务学院各部门、学生党支部、团委、研究生会和学生会等）的工作业绩报告。
       </div>
       <div class="space2"></div>
       <div class="form-container">
@@ -27,7 +27,6 @@
             </el-col>
           </el-row>
           <el-row class="servePositon-item">
-            <el-col :span="14">
               <el-upload
                 class="upload-demo"
                 drag
@@ -39,11 +38,11 @@
                   将证明材料文件拖到此处，或点击上传
                 </div>
                 <div class="el-upload__tip">
-                  只能上传一个文件，大小不超过500kb
+                  只能上传一个文件，大小不超过4GB
                 </div>
               </el-upload>
-            </el-col>
           </el-row>
+          <div class="space1"></div>
           <div class="centered-container">
             <el-form-item>
               <el-button type="success" @click="do_view" class="submit-button"
@@ -105,6 +104,9 @@ export default {
 
 <style scoped>
 .upload-demo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: 1px dashed #409eff;
   border-radius: 6px;
   padding: 20px 0;
@@ -112,6 +114,14 @@ export default {
   color: #999;
   cursor: pointer;
   background-color: #f5f7f9;
+  margin: 0 auto; 
+}
+.line {
+  width: calc(100% - 20px);
+  height: 2px;
+  background-color: #f2f2f2;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 .container {
   background-color: white;

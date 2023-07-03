@@ -5,7 +5,7 @@
             <el-card>
                 <div class="space2"></div>
                 <h1 class="centered-title">骨干服务评委评分</h1>
-                <div class="space3"></div>
+                <div class="space1"></div>
                 <el-row >
                     <el-col :span="4">
                         <el-input
@@ -25,6 +25,7 @@
                         <el-button type="primary" @click="searchStudent">搜索学生</el-button>
                     </el-col>
                 </el-row>
+                <div class="space1"></div>
                 <!--表格主体-->
                 <el-table :data="paginatedStudents" stripe border bordereight="250" style="width: 100%">
                     <el-table-column type="index" width="50"></el-table-column>
@@ -75,6 +76,8 @@
                         <el-button @click="applyVisible = false">取 消</el-button>
                     </div>
                 </el-dialog>
+                <div class="space1"></div>
+                <div class="space1"></div>
                 <el-pagination
                         @size-change="handleSizeChange"
                         @current-change="handleCurrentChange"

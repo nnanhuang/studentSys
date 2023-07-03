@@ -1,10 +1,9 @@
 <template>
-  <Transition>
-    <div>
-      <h1 class="centered-title">绩点审核</h1>
-
-      <div class="space1"></div>
+  <Transition>  
       <el-card>
+        <div class="space1"></div>
+        <h1 class="centered-title">绩点审核</h1>
+        <div class="space1"></div>
         <el-row>
           <el-col :span="4">
             <el-input
@@ -141,7 +140,8 @@
             <el-button @click="applyVisible = false">取 消</el-button>
           </div>
         </el-dialog>
-        
+        <div class="space1"></div>
+        <div class="space1"></div>
         <el-pagination
           @size-change="handleSizeChange"
           @current-change="handleCurrentChange"
@@ -153,7 +153,7 @@
           background
         ></el-pagination>
       </el-card>
-    </div>
+
   </Transition>
 </template>
 
@@ -352,6 +352,8 @@ export default {
 </script>
 
 <style>
+
+
 .highlighted-row {
   background-color: #c6f3af;
 }

@@ -3,7 +3,9 @@
     <div class="container">
       <div class="space1"></div>
       <h1 class="centered-title">科研信息</h1>
-      <div class="space1"></div>
+
+      <div class="line"></div>
+    <div></div>
       <div class="service-description">
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请填写：在学院学习期间在国内核心期刊、国外期刊或国内外学术会议上发表过论文者或者申请专利（请注明第几作者)，参加国际、国内、市级、校级等有较高影响力的比赛并获奖者，如北京大学挑战杯比赛，软微学院创新创业大赛等。
       </div>
@@ -27,8 +29,8 @@
                 ></el-input>
               </el-col>
             </el-row>
+            <div class="space1"></div>
             <el-row class="sci-item">
-                <el-col :span="14">
                   <el-upload
                     class="upload-demo"
                     drag
@@ -37,9 +39,8 @@
                   >
                     <i class="el-icon-upload"></i>
                     <div class="el-upload__text">将证明材料文件拖到此处，或点击上传</div>
-                    <div class="el-upload__tip">只能上传一个文件，大小不超过500kb</div>
+                    <div class="el-upload__tip">只能上传一个文件，大小不超过4GB</div>
                   </el-upload>
-                </el-col>
               </el-row>
             <div class="space3"></div>
           <div class="centered-container">
@@ -94,6 +95,9 @@ export default {
 
 <style scoped>
   .upload-demo {
+    display: flex;
+  justify-content: center;
+  align-items: center;
   border: 1px dashed #409eff;
   border-radius: 6px;
   padding: 20px 0;
@@ -101,6 +105,7 @@ export default {
   color: #999;
   cursor: pointer;
   background-color: #f5f7f9;
+  margin: 0 auto; 
 }
 .container {
   background-color: white;
@@ -116,6 +121,13 @@ export default {
   margin-top: 0.5em;
 }
 
+.line {
+  width: calc(100% - 20px);
+  height: 2px;
+  background-color: #f2f2f2;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 .form-container {
   display: flex;
   justify-content: center;
@@ -158,6 +170,7 @@ export default {
 .indent {
   text-indent: 2em;
 }
+
 
 
 </style>

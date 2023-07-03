@@ -1,4 +1,6 @@
 <template>
+      <Transition>
+      <div class="container">
   <div class="upload-tool">
     <span>
       <el-upload
@@ -18,7 +20,7 @@
       </el-upload>
     </span>   
   </div>
-
+  <div class="space1"></div>
   <el-table :data="stuInfoList" stripe border style="width: 100%">
     <!--el-table-column prop="id" label="学生id" header-align="center"> </!--el-table-column-->
     <el-table-column prop="studentID" label="学生id" header-align="center"></el-table-column>
@@ -37,6 +39,8 @@
     <el-table-column prop="political" label="政治面貌" header-align="center"></el-table-column>
     <el-table-column prop="stutype" label="学生类型" header-align="center"></el-table-column>
   </el-table>
+</div>
+</Transition>
 </template>
  
 <script>
@@ -149,9 +153,9 @@ export default {
 .drawer-footer{
    text-align: center;
 }
-.button {
+/* .button {
   margin-top: 10px;
-}
+} */
 
 </style>
  

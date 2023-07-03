@@ -1,6 +1,6 @@
 <template>
+      <Transition>
   <div>
-
     <div style="height: 2px;"></div> 
     <el-card>
       <el-row :gutter="20">
@@ -10,8 +10,8 @@
       
       <div style="height: 2px;"></div>
       <div>
-        <el-button type="primary" style="float:right" @click="downLoad">导出为excel</el-button>
-        <el-button type="success" style="float:right" @click="compute">计算总成绩</el-button>
+        <el-button type="primary" style="float:right;margin-right: 10px;"  @click="downLoad">导出为excel</el-button>
+        <el-button type="success" style="float:right;margin-right: 20px;" @click="compute">计算总成绩</el-button>
       </div>
       <div style="height: 50px;"></div>
 
@@ -42,6 +42,7 @@
     </div>
     </el-card>
   </div>
+</Transition>
 </template>
 
 <script>
@@ -87,5 +88,9 @@ export default {
 </script>
 
 
-<style lang="less" scoped></style>
+<style  scoped>
+.space{
+  width: 10px;
+}
+</style>
 

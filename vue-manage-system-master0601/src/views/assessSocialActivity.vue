@@ -1,8 +1,10 @@
 <template>
     <Transition>
-        <div>
-            <div class="space1"></div>
+
             <el-card>
+                <div class="space1"></div>
+                <h1 class="centered-title">社会实践评委评分</h1>
+                <div class="space1"></div>
                 <el-row >
         <el-col :span="4">
           <el-input
@@ -24,8 +26,7 @@
     </el-row>
                 <!--表格主体-->
                 <div class="space2"></div>
-                <h1 class="centered-title">社会实践评委评分</h1>
-                <div class="space3"></div>
+     
                 <el-table :data="paginatedSocial" stripe border bordereight="250" style="width: 100%">
                     <el-table-column type="index" width="50"></el-table-column>
                     <el-table-column prop="name" label="姓名">
@@ -71,6 +72,8 @@
                         <el-button @click="applyVisible = false">取 消</el-button>
                     </div>
                 </el-dialog>
+                <div class="space1"></div>
+                <div class="space1"></div>
                 <el-pagination
                     @size-change="handleSizeChange"
                     @current-change="handleCurrentChange"
@@ -83,7 +86,7 @@
                 >
                 </el-pagination>
             </el-card>
-        </div>
+
     </Transition>
 </template>
 

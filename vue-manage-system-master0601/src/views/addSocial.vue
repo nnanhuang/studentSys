@@ -3,7 +3,7 @@
       <div class="container">
         <div class="space1"></div>
         <h1 class="centered-title">社会实践信息</h1>
-        <div class="space1"></div>
+        <div class="line"></div>
         <div class="service-description">
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;包括1.省市级社会实践2.北京大学校级社会实践(如学工部鸿雁计划，校团委、学生会、研究生会实践服务团)3.学校党委组织部支书培训4.教师研究课题调研项目等其他社会实践。在学生提交实践报告的基础上，从学生参与实践活动的时长、任务贡献和获奖情况等方面考核。
         </div>
@@ -19,14 +19,14 @@
                     <el-option label="其他" value="其他"></el-option>
                   </el-select>
                 </el-col> -->
-                <el-col :span="14">
+                <el-col :span="12">
                   <el-input
                     type="textarea"
                     v-model="social.time"
                     placeholder="请输入社会实践起止时间,参考格式: 2022.09 - 2022.12"
                   ></el-input>
                 </el-col>
-                <el-col :span="14">
+                <el-col :span="12">
                   <el-input
                     type="textarea"
                     v-model="social.content"
@@ -34,8 +34,8 @@
                   ></el-input>
                 </el-col>
               </el-row>
+              <div class="space1"></div>
               <el-row class="social-item">
-                <el-col :span="14">
                   <el-upload
                     class="upload-demo"
                     drag
@@ -44,11 +44,10 @@
                   >
                     <i class="el-icon-upload"></i>
                     <div class="el-upload__text">将证明材料文件拖到此处，或点击上传</div>
-                    <div class="el-upload__tip">只能上传一个文件，格式不超过500kb</div>
+                    <div class="el-upload__tip">只能上传一个文件，格式不超过4GB</div>
                   </el-upload>
-                </el-col>
               </el-row>
-              <div class="space3"></div>
+              <div class="space1"></div>
             <div class="centered-container">
             <el-form-item>  
               <el-button type="success" @click="do_view"  class="submit-button">回到查看界面</el-button>
@@ -108,6 +107,9 @@
   
   <style scoped>
   .upload-demo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: 1px dashed #409eff;
   border-radius: 6px;
   padding: 20px 0;
@@ -115,6 +117,14 @@
   color: #999;
   cursor: pointer;
   background-color: #f5f7f9;
+  margin: 0 auto; 
+}
+.line {
+  width: calc(100% - 20px);
+  height: 2px;
+  background-color: #f2f2f2;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
   .container {
     background-color: white;

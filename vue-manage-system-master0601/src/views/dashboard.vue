@@ -2,12 +2,16 @@
   <div>
   <Transition>
     <div class="container">
-      <div class="welcome-message">杨洋，欢迎您！</div>
+      <div class = 'space1'></div>
+      <div class="welcome-message"> {{ username }} ，欢迎您！</div>
+      <div class = 'space4'></div>
       <div class="line"></div>
       <div class = 'space1'>
       </div>
       <div class="message">
-        <el-form label-width="90px">
+
+        <!-- 表格中不包括 -->
+        <!-- <el-form label-width="90px">
           <div class="element-container">
             <el-form-item label="学号/职工号" prop="student_number">
               <el-input ></el-input>
@@ -19,7 +23,7 @@
               <el-input></el-input>
             </el-form-item>
           </div>
-        </el-form>
+        </el-form> -->
       </div>
       <div class = 'space2'>
 
@@ -38,16 +42,42 @@
 
 
   
-  <script setup lang="ts">
+  <script>
 import { ref } from 'vue';
 import imgurl from '../assets/img/img.jpg';
+import {getUsername} from "../api/login";
 
-const userID = ref('');
-const studentID = ref('');
-const phoneNumber = ref('');
-const email = ref('');
 
-const username = ref(localStorage.getItem('ms_username') || '');
+export default {
+
+data() {
+  return {
+    username: "",
+  }
+},
+created(){
+  this.getName()
+},
+methods: {
+
+  getName(){
+    getUsername().then(res => {
+      this.username = res.data
+    })
+  }
+
+}
+};
+
+
+
+
+// const userID = ref('');
+// const studentID = ref('');
+// const phoneNumber = ref('');
+// const email = ref('');
+
+// const username = ref(localStorage.getItem('ms_username') || '');
 </script>
   
 <style scoped>
@@ -101,6 +131,10 @@ const username = ref(localStorage.getItem('ms_username') || '');
 .space2{
   height: 200px;
 }
+.space4{
+  height: 10px;
+}
+
 
 .image-wrapper {
   width: 100%; /* 图片宽度与页面相同 */

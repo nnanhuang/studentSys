@@ -1,47 +1,31 @@
 <template>
-	<div>
-		<el-row :gutter="20">
-			<el-col :span="12">
-				<el-card shadow="hover">
+	<div class="container">
+
+
+			
+				<el-card shadow="hover" width="200px">
 					<template #header>
 						<div class="clearfix">
-							<span>基础信息</span>
+							<h2>修改密码</h2>
 						</div>
 					</template>
-					<div class="info">
-						<div class="info-image" @click="showDialog">
-							<el-avatar :size="100" :src="avatarImg" />
-							<span class="info-edit">
-								<i class="el-icon-lx-camerafill"></i>
-							</span>
-						</div>
-						<div class="info-name">{{ username }}</div>
-						<div class="info-desc">不可能！我的代码怎么可能会有bug！</div>
-					</div>
-				</el-card>
-			</el-col>
-			<el-col :span="12">
-				<el-card shadow="hover">
-					<template #header>
-						<div class="clearfix">
-							<span>修改密码</span>
-						</div>
-					</template>
-					<el-form label-width="90px">
+					<div class="centered-container">
+					<el-form label-width="100px">
 						<el-form-item label="用户名："> {{ username }} </el-form-item>
 						<el-form-item label="旧密码：">
-							<el-input type="password" v-model="oldPwd"></el-input>
+							<el-input type="password" v-model="oldPwd"  class="long-input"></el-input>
 						</el-form-item>
 						<el-form-item label="新密码：">
-							<el-input type="password" v-model="newPwd"></el-input>
+							<el-input type="password" v-model="newPwd" class="long-input"></el-input>
 						</el-form-item>
 						<el-form-item>
-							<el-button type="primary" @click="save">保存</el-button>
+							<el-button type="primary" @click="save" class="button">保存</el-button>
 						</el-form-item>
 					</el-form>
+				</div>
 				</el-card>
-			</el-col>
-		</el-row>
+
+
 	</div>
 </template>
 
@@ -50,7 +34,10 @@
 	import {updatePassword} from "../api/login";
 	import {getUsername} from "../api/login";
 
+
+
 	export default {
+
 		data() {
 			return {
 				username: "",
@@ -91,12 +78,20 @@
 .info-image {
 	position: relative;
 	margin: auto;
-	width: 100px;
+	width: 200px;
 	height: 100px;
 	background: #f8f8f8;
 	border: 1px solid #eee;
 	border-radius: 50px;
 	overflow: hidden;
+}
+.center{
+	display: flex;
+  justify-content: center;
+}
+.centered-container {
+  display: flex;
+  justify-content: center;
 }
 
 .info-edit {
@@ -125,4 +120,24 @@
 	font-weight: 500;
 	color: #262626;
 }
+
+.clearfix{
+	text-align: center;
+}
+
+.container {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.long-input {
+  width: 300px; /* Adjust the width as needed */
+}
+
+	.button {
+  margin-left: 75px;
+}
+
+
 </style>

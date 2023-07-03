@@ -1,12 +1,9 @@
 <template>
   <Transition>
-  <div>
-    <div>
-    <h1 class="centered-title">志愿时长审核</h1>
-    </div>
-    <div class="space1"></div>
-    <div>
     <el-card>
+      <div class="space1"></div>
+      <h1 class="centered-title">志愿时长审核</h1>
+      <div class="space1"></div>
     <el-row >
         <el-col :span="4">
           <el-input
@@ -108,14 +105,14 @@
               <el-input v-model="currentVolunteer.status" disabled></el-input>
         </el-form-item>
       </el-form>
-      <div slot="footer" class="dialog-footer">
+      <div slot="footer" class="dialog-footer" style="display: flex; justify-content: center;">
         <el-button type="primary" @click="submitForm1">刷 新</el-button>
         <el-button  @click="checkVisible = false">关 闭</el-button>
       </div>
     </el-dialog>
 
     <el-dialog title="修改志愿时长" v-model="applyVisible" v-bind="$attrs">
-      <el-form :model="currentVolunteer" label-width="80px">
+      <el-form :model="currentVolunteer" label-width="90px">
         <el-form-item label="姓名">
           <el-input v-model="currentVolunteer.name" disabled></el-input>
         </el-form-item>
@@ -135,12 +132,13 @@
           <el-input v-model="currentVolunteer.newhours"></el-input>
         </el-form-item>
       </el-form>
-      <div slot="footer" class="dialog-footer">
+      <div slot="footer" class="dialog-footer"  style="display: flex; justify-content: center;">
         <el-button type="primary" @click="submitForm2">确 定</el-button>
         <el-button @click="applyVisible = false">取 消</el-button>
       </div>
     </el-dialog>
-
+    <div class="space1"></div>
+    <div class="space1"></div>
     <el-pagination
         @size-change="handleSizeChange"
         @current-change="handleCurrentChange"
@@ -153,9 +151,6 @@
       >
       </el-pagination>
   </el-card>
-  </div>
-
-  </div>
   </Transition>
 </template>
 

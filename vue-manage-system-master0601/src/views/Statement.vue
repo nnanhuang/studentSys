@@ -3,10 +3,10 @@
     <div class="container">
       <div class="space1"></div>
       <h1 class="centered-title">个人总结</h1>
-      <div class="space1"></div>
+      <div class="line"></div>
       <div class="statement-description">
-        请分别提交四条个人总结记录，个人总结-思想政治；个人总结-行为规范；个人总结-
-        学习态度；个人总结-身心健康
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请分别提交四条个人总结记录，个人总结-思想政治；个人总结-行为规范；个人总结-
+        学习态度；个人总结-身心健康。
       </div>
       <div class="space2"></div>
       <div class="form-container">
@@ -31,7 +31,6 @@
               ></el-input>
             </el-col>
           </el-row>
-
           <div class="space3"></div>
           <div class="centered-container">
             <el-form-item>
@@ -90,6 +89,13 @@ export default {
   color: #999;
   cursor: pointer;
   background-color: #f5f7f9;
+}
+.line {
+  width: calc(100% - 20px);
+  height: 2px;
+  background-color: #f2f2f2;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 .container {
   background-color: white;

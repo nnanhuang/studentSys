@@ -1,4 +1,6 @@
 <template>
+    <Transition>
+    <div class="container">
   <div class="upload-tool">
     <span>
       <el-upload
@@ -15,19 +17,19 @@
       >
         <el-button type="success" size="medium" class="button" @click="reminder">导入excel</el-button>
       </el-upload>
-      <el-button type="danger" size="medium" class="button" @click="deleteAll">删除库中数据</el-button>
-      <el-button type="primary" size="medium" class="button" @click="updateToSum">更新数据至成绩汇总表</el-button>
+      <el-button type="danger" size="medium" class="button1" @click="deleteAll">删除库中数据</el-button>
+      <el-button type="primary" size="medium" class="button1" @click="updateToSum">更新数据至成绩汇总表</el-button>
     </span>   
   </div>
-
-  <h3 class="text-reminder">当前库中数据如下：</h3>
-
+  <div class="space1"></div>
   <el-table :data="gpaList" stripe border style="width: 100%">
     <!--el-table-column prop="id" label="学生id" header-align="center"> </!--el-table-column-->
     <el-table-column prop="id" label="学生id" header-align="center"></el-table-column>
     <el-table-column prop="studentId" label="学生证号" header-align="center"></el-table-column>
     <el-table-column prop="score" label="学习成绩" header-align="center"></el-table-column>
   </el-table>
+</div>
+  </Transition>
 </template>
  
 <script>
@@ -157,7 +159,7 @@ export default {
 .drawer-footer{
    text-align: center;
 }
-.button {
+.button1 {
   margin-top: 10px;
 }
 

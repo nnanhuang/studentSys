@@ -15,14 +15,14 @@
 				<!-- 用户名下拉菜单 -->
 				<el-dropdown class="user-name" trigger="click" @command="handleCommand">
 					<span class="el-dropdown-link">
-						{{ username }}
+							辅助功能
 						<el-icon class="el-icon--right">
 							<arrow-down />
 						</el-icon>
 					</span>
 					<template #dropdown>
 						<el-dropdown-menu>
-							<el-dropdown-item command="user">个人中心</el-dropdown-item>
+							<el-dropdown-item command="user">修改密码</el-dropdown-item>
 							<el-dropdown-item divided command="loginout">退出登录</el-dropdown-item>
 						</el-dropdown-menu>
 					</template>
