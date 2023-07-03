@@ -5,13 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3b31e5c0-3bb0-43f8-b787-80e95fb1b0ca" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/zongceSystem0517/src/main/java/com/example/agile0509/controller/AssessSumController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/zongceSystem0517/src/main/java/com/example/agile0509/mapper/StuSumScoreMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/zongceSystem0517/src/main/java/com/example/agile0509/pojo/StuSumScore.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/zongceSystem0517/src/main/java/com/example/agile0509/vo/StuSumScoreVo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/zongceSystem0517/src/main/resources/mapper/StuSumScoreMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/components.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/components.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/_metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/_metadata.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/zongceSystem0517/src/main/java/com/example/agile0509/controller/InfoController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/zongceSystem0517/src/main/java/com/example/agile0509/mapper/InfoMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/zongceSystem0517/src/main/java/com/example/agile0509/pojo/Info.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/zongceSystem0517/src/main/java/com/example/agile0509/vo/InfoVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/zongceSystem0517/src/main/resources/mapper/InfoMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/auto-imports.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/auto-imports.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/src/api/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/src/api/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/src/views/addInfo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/src/views/addInfo.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -91,7 +92,7 @@
       <option name="presentableId" value="Default" />
       <updated>1688358981564</updated>
       <workItem from="1688358992298" duration="1387000" />
-      <workItem from="1688363144221" duration="13741000" />
+      <workItem from="1688363144221" duration="24541000" />
     </task>
     <servers />
   </component>

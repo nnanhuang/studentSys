@@ -481,3 +481,10 @@ export function getRules() {
     method: "post",
   });
 }
+// 获取学生信息
+export function getStudentInfo() {
+  return request({
+    url: "/info/get",
+    method: "get",
+  });
+}

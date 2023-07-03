@@ -11,7 +11,7 @@
  Target Server Version : 80029
  File Encoding         : 65001
 
- Date: 03/07/2023 18:37:21
+ Date: 03/07/2023 23:33:50
 */
 
 SET NAMES utf8mb4;
@@ -182,6 +182,8 @@ INSERT INTO `permissions` VALUES (60, '修改个人总结', '/sta/modify');
 INSERT INTO `permissions` VALUES (61, '评委查看个人总结分数', '/sta/viewStuScore');
 INSERT INTO `permissions` VALUES (62, '评委查看个人总结记录', '/sta/viewSubmittedT');
 INSERT INTO `permissions` VALUES (63, '评委提交个人总结分数', '/sta/submitScore');
+INSERT INTO `permissions` VALUES (64, '学生查看个人信息', '/info/get');
+INSERT INTO `permissions` VALUES (65, '学生修改个人信息', '/info/update');
 
 -- ----------------------------
 -- Table structure for role
@@ -438,6 +440,10 @@ INSERT INTO `role_permissions` VALUES (2, 62);
 INSERT INTO `role_permissions` VALUES (7, 62);
 INSERT INTO `role_permissions` VALUES (2, 63);
 INSERT INTO `role_permissions` VALUES (7, 63);
+INSERT INTO `role_permissions` VALUES (1, 64);
+INSERT INTO `role_permissions` VALUES (2, 64);
+INSERT INTO `role_permissions` VALUES (1, 65);
+INSERT INTO `role_permissions` VALUES (2, 65);
 
 -- ----------------------------
 -- Table structure for school
