@@ -62,7 +62,7 @@ public class UserController {
         }
 
         // 封装结果并返回
-        CommonResult<List<RoleVO>>result = CommonResult.success(roleVOList);
+        CommonResult<List<RoleVO>> result = CommonResult.success(roleVOList);
         return result;
     }
 
@@ -70,13 +70,13 @@ public class UserController {
     @GetMapping("/get/router")
     public CommonResult<?> getRouter(@RequestHeader("Authorization") String authHeader) {
 
-       // 解析Authorization请求头中的JWT令牌 Bearer access_token
+        // 解析Authorization请求头中的JWT令牌 Bearer access_token
         String username = null;
         try {
             String token = authHeader.substring(7);
             username = jwtTokenUtil.getUsernameFromToken(token);
-        }catch (ExpiredJwtException e) {
-            return CommonResult.error(410,"JWT expired");
+        } catch (ExpiredJwtException e) {
+            return CommonResult.error(410, "JWT expired");
         }
 
         // 调用Authervice中的方法来获取用户ID
@@ -103,7 +103,7 @@ public class UserController {
             }
         }
         System.out.println(nodes);
-        List<Router> router=authService.convertToRouters(nodes);
+        List<Router> router = authService.convertToRouters(nodes);
         CommonResult<List<Router>> result = CommonResult.success(router);
         return result;
     }
@@ -133,14 +133,14 @@ public class UserController {
             List<Node> roleNodes = authService.getMenuByRoleId(roleId);
 
             for (Node node : roleNodes) {//如果直接add很有可能导致菜单重复
-                if (!addedNodeIds.contains(node.getId())&& node.getType()) {//获取type为true的node即为菜单的node
+                if (!addedNodeIds.contains(node.getId()) && node.getType()) {//获取type为true的node即为菜单的node
                     nodes.add(node);
                     addedNodeIds.add(node.getId());
                 }
             }
         }
         System.out.println(nodes);
-        List<Menu> menu=authService.convertToMenus(nodes);
+        List<Menu> menu = authService.convertToMenus(nodes);
             /*
             // 获取角色对应的权限列表
             List<Permission> permissions = authService.getMenusByRoleId(roleId,PermissionType.type1);
@@ -172,9 +172,35 @@ public class UserController {
     }
 
     @RequestMapping("/getList")
-    public CommonResult<List<User>> toList(){
+    public CommonResult<List<User>> toList() {
         //System.out.println(scoreSumService.findScoreSumVo());
         List<User> userList = userMapper.getUser();
         return CommonResult.success(userList);
+    }
+
+    @PostMapping("/password/update")
+    public CommonResult<?> updatePwd(@RequestHeader("Authorization") String authHeader, @RequestParam("oldPwd") String oldPwd, @RequestParam("newPwd") String newPwd) {
+        // 解析Authorization请求头中的JWT令牌 Bearer access_token
+        String token = authHeader.substring(7);
+        String username = jwtTokenUtil.getUsernameFromToken(token);
+
+        User user = userMapper.findByUsername(username);
+        if (!user.getPassword().equals(oldPwd)) {
+            CommonResult result = CommonResult.error(411, "error old password");
+            return result;
+        }
+        userMapper.updatePasswordByUsername(username, newPwd);
+        CommonResult<User> result = CommonResult.success(user);
+        return result;
+    }
+
+    @GetMapping("/username/get")
+    public CommonResult<?> gerUsername(@RequestHeader("Authorization") String authHeader) {
+        // 解析Authorization请求头中的JWT令牌 Bearer access_token
+        String token = authHeader.substring(7);
+        String username = jwtTokenUtil.getUsernameFromToken(token);
+        CommonResult<String> result = CommonResult.success(username);
+        return result;
+
     }
 }

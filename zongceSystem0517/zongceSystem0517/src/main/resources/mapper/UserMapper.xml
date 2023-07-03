@@ -15,11 +15,15 @@
             #{item.id},
             #{item.username},
             #{item.password}
-            )
         </foreach>
     </insert>
 
     <select id="getUser" resultType="com.example.agile0509.pojo.User">
         SELECT * FROM user
     </select>
+
+    <update id="updatePasswordByUsername">
+        UPDATE user SET password = #{newPwd} WHERE username = #{username};
+    </update>
+
 </mapper>

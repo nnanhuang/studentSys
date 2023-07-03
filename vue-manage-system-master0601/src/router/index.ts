@@ -3,20 +3,6 @@ import { usePermissStore } from "../store/permiss";
 import Home from "../views/home.vue";
 
 const routes: RouteRecordRaw[] = [
-<<<<<<< HEAD
-  {
-    path: "/",
-    redirect: "/dashboard",
-  },
-  {
-    path: "/",
-    name: "Home",
-    component: Home,
-    children: [
-      {
-        path: "/dashboard",
-        name: "dashboard",
-=======
     {
         path: '/',
         redirect: '/dashboard',
@@ -257,7 +243,7 @@ const routes: RouteRecordRaw[] = [
     {
         path: '/login',
         name: 'Login',
->>>>>>> 6386a01cac587a5cb91284da90effbabca20b235
+
         meta: {
           title: "系统首页",
           permiss: "1",
@@ -473,8 +459,7 @@ const routes: RouteRecordRaw[] = [
       //           component: () => import(/* webpackChunkName: "editor" */ /*'../views/weights.vue'),
       //       },
       //       */,
-    ],
-  },
+
 
   {
     path: "/login",
@@ -492,8 +477,8 @@ const routes: RouteRecordRaw[] = [
       title: "没有权限",
     },
     component: () => import(/* webpackChunkName: "403" */ "../views/403.vue"),
-  },
-];
+  }
+]
 
 const router = createRouter({
   history: createWebHashHistory(),

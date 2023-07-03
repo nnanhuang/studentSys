@@ -1,66 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="1ebd37f2-da71-4426-8bed-45febf57912b" name="变更" comment="yy-commit 动态路由">
-      <change afterPath="$PROJECT_DIR$/zongceSystem0517/src/main/java/com/example/agile0509/controller/StaController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/zongceSystem0517/src/main/java/com/example/agile0509/mapper/StaMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/zongceSystem0517/src/main/java/com/example/agile0509/pojo/Sta.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/zongceSystem0517/src/main/java/com/example/agile0509/vo/StaVo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/zongceSystem0517/src/main/resources/mapper/StaMapper.xml" afterDir="false" />
+    <list default="true" id="3b31e5c0-3bb0-43f8-b787-80e95fb1b0ca" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/auto-imports.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/auto-imports.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/components.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/components.d.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/@element-plus_icons-vue.js" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/@element-plus_icons-vue.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/@element-plus_icons-vue.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/@element-plus_icons-vue.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/_metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/_metadata.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/axios.js" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/axios.js" afterDir="false" />
-<<<<<<< HEAD
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-TWLJ45QX.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-TWLJ45QX.js.map" beforeDir="false" />
-=======
       <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/axios.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/axios.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-22XHS4WB.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-22XHS4WB.js.map" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-6WMCWO4Q.js" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-6WMCWO4Q.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-6WMCWO4Q.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-6WMCWO4Q.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-BPBN3A33.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-BPBN3A33.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-LXXUMDU5.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-LXXUMDU5.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-NHF6TDNN.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-NHF6TDNN.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-OOLLJJON.js" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-OOLLJJON.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-OOLLJJON.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-OOLLJJON.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-PDN2U5RW.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-PDN2U5RW.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-QN6HPDQI.js" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-QN6HPDQI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-QN6HPDQI.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-QN6HPDQI.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-SBILK76Y.js" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-SBILK76Y.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-SBILK76Y.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-SBILK76Y.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-SYUZZLKP.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-SYUZZLKP.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-TWLJ45QX.js" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-TWLJ45QX.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-TWLJ45QX.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-TWLJ45QX.js.map" afterDir="false" />
-<<<<<<< HEAD
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-X7VHGBI3.js" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-X7VHGBI3.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-X7VHGBI3.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-X7VHGBI3.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-XFST3C5L.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-XFST3C5L.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-YMAONGQ4.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-YMAONGQ4.js.map" beforeDir="false" />
-=======
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-UPVVNDCP.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-UPVVNDCP.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-W7ENWQJW.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-W7ENWQJW.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-ZG7NF5JV.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/chunk-ZG7NF5JV.js.map" beforeDir="false" />
->>>>>>> ced1991378497215e61af6dd4c9dc4f5e9b4882e
->>>>>>> 6386a01cac587a5cb91284da90effbabca20b235
       <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus.js" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es.js" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es.js" afterDir="false" />
-<<<<<<< HEAD
-=======
       <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_avatar_style_css.js" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_avatar_style_css.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_avatar_style_css.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_avatar_style_css.js.map" afterDir="false" />
@@ -90,119 +45,36 @@
       <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_menu_style_css.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_menu_style_css.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_message_style_css.js" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_message_style_css.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_message_style_css.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_message_style_css.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_pagination_style_css.js" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_pagination_style_css.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_pagination_style_css.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_pagination_style_css.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_row_style_css.js" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_row_style_css.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_row_style_css.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_row_style_css.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_sub-menu_style_css.js" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_sub-menu_style_css.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_sub-menu_style_css.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_sub-menu_style_css.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_table-column_style_css.js" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_table-column_style_css.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_table-column_style_css.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_table-column_style_css.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_table_style_css.js" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_table_style_css.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_table_style_css.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_table_style_css.js.map" afterDir="false" />
-<<<<<<< HEAD
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_upload_style_css.js" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_upload_style_css.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_upload_style_css.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_upload_style_css.js.map" afterDir="false" />
-=======
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_upload_style_css.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_components_upload_style_css.js.map" beforeDir="false" />
->>>>>>> ced1991378497215e61af6dd4c9dc4f5e9b4882e
->>>>>>> 6386a01cac587a5cb91284da90effbabca20b235
       <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_locale_lang_zh-cn.js" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_locale_lang_zh-cn.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_locale_lang_zh-cn.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/element-plus_es_locale_lang_zh-cn.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/pinia.js" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/pinia.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/pinia.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/pinia.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/schart__js.js" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/schart__js.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/schart__js.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/schart__js.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/vue-router.js" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/vue-router.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/vue-router.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/vue-router.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/vue.js" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/vue.js" afterDir="false" />
-<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/vue.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/vue.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/xlsx_xlsx__mjs.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/node_modules/.vite/deps/xlsx_xlsx__mjs.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/src/api/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/src/api/login.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/src/router/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/src/router/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/src/views/Statement.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/src/views/Statement.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/src/views/addServePosition.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/src/views/addServePosition.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/src/views/assessStuConclusion.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/src/views/assessStuConclusion.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/_2023_7_1_21_07____.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/_2023_7_1_21_07____.xml" afterDir="false" />
-=======
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/src/api/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/src/api/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/src/router/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/src/router/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/src/views/user.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/src/views/user.vue" afterDir="false" />
->>>>>>> 6386a01cac587a5cb91284da90effbabca20b235
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zongceSystem0517/src/main/java/com/example/agile0509/config/AuthorizationInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/zongceSystem0517/src/main/java/com/example/agile0509/config/AuthorizationInterceptor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zongceSystem0517/src/main/java/com/example/agile0509/mapper/StuOrgScoreMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/zongceSystem0517/src/main/java/com/example/agile0509/mapper/StuOrgScoreMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zongceSystem0517/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/zongceSystem0517/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zongceSystem0517/src/main/java/com/example/agile0509/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/zongceSystem0517/src/main/java/com/example/agile0509/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zongceSystem0517/src/main/java/com/example/agile0509/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/zongceSystem0517/src/main/java/com/example/agile0509/mapper/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zongceSystem0517/src/main/resources/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/zongceSystem0517/src/main/resources/mapper/UserMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="CodeStyleSettingsInfer">
-    <option name="done" value="true" />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="FxmlFile" />
-        <option value="Interface" />
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="GitSEFilterConfiguration">
-    <file-type-list>
-      <filtered-out-file-type name="LOCAL_BRANCH" />
-      <filtered-out-file-type name="REMOTE_BRANCH" />
-      <filtered-out-file-type name="TAG" />
-      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
-    </file-type-list>
-  </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/zongceSystem0517/src/main/java/com/example/agile0509/mapper/NodeMapper.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/zongceSystem0517/src/main/java/com/example/agile0509/pojo/Menu.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/zongceSystem0517/src/main/java/com/example/agile0509/mapper/UserMapper.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/zongceSystem0517/src/main/resources/application.yml" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/zongceSystem0517/src/main/java/com/example/agile0509/mapper/RoleMapper.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/zongceSystem0517/src/main/java/com/example/agile0509/service/impl/AuthServiceImpl.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/zongceSystem0517/src/main/java/com/example/agile0509/controller/AssessController.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/zongceSystem0517/src/main/java/com/example/agile0509/service/AuthService.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/zongceSystem0517/src/main/java/com/example/agile0509/mapper/UserRoleMapper.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/zongceSystem0517/src/main/java/com/example/agile0509/pojo/Node.java" root0="FORCE_HIGHLIGHTING" />
-  </component>
-  <component name="JpbToolWindowState">
-    <option name="myId2FirstActivated">
-      <map>
-        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
-      </map>
-    </option>
-    <option name="myId2Visible">
-      <map>
-        <entry key="com.haulmont.jpb.jpaStructure" value="false" />
-      </map>
-    </option>
-  </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
-  </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="mavenHome" value="D:/apache-maven-3.6.1" />
-        <option name="userSettingsFile" value="D:\apache-maven-3.6.1\conf\settings.xml" />
-      </MavenGeneralSettings>
-    </option>
-  </component>
-  <component name="ProjectCodeStyleSettingsMigration">
-    <option name="version" value="2" />
-  </component>
-  <component name="ProjectId" id="2RCcOcOBrxogLVBCbtgZ73YAunM" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectId" id="2S2yTpKTpCnAv1tUjMwjBiktHKq" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -212,27 +84,13 @@
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth0" value="75" />
     <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
   </component>
-  <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.example.agile0509.pojo" />
-      <recent name="com.example.agile0509.service" />
-      <recent name="com.example.agile0509.service.impl" />
-      <recent name="com.example.agile0509.vo" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.example.agile0509.vo" />
-      <recent name="com.example.agile0509.mapper" />
-      <recent name="com.example.agile0509.pojo" />
-      <recent name="com.example.agile0509.service.impl" />
-      <recent name="com.example.agile0509.controller" />
-    </key>
-  </component>
-  <component name="RunManager" selected="Spring Boot.Application">
-    <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
-      <option name="MAIN_CLASS_NAME" value="com.example.agile0509.Application" />
+  <component name="RunManager">
+    <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="agile0509" />
       <extension name="coverage">
         <pattern>
@@ -240,192 +98,70 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="agile0509" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.agile0509.Application" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <list>
-      <item itemvalue="Application.Application" />
-      <item itemvalue="Spring Boot.Application" />
-    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.Application" />
+      </list>
+    </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
-    <task active="true" id="Default" summary="默认任务">
-      <changelist id="1ebd37f2-da71-4426-8bed-45febf57912b" name="变更" comment="" />
-      <created>1686757473791</created>
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3b31e5c0-3bb0-43f8-b787-80e95fb1b0ca" name="Default Changelist" comment="" />
+      <created>1688358981564</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1686757473791</updated>
-      <workItem from="1686757478649" duration="50000" />
-      <workItem from="1686759572268" duration="153000" />
-      <workItem from="1686759751578" duration="147000" />
-      <workItem from="1686760255612" duration="53000" />
-      <workItem from="1686760571924" duration="584000" />
-      <workItem from="1686761183859" duration="23562000" />
-      <workItem from="1687335737862" duration="590000" />
-      <workItem from="1687336645075" duration="648000" />
-      <workItem from="1687338516600" duration="7537000" />
-      <workItem from="1687451298067" duration="2578000" />
-      <workItem from="1687884299660" duration="11678000" />
-      <workItem from="1688034103946" duration="3352000" />
-      <workItem from="1688060085290" duration="2900000" />
-      <workItem from="1688150054700" duration="5934000" />
-      <workItem from="1688175189513" duration="5984000" />
-      <workItem from="1688228454284" duration="916000" />
-      <workItem from="1688274901739" duration="3080000" />
-<<<<<<< HEAD
-      <workItem from="1688280003423" duration="13357000" />
-=======
-      <workItem from="1688282252712" duration="470000" />
-      <workItem from="1688286679802" duration="615000" />
-<<<<<<< HEAD
-      <workItem from="1688297100273" duration="18133000" />
-=======
->>>>>>> ced1991378497215e61af6dd4c9dc4f5e9b4882e
->>>>>>> 6386a01cac587a5cb91284da90effbabca20b235
+      <updated>1688358981564</updated>
+      <workItem from="1688358992298" duration="1387000" />
     </task>
-    <task id="LOCAL-00001" summary="yy-commit0621">
-      <created>1687337737155</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1687337737155</updated>
-    </task>
-    <task id="LOCAL-00002" summary="yy-commit0622">
-      <created>1687458205431</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1687458205431</updated>
-    </task>
-    <task id="LOCAL-00003" summary="yy-commit0622">
-      <created>1687460393763</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1687460393763</updated>
-    </task>
-    <task id="LOCAL-00004" summary="yy-commit 动态菜单">
-      <created>1687972602426</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1687972602426</updated>
-    </task>
-    <task id="LOCAL-00005" summary="yy-commit 动态菜单">
-      <created>1687972969852</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1687972969853</updated>
-    </task>
-    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
+    <option name="version" value="2" />
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="commit0621" />
-    <MESSAGE value="yy-commit0621" />
-    <MESSAGE value="yy-commit0622" />
-    <MESSAGE value="yy-commit 动态菜单" />
-    <MESSAGE value="yy-commit 动态菜单修复" />
-    <MESSAGE value="yy-commit 动态路由" />
-    <option name="LAST_COMMIT_MESSAGE" value="yy-commit 动态路由" />
-  </component>
-<<<<<<< HEAD
-=======
   <component name="WindowStateProjectService">
-    <state width="1483" height="165" key="GridCell.Tab.0.bottom" timestamp="1688298870215">
+    <state width="1483" height="367" key="GridCell.Tab.0.bottom" timestamp="1688360878155">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1483" height="165" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1688298870215" />
-    <state width="1483" height="165" key="GridCell.Tab.0.center" timestamp="1688298870215">
+    <state width="1483" height="367" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1688360878155" />
+    <state width="1483" height="367" key="GridCell.Tab.0.center" timestamp="1688360878154">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1483" height="165" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1688298870215" />
-    <state width="1483" height="165" key="GridCell.Tab.0.left" timestamp="1688298870215">
+    <state width="1483" height="367" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1688360878154" />
+    <state width="1483" height="367" key="GridCell.Tab.0.left" timestamp="1688360878154">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1483" height="165" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1688298870215" />
-    <state width="1483" height="165" key="GridCell.Tab.0.right" timestamp="1688298870215">
+    <state width="1483" height="367" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1688360878154" />
+    <state width="1483" height="367" key="GridCell.Tab.0.right" timestamp="1688360878155">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1483" height="165" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1688298870215" />
-    <state width="1483" height="165" key="GridCell.Tab.1.bottom" timestamp="1688298870215">
+    <state width="1483" height="367" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1688360878155" />
+    <state width="1483" height="367" key="GridCell.Tab.1.bottom" timestamp="1688360878155">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1483" height="165" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1688298870215" />
-    <state width="1483" height="165" key="GridCell.Tab.1.center" timestamp="1688298870215">
+    <state width="1483" height="367" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1688360878155" />
+    <state width="1483" height="367" key="GridCell.Tab.1.center" timestamp="1688360878155">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1483" height="165" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1688298870215" />
-    <state width="1483" height="165" key="GridCell.Tab.1.left" timestamp="1688298870215">
+    <state width="1483" height="367" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1688360878155" />
+    <state width="1483" height="367" key="GridCell.Tab.1.left" timestamp="1688360878155">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1483" height="165" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1688298870215" />
-    <state width="1483" height="165" key="GridCell.Tab.1.right" timestamp="1688298870215">
+    <state width="1483" height="367" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1688360878155" />
+    <state width="1483" height="367" key="GridCell.Tab.1.right" timestamp="1688360878155">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1483" height="165" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1688298870215" />
-    <state width="1483" height="320" key="GridCell.Tab.2.bottom" timestamp="1688298700283">
+    <state width="1483" height="367" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1688360878155" />
+    <state x="395" y="48" width="745" height="728" key="find.popup" timestamp="1688359030476">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1483" height="320" key="GridCell.Tab.2.bottom/0.0.1536.824@0.0.1536.824" timestamp="1688298700283" />
-    <state width="1483" height="320" key="GridCell.Tab.2.center" timestamp="1688298700283">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1483" height="320" key="GridCell.Tab.2.center/0.0.1536.824@0.0.1536.824" timestamp="1688298700283" />
-    <state width="1483" height="320" key="GridCell.Tab.2.left" timestamp="1688298700283">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1483" height="320" key="GridCell.Tab.2.left/0.0.1536.824@0.0.1536.824" timestamp="1688298700283" />
-    <state width="1483" height="320" key="GridCell.Tab.2.right" timestamp="1688298700283">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1483" height="320" key="GridCell.Tab.2.right/0.0.1536.824@0.0.1536.824" timestamp="1688298700283" />
-    <state x="623" y="96" width="784" height="728" key="find.popup" timestamp="1688295054575">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="623" y="96" width="784" height="728" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1688295054575" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/zongceSystem0517/src/main/java/com/example/agile0509/config/AuthorizationInterceptor.java</url>
-          <line>93</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
->>>>>>> 6386a01cac587a5cb91284da90effbabca20b235
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
+    <state x="395" y="48" width="745" height="728" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1688359030476" />
   </component>
 </project>
