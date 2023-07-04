@@ -77,14 +77,14 @@ INSERT INTO `nodes` VALUES (19, 1, NULL, '/addInfo', '基本信息填报', 19, 1
 INSERT INTO `nodes` VALUES (20, 1, NULL, '4', '成绩信息填报', 20, 16, 'dashboard');
 INSERT INTO `nodes` VALUES (21, 1, NULL, '/viewSubmittedSci', '科研情况', 21, 20, 'viewSci');
 INSERT INTO `nodes` VALUES (22, 1, NULL, '/viewSubmittedServePosition', '骨干服务', 22, 20, 'viewServePosition');
-INSERT INTO `nodes` VALUES (23, 1, NULL, '/viewSubmittedSocial', '社会实践', 23, NULL, 'viewSocial');
+INSERT INTO `nodes` VALUES (23, 1, NULL, '/viewSubmittedSocial', '社会实践', 23, 20, 'viewSocial');
 INSERT INTO `nodes` VALUES (24, 0, NULL, '/Statement', '学年总结填报', 24, NULL, 'Statement');
 INSERT INTO `nodes` VALUES (25, 0, NULL, '/addResearch', '科研情况填报', 25, NULL, 'addResearch');
 INSERT INTO `nodes` VALUES (26, 0, NULL, '/addSocial', '已提交的社会实践情况', 26, NULL, 'addSocial');
 INSERT INTO `nodes` VALUES (27, 0, NULL, '/addServePosition', '骨干服务填报', 27, NULL, 'addServePosition');
-INSERT INTO `nodes` VALUES (28, 0, NULL, '/importUser', '导入用户名单', 28, 3, 'importUser');
+INSERT INTO `nodes` VALUES (28, 1, NULL, '/importUser', '导入用户名单', 28, 3, 'importUser');
 INSERT INTO `nodes` VALUES (29, 0, NULL, '/weights', '修改评分规则', 29, 3, 'weights');
-INSERT INTO `nodes` VALUES (30, 0, NULL, '/importUserRole', '导入用户权限', 30, 3, 'importUserRole');
+INSERT INTO `nodes` VALUES (30, 1, NULL, '/importUserRole', '导入用户角色', 30, 3, 'importUserRole');
 INSERT INTO `nodes` VALUES (31, 1, NULL, '/viewSubmittedStatement', '学年总结', 31, 20, 'viewStatement');
 
 -- ----------------------------

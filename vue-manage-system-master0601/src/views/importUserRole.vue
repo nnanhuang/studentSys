@@ -1,4 +1,6 @@
 <template>
+    <Transition>
+      <div class="container">
   <div class="upload-tool">
     <span>
       <el-upload
@@ -24,6 +26,9 @@
     <el-table-column prop="userId" label="用户id" header-align="center"></el-table-column>
     <el-table-column prop="roleId" label="角色" header-align="center"></el-table-column>
   </el-table>
+</div>
+
+</Transition>
 </template>
  
 <script>

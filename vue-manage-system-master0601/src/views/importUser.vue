@@ -1,4 +1,6 @@
 <template>
+  <Transition>
+      <div class="container">
   <div class="upload-tool">
     <span>
       <el-upload
@@ -24,6 +26,9 @@
     <el-table-column prop="username" label="用户名" header-align="center"></el-table-column>
     <el-table-column prop="password" label="密码" header-align="center"></el-table-column>
   </el-table>
+</div>
+
+</Transition>
 </template>
  
 <script>
