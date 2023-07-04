@@ -1,10 +1,11 @@
 import request from "../utils/request.js";
 
 // 用户登录
-export function login(username, password) {
+export function login(username, password,check) {
   const data = {
     username,
     password,
+    check
   };
   return request({
     url: "/auth/login",

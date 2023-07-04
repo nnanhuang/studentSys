@@ -25,6 +25,14 @@
                         <el-input class="input-box" type="password" v-model="loginForm.password" placeholder="请输入密码" show-password></el-input>
                     </el-form-item>
                     <div class="space" ></div>
+                    <div style="display: flex;">
+                        <el-form-item prop="check">
+                            <el-input size="medium" prefix-icon="el-icon-message" placeholder="请输入验证码" v-model="loginForm.check" style="margin-top: 20px;width: 185px;height: 40px;"></el-input>
+                        </el-form-item>
+                        <div style="margin-left: 20px;margin-top: 21px">
+                            <img :src="captchaSrc" @click="refreshCaptcha" width="130" height="40" />
+                        </div>
+                        </div>
                     <div class="remember-password">
                         <a href="#">忘记密码？</a>
                     </div>
@@ -52,43 +60,54 @@ export default {
     return {
       loginForm: {
         username: '',
-        password: ''
+        password: '',
+        check:'',
       },
       rules: {
         username: [{ required: true, message: '请输入用户名', trigger: 'blur' }],
-        password: [{ required: true, message: '请输入密码', trigger: 'blur' }]
+        password: [{ required: true, message: '请输入密码', trigger: 'blur' }],
+        check: [{ required: true, message: '请输入验证码', trigger: 'blur' }],
       },
-      loading: false
+      loading: false,
+      captchaSrc:'',
     }
   },
+  created(){
+    this.refreshCaptcha();
+},
   methods: {
+    refreshCaptcha() {
+            this.captchaSrc=`http://localhost:28080/check?${Date.now()}`;
+      //getPic();
+    },
     do_login() {
-      this.$refs.form.validate(valid => {
-        if (valid) {
-          this.loading = true
-          login(this.loginForm.username,this.loginForm.password).then(res =>{
-              console.log(res)
-              setToken(res.data.accessToken)
+          this.$refs.form.validate(valid => {
+            if (valid) {
+              this.loading = true
+              login(this.loginForm.username,this.loginForm.password,this.loginForm.check).then(res =>{
+                  if(res.code===50006){
+                    ElMessage.error('登录失败,验证码错误')
+                        return
+                    }
+                    setToken(res.data.accessToken)
 
-               //用来生成permiss数组密钥
-               const permiss = usePermissStore();
-               const keys = permiss.defaultList['user'];
-			   permiss.handleSet(keys);
-			   localStorage.setItem('ms_keys', JSON.stringify(keys));
+                    //用来生成permiss数组密钥
+                const permiss = usePermissStore();
+                const keys = permiss.defaultList['user'];
+                permiss.handleSet(keys);
+                localStorage.setItem('ms_keys', JSON.stringify(keys));
 
-              // 发送登录成功事件通知菜单数据需要更新
-              //eventBus.$emit('loginSuccess');
-
-              this.$router.push({ path: '/dashboard' })
-            }).catch(() => {
-                //console.log(e)
-              // 登录失败，显示错误提示
-              ElMessage.error('用户名或密码错误')
-              this.loading = false
-            })
+                    this.$router.push({ path: '/dashboard' })
+                    console.log(res)
+               
+                }).catch(() => {
+                  // 登录失败，显示错误提示  
+                  ElMessage.error('登录失败，用户名或密码错误')
+                  this.loading = false
+                })
+            }
+          })
         }
-      })
-    }
   }
 }
 </script>

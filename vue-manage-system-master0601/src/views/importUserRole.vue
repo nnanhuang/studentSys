@@ -1,6 +1,5 @@
 <template>
-    <Transition>
-      <div class="container">
+  <div>
   <div class="upload-tool">
     <span>
       <el-upload
@@ -19,6 +18,7 @@
       </el-upload>
     </span>   
   </div>
+  <div class="space"></div>
 
   <el-table :data="userRoleList" stripe border style="width: 100%">
     <!--el-table-column prop="id" label="学生id" header-align="center"> </!--el-table-column-->
@@ -27,8 +27,6 @@
     <el-table-column prop="roleId" label="角色" header-align="center"></el-table-column>
   </el-table>
 </div>
-
-</Transition>
 </template>
  
 <script>
@@ -144,6 +142,9 @@ export default {
 }
 .button {
   margin-top: 10px;
+}
+.space{
+  height: 10px;
 }
 
 </style>
