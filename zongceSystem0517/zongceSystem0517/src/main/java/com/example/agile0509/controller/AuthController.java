@@ -21,6 +21,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
+
 @RestController
 @RequestMapping("/auth")
 public class AuthController {
@@ -33,6 +35,9 @@ public class AuthController {
 
     @Autowired
     private JwtTokenUtil jwtTokenUtil;
+
+    @Resource
+    private CheckController checkController;
 
     /*
     @PostMapping("/login")
@@ -63,8 +68,16 @@ public class AuthController {
     }*/
     @PostMapping("/login")
     public CommonResult<?> login(@RequestBody LoginReqVO loginUser) {
+        System.out.println(loginUser);
+        // 验证验证码
+        String kaptchaCode = checkController.getCheckCode(); // 获取验证码
+        String rightCode = loginUser.getCheck(); // 从前端返回的验证码
+
+
+
 
         User user = userMapper.findByUsername(loginUser.getUsername());
+
 
         if (user == null) {
             return CommonResult.error(50007, "登录失败，账号密码不正确");
@@ -74,17 +87,42 @@ public class AuthController {
             return CommonResult.error(50007, "登录失败，账号密码不正确");
         }
 
-        //添加角色验证逻辑
+        if (!kaptchaCode.equals(rightCode)) {
+            return CommonResult.error(50006, "登录失败，验证码不正确");
+        }
 
-        String username = loginUser.getUsername();
 
         // 生成访问令牌和刷新令牌
-        String accessToken = jwtTokenUtil.generateAccessToken(username);
-        String refreshToken = jwtTokenUtil.generateRefreshToken(username);
+        String accessToken = jwtTokenUtil.generateAccessToken(loginUser.getUsername());
+        String refreshToken = jwtTokenUtil.generateRefreshToken(loginUser.getUsername());
         TokenReqVO token_resp = new TokenReqVO(accessToken, refreshToken);
 
         CommonResult<TokenReqVO> result = CommonResult.success(token_resp);
-
         return result;
+
+
+
+
+//
+//        if (user == null) {
+//            return CommonResult.error(50007, "登录失败，账号密码不正确");
+//        }
+//
+//        if (!loginUser.getPassword().equals(user.getPassword())) {
+//            return CommonResult.error(50007, "登录失败，账号密码不正确");
+//        }
+//
+//        //添加角色验证逻辑
+//
+//        String username = loginUser.getUsername();
+//
+//        // 生成访问令牌和刷新令牌
+//        String accessToken = jwtTokenUtil.generateAccessToken(username);
+//        String refreshToken = jwtTokenUtil.generateRefreshToken(username);
+//        TokenReqVO token_resp = new TokenReqVO(accessToken, refreshToken);
+//
+//        CommonResult<TokenReqVO> result = CommonResult.success(token_resp);
+//
+//        return result;
     }
 }

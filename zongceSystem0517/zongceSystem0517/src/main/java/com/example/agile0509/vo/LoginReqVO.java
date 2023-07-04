@@ -18,4 +18,6 @@ public class LoginReqVO {
     @ApiModelProperty(value = "密码", required = true,example = "123456")
     private String password;
 
+    private String check;
+
 }

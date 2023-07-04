@@ -34,6 +34,11 @@ public class AuthorizationInterceptor implements HandlerInterceptor {
             return true;
         }
 
+        if (requestUri.contains("/check")) {
+            // 当前请求为验证码接口，直接放行
+            return true;
+        }
+
         if (authHeader != null && authHeader.startsWith("Bearer ")) {
             // 解析令牌获取用户名和角色信息
             String token = authHeader.substring(7);

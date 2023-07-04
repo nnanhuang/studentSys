@@ -5,14 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3b31e5c0-3bb0-43f8-b787-80e95fb1b0ca" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/zongceSystem0517/src/main/java/com/example/agile0509/controller/InfoController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/zongceSystem0517/src/main/java/com/example/agile0509/mapper/InfoMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/zongceSystem0517/src/main/java/com/example/agile0509/pojo/Info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/zongceSystem0517/src/main/java/com/example/agile0509/vo/InfoVo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/zongceSystem0517/src/main/resources/mapper/InfoMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/auto-imports.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/auto-imports.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/src/api/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/src/api/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/src/views/addInfo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/src/views/addInfo.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -46,30 +38,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RequestMappingsPanelOrder0" value="0" />
-    <property name="RequestMappingsPanelOrder1" value="1" />
-    <property name="RequestMappingsPanelWidth0" value="75" />
-    <property name="RequestMappingsPanelWidth1" value="75" />
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="aspect.path.notification.shown" value="true" />
-    <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/yangyang/Desktop/final2/studentSys/zongceSystem0517/zongceSystem0517/src/main/java/com/example/agile0509/controller&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;681f5a7dc63ee99b07e96694c738f39f&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/zongceSystem0517/src/main/java/com/example/agile0509/controller" />
+      <recent name="$PROJECT_DIR$/zongceSystem0517/src/main/java/com/example/agile0509/config" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="agile0509" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.agile0509.Application" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.example.agile0509.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.agile0509.Application" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -93,6 +93,12 @@
       <updated>1688358981564</updated>
       <workItem from="1688358992298" duration="1387000" />
       <workItem from="1688363144221" duration="24541000" />
+      <workItem from="1688410165822" duration="803000" />
+      <workItem from="1688439442109" duration="124000" />
+      <workItem from="1688439594144" duration="22000" />
+      <workItem from="1688439633074" duration="72000" />
+      <workItem from="1688439814680" duration="4179000" />
+      <workItem from="1688444430330" duration="1202000" />
     </task>
     <servers />
   </component>
