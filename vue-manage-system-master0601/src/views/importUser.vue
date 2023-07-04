@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div  class="container">
   <div class="upload-tool">
     <span>
       <el-upload

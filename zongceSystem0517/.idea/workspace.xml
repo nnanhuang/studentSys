@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3b31e5c0-3bb0-43f8-b787-80e95fb1b0ca" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zongceSystem0517/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/zongceSystem0517/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,6 +99,7 @@
       <workItem from="1688439633074" duration="72000" />
       <workItem from="1688439814680" duration="4179000" />
       <workItem from="1688444430330" duration="1202000" />
+      <workItem from="1688460950126" duration="344000" />
     </task>
     <servers />
   </component>
