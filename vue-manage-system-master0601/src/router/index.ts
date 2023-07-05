@@ -240,17 +240,7 @@ const routes: RouteRecordRaw[] = [
             
 ]},
 
-    {
-        path: '/login',
-        name: 'Login',
-
-        meta: {
-          title: "系统首页",
-          permiss: "1",
-        },
-        component: () =>
-          import(/* webpackChunkName: "dashboard" */ "../views/dashboard.vue"),
-      },
+    
       //  /*'../views/assessSocialActivity.vue'),
       // /*{
       //           path: '/checkgpa',

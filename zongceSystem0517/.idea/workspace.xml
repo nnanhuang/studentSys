@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3b31e5c0-3bb0-43f8-b787-80e95fb1b0ca" name="Default Changelist" comment="Default Changelist" />
+    <list default="true" id="3b31e5c0-3bb0-43f8-b787-80e95fb1b0ca" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/components.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/components.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vue-manage-system-master0601/src/router/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../vue-manage-system-master0601/src/router/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zongceSystem0517/src/main/java/com/example/agile0509/pojo/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/zongceSystem0517/src/main/java/com/example/agile0509/pojo/Node.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zongceSystem0517/src/main/java/com/example/agile0509/pojo/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/zongceSystem0517/src/main/java/com/example/agile0509/pojo/Role.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -167,11 +173,11 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Spring Boot.Application" />
       <item itemvalue="JUnit.CheckAuthControllerTest.testGetRole" />
       <item itemvalue="JUnit.CheckAuthControllerTest" />
       <item itemvalue="JUnit.CheckAuthControllerTest.testGetMenu" />
       <item itemvalue="JUnit.ApplicationTests.testGetMenu" />
+      <item itemvalue="Spring Boot.Application" />
     </list>
     <recent_temporary>
       <list>
