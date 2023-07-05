@@ -506,6 +506,22 @@ import { getAccessToken } from "../utils/auth.js";
 import { getRouter } from "../api/dynamicRBAC.js";
 import { removeToken } from "../utils/auth.js";
 router.beforeEach(async (to, from, next) => {
+
+    if (getAccessToken()) {
+        if (to.path === "/login") {
+          next({ path: "/" });
+        }
+        next();
+      } else {
+        // 没有token
+        if (to.path === "/login") {
+          // 直接进入
+          next();
+        } else {
+          next("/login"); // 否则全部重定向到登录页
+        }
+      }
+      
   if (to.name === "dashboard") {
     // 获取子路由数据
     const response = await getRouter();
@@ -525,20 +541,7 @@ router.beforeEach(async (to, from, next) => {
     }
   }
 
-  if (getAccessToken()) {
-    if (to.path === "/login") {
-      next({ path: "/" });
-    }
-    next();
-  } else {
-    // 没有token
-    if (to.path === "/login") {
-      // 直接进入
-      next();
-    } else {
-      next("/login"); // 否则全部重定向到登录页
-    }
-  }
+
 });
 
 // 辅助函数，将从后端获取的子路由数据转换为 Vue Router 的路由配置
